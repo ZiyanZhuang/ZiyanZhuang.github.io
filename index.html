@@ -1,237 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ziyan Zhuang's Personal Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: #e8f0fe;
-            color: #333;
-        }
-        .main-layout {
-            display: flex;
-            max-width: 1200px;
-            margin: 40px auto;
-            background: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            min-height: 80vh;
-        }
-        nav {
-            flex-shrink: 0;
-            min-width: 200px;
-            max-width: 240px;
-            border-right: 1px solid #e8eaed;
-            background: #f5f7fa;
-            height: auto;
-            min-height: 100%;
-            position: sticky;
-            top: 0;
-            padding: 40px 0 40px 0;
-            text-align: left;
-        }
-        nav a {
-            display: block;
-            margin: 0 0 15px 0;
-            padding: 10px 32px;
-            color: #5f6368;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 1.06em;
-            transition: background 0.2s, color 0.2s;
-            text-align: left;
-            text-decoration: none;
-        }
-        nav a:hover, nav a.active {
-            background: #e8f0fe;
-            color: #1a73e8;
-            text-decoration: underline;
-        }
-        .main-content {
-            flex: 1;
-            padding: 40px 48px 40px 48px;
-        }
-        header {
-            text-align: center;
-            padding-bottom: 16px;
-            border-bottom: 2px solid #e8eaed;
-            margin-bottom: 36px;
-        }
-        h1 {
-            color: #1a73e8;
-            font-weight: 500;
-            margin-top: 0;
-            margin-bottom: 10px;
-            padding-bottom: 6px;
-        }
-        .profile-photo {
-            display: block;
-            margin: 0 auto 20px auto;
-            max-width: 150px;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .contact-info {
-            text-align: center;
-            margin-bottom: 16px;
-            color: #5f6368;
-        }
-        .contact-info p {
-            margin: 5px 0;
-        }
-        .content-section {
-            margin-bottom: 30px;
-            padding: 0 20px;
-            display: none;
-        }
-        .content-section.active {
-            display: block;
-        }
-        .content-section h2 {
-            color: #34a853;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e8eaed;
-        }
-        .content-section h3 {
-            color: #fbbc05;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .publication-item {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .publication-item::before {
-            content: "•";
-            color: #1a73e8;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        .publication-item strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e8eaed;
-            color: #5f6368;
-            font-size: 0.9em;
-        }
-        /* 响应式设计：移动端导航自动变成横向 */
-        @media (max-width: 900px) {
-            .main-layout {
-                flex-direction: column;
-            }
-            nav {
-                border-right: none;
-                border-bottom: 1px solid #e8eaed;
-                width: 100%;
-                max-width: none;
-                min-width: 0;
-                position: static;
-                padding: 16px 0;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                height: auto;
-            }
-            nav a {
-                display: inline-block;
-                margin: 0 12px 0 0;
-                padding: 8px 12px;
-            }
-            .main-content {
-                padding: 24px 8px 24px 8px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-layout">
-        <nav>
-            <a href="#" data-target="about" class="active">About</a>
-            <a href="#" data-target="publications">Publications</a>
-            <a href="#" data-target="cv-highlights">CV Highlights</a>
-            <a href="#" data-target="blog-posts">Blog</a>
-            <a href="#" data-target="hobbies">Hobbies</a>
-        </nav>
-        <div class="main-content">
+    <!-- 顶部导航栏 -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#" data-target="about" class="active">About</a></li>
+            <li><a href="#" data-target="publications">Publications</a></li>
+            <li><a href="#" data-target="cv-highlights">CV Highlights</a></li>
+            <li><a href="#" data-target="blog-posts">Blog</a></li>
+            <li><a href="#" data-target="hobbies">Hobbies</a></li>
+        </ul>
+        <button id="theme-toggle">切换主题</button>
+    </nav>
+
+    <div class="page-layout">
+        <!-- 左侧头像 -->
+        <aside id="sidebar">
+            <img src="ziyan.jpg" alt="Ziyan's Avatar" id="avatar">
+            <div class="contact-info">
+                <p>Undergraduate | Life Science</p>
+                <p>Xinjiang University (2022-2026)</p>
+                <p>Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
+            </div>
+        </aside>
+        <!-- 主要内容 -->
+        <main id="content">
             <header>
                 <h1>Ziyan Zhuang</h1>
-                <!-- 请将下行 src 替换为你上传的照片路径，如 "img/ziyan.jpg" 或 "ziyan.jpg" -->
-                <img src="img/ziyan.jpg" alt="My Personal Photo" class="profile-photo">
-                <div class="contact-info">
-                    <p>Undergraduate | Life Science</p>
-                    <p>Xinjiang University (2022-2026)</p>
-                    <p>Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
-                </div>
             </header>
 
             <section id="about" class="content-section active">
                 <h2>About Me</h2>
-                <p>
-                    Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological science[...]
-                </p>
+                <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and dedicated to exploring the unknowns of the life world.</p>
             </section>
-
             <section id="publications" class="content-section">
                 <h2>Publications</h2>
                 <ul>
-                    <li class="publication-item">
-                        4) Zhang LJ¹, Zhuang ZY¹, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of CYP380C12 in Aphis gossypii Glover (Hemiptera: Aphididae): in sil[...]
-                    <li class="publication-item">
-                        3) Li Y¹, Kong WT¹, Li TT¹, Zhang LJ, Zhuang ZY, Liu N , Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation. J[...]
-                    </li>
-                    <li class="publication-item">
-                        2) Xie JG¹, Wang SY¹, Zhuang ZY, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of CYP6AB328 in spinetoram resistance and growth and development of Phthorimaea absoluta. Pesti[...]
-                    </li>
-                    <li class="publication-item">
-                        1) Xie JG¹, Ali A¹, Li Y, Zhuang ZY, Liu XN. 2024. Functional Investigation of CYP304F1 in Tuta absoluta (Lepidopteran: Gelechiidae) by RNA Interference. Journal of Economic Ento[...]
-                    </li>
+                    <li class="publication-item">4) Zhang LJ¹, Zhuang ZY¹, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of CYP380C12 in Aphis gossypii Glover (Hemiptera: Aphididae).</li>
+                    <li class="publication-item">3) Li Y¹, Kong WT¹, Li TT¹, Zhang LJ, Zhuang ZY, Liu N, Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation.</li>
+                    <li class="publication-item">2) Xie JG¹, Wang SY¹, Zhuang ZY, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of CYP6AB328 in spinetoram resistance and growth and development of Phthorimaea absoluta.</li>
+                    <li class="publication-item">1) Xie JG¹, Ali A¹, Li Y, Zhuang ZY, Liu XN. 2024. Functional Investigation of CYP304F1 in Tuta absoluta (Lepidopteran: Gelechiidae) by RNA Interference. Journal of Economic Entomology.</li>
                 </ul>
                 <p>¹ Co-first author</p>
             </section>
-
             <section id="cv-highlights" class="content-section">
                 <h2>CV Highlights</h2>
                 <h3>Education</h3>
                 <ul>
-                    <li>
-                        <strong>B. Sc Biological Science | Xinjiang University</strong>
-                        <br>2022-2026
-                        <br>Achieved good grades in university mathematics and physics courses, and performed well in core major courses.
-                    </li>
-                    <li>
-                        <strong>Joint Minor in Climate Change and Carbon Neutrality | Tongji University & Xinjiang University</strong>
-                        <br>2023-2024 | Received completion certificate | This program was reported by "People's Daily"
-                    </li>
+                    <li><strong>B. Sc Biological Science | Xinjiang University</strong><br>2022-2026<br>Achieved good grades in university mathematics and physics courses, and performed well in core major courses.</li>
+                    <li><strong>Joint Minor in Climate Change and Carbon Neutrality | Tongji University & Xinjiang University</strong><br>2023-2024 | Received completion certificate | This program was reported by "People's Daily"</li>
                 </ul>
                 <h3>Honors and Awards</h3>
                 <ul>
@@ -240,57 +64,29 @@
                 </ul>
                 <h3>Research & Professional Experience</h3>
                 <ul>
-                    <li>
-                        <strong>Summer School</strong>
-                        <br>July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)
-                        <br>Topic: Quantitative Biology
-                    </li>
-                    <li>
-                        <strong>Internship</strong>
-                        <br>July 2024 | Xinjiang University | Chemical Engineering Institute
-                        <br>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by biomass
-                        <br>Supervisor: Adili Batuer
-                    </li>
-                    <li>
-                        <strong>Research Experience in Prof. Xiaoning Liu's Lab</strong>
-                        <br>2023-Present | Xinjiang University | College of Life Science and Technology
-                        <br>Research Focus: Pest Control, Molecular Biology, and Biochemistry
-                    </li>
+                    <li><strong>Summer School</strong><br>July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)<br>Topic: Quantitative Biology</li>
+                    <li><strong>Internship</strong><br>July 2024 | Xinjiang University | Chemical Engineering Institute<br>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by biomass<br>Supervisor: Adili Batuer</li>
+                    <li><strong>Research Experience in Prof. Xiaoning Liu's Lab</strong><br>2023-Present | Xinjiang University | College of Life Science and Technology<br>Research Focus: Pest Control, Molecular Biology, and Biochemistry</li>
                 </ul>
                 <h3>Skills</h3>
                 <ul>
-                    <li>
-                        <strong>Dry Lab Skills</strong>
-                        <br>Proficient in computational skills such as molecular docking, molecular dynamics simulations, bioinformatics analysis, and AI for Science.
-                    </li>
-                    <li>
-                        <strong>Wet Lab Skills</strong>
-                        <br>Master molecular biology and biochemistry experimental techniques including gene cloning, protein analysis, bioassays, and microbiome isolation/identification.
-                    </li>
-                    <li>
-                        <strong>Other Skills</strong>
-                        <br>Possess microscopy operation and basic chemistry experimental abilities.
-                    </li>
+                    <li><strong>Dry Lab Skills</strong><br>Proficient in computational skills such as molecular docking, molecular dynamics simulations, bioinformatics analysis, and AI for Science.</li>
+                    <li><strong>Wet Lab Skills</strong><br>Master molecular biology and biochemistry experimental techniques including gene cloning, protein analysis, bioassays, and microbiome isolation/identification.</li>
+                    <li><strong>Other Skills</strong><br>Possess microscopy operation and basic chemistry experimental abilities.</li>
                 </ul>
             </section>
-
             <section id="blog-posts" class="content-section">
                 <h2>Blog Posts</h2>
-                <p>
-                    Here you can find my latest blog posts.
-                </p>
+                <p>Here you can find my latest blog posts.</p>
                 <ul>
                     <li><a href="#">Example Blog Post Title 1</a></li>
                     <li><a href="#">Example Blog Post Title 2</a></li>
                 </ul>
                 <p>Visit my blog on [Platform Name]: <a href="Your Blog URL Here" target="_blank">Your Blog Link</a></p>
             </section>
-
             <section id="hobbies" class="content-section">
                 <h2>Hobbies & Interests</h2>
-                <p>
-                    Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:
-                </p>
+                <p>Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:</p>
                 <ul>
                     <li>Programming interesting projects</li>
                     <li>Rock climbing</li>
@@ -299,54 +95,47 @@
                 </ul>
                 <p>I believe that broad interests can broaden horizons and inspire more ideas.</p>
             </section>
-
             <footer>
                 <p>&copy; 2024 Ziyan Zhuang. All rights reserved.</p>
                 <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf (I really like this quote from Gandalf in French)</p>
             </footer>
-        </div>
+        </main>
     </div>
+    <script src="theme.js"></script>
     <script>
-        // 控制模块显示隐藏
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('nav a');
-            const contentSections = document.querySelectorAll('.content-section');
+    // 导航切换
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('#navbar a');
+        const contentSections = document.querySelectorAll('.content-section');
 
-            function hideAllSections() {
-                contentSections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                navLinks.forEach(link => link.classList.remove('active'));
-            }
+        function hideAllSections() {
+            contentSections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+        }
 
-            function showSection(targetId, link) {
-                hideAllSections();
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                }
-                if (link) {
-                    link.classList.add('active');
-                }
-            }
+        function showSection(targetId, link) {
+            hideAllSections();
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) targetSection.classList.add('active');
+            if (link) link.classList.add('active');
+        }
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const targetId = this.dataset.target;
-                    showSection(targetId, this);
-                    // 可选：修改 URL hash
-                    window.location.hash = targetId;
-                });
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.dataset.target;
+                showSection(targetId, this);
+                window.location.hash = targetId;
             });
-
-            // 页面加载时根据 URL hash 显示对应模块
-            if (window.location.hash) {
-                const initialTargetId = window.location.hash.substring(1);
-                const navLink = Array.from(navLinks).find(link => link.dataset.target === initialTargetId);
-                showSection(initialTargetId, navLink);
-            }
         });
+
+        // 页面加载根据 hash 显示对应部分
+        if (window.location.hash) {
+            const initialTargetId = window.location.hash.substring(1);
+            const navLink = Array.from(navLinks).find(link => link.dataset.target === initialTargetId);
+            showSection(initialTargetId, navLink);
+        }
+    });
     </script>
 </body>
 </html>
