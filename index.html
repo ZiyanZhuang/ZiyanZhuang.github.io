@@ -1,83 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="zh-CN"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziyan Zhuang 的小站</title>
+    <title>Ziyan Zhuang 的个人小站</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* 基本样式，应用于整个页面 */
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif; /* 设置字体 */
+            line-height: 1.6; /* 设置行高 */
             margin: 0;
             padding: 20px;
-            max-width: 900px;
-            margin: auto;
-            background-color: #f8f9fa;
-            color: #333;
+            max-width: 900px; /* 限制页面最大宽度 */
+            margin: auto; /* 页面居中显示 */
+            background-color: #f8f9fa; /* 背景颜色 */
+            color: #333; /* 文本颜色 */
         }
+        /* 设置标题颜色和字重 */
         h1, h2, h3 {
-            color: #1a73e8;
+            color: #1a73e8; /* Google Blue */
             font-weight: 500;
         }
+        /* 主标题样式 */
         h1 {
-            text-align: center;
-            margin-bottom: 40px;
+            text-align: center; /* 居中显示 */
+            margin-bottom: 40px; /* 底部外边距 */
             color: #1a73e8; /* Google Blue */
         }
+        /* 每个内容区块的样式 */
         section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 40px; /* 底部外边距 */
+            padding: 20px; /* 内边距 */
+            background-color: #fff; /* 背景颜色 */
+            border-radius: 8px; /* 圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 */
         }
+        /* 区块标题样式 */
         section h2 {
             margin-top: 0;
-            border-bottom: 2px solid #e8eaed;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            border-bottom: 2px solid #e8eaed; /* 底部边框 */
+            padding-bottom: 10px; /* 底部内边距 */
+            margin-bottom: 20px; /* 底部外边距 */
             color: #34a853; /* Google Green */
         }
+         /* 区块内的小标题样式 */
          section h3 {
             color: #fbbc05; /* Google Yellow */
         }
+        /* 列表样式 */
         ul {
-            list-style: none;
-            padding: 0;
+            list-style: none; /* 移除默认列表样式 */
+            padding: 0; /* 移除内边距 */
         }
+        /* 列表项样式 */
         ul li {
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* 底部外边距 */
         }
+        /* 链接样式 */
         a {
-            color: #1a73e8;
-            text-decoration: none;
+            color: #1a73e8; /* 链接颜色 */
+            text-decoration: none; /* 移除下划线 */
         }
+        /* 链接鼠标悬停时的样式 */
         a:hover {
-            text-decoration: underline;
+            text-decoration: underline; /* 添加下划线 */
         }
+        /* 联系信息区块样式 */
         .contact-info {
-            text-align: center;
-            margin-bottom: 40px;
+            text-align: center; /* 居中显示 */
+            margin-bottom: 40px; /* 底部外边距 */
             color: #5f6368; /* Google Grey */
         }
+        /* 联系信息段落样式 */
         .contact-info p {
-            margin: 5px 0;
+            margin: 5px 0; /* 上下外边距 */
         }
+        /* 论文列表项样式 */
         .publication-item {
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* 底部外边距 */
         }
+        /* 论文标题或主要信息样式 */
         .publication-item strong {
-            display: block;
-            margin-bottom: 5px;
+            display: block; /* 块级显示 */
+            margin-bottom: 5px; /* 底部外边距 */
         }
+         /* 页面底部样式 */
          footer {
-            text-align: center;
-            margin-top: 40px;
+            text-align: center; /* 居中显示 */
+            margin-top: 40px; /* 顶部外边距 */
             color: #5f6368; /* Google Grey */
-            font-size: 0.9em;
+            font-size: 0.9em; /* 字体大小 */
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -93,6 +107,13 @@
     </header>
 
     <section>
+        <h2>关于我</h2>
+        <p>
+            你好！我叫庄子严，目前是新疆大学生命科学与技术学院的一名本科生。我对生物科学充满了热情，特别是分子生物学和生物化学领域。我乐于探索未知，喜欢在实验室里进行各种有趣的实验，也享受通过编程和数据分析解决问题的过程。我相信通过不懈的努力和学习，能够在生命科学领域做出一些有意义的贡献。
+            </p>
+    </section>
+
+     <section>
         <h2>我的求学之路</h2>
         <ul>
             <li>
@@ -107,7 +128,7 @@
         </ul>
     </section>
 
-    <section>
+     <section>
         <h2>荣誉与奖项</h2>
         <ul>
             <li>2024 年 8 月: 全国大学生生命科学竞赛二等奖 (1/5)</li>
@@ -115,38 +136,37 @@
         </ul>
     </section>
 
-    <section>
-        <h2>科研项目</h2>
-        <ul>
-            <li>
-                2023-2024: 国家级大学生创新创业训练计划项目 (编号 202310755072)，获得 2 万元资助。
-                <br>项目名称：棉蚜 P450 CYP4C1 (CYP380C12) 基因的克隆、表达及功能分析。
-                <br>导师: 刘小宁 | 项目负责人: 庄子严 | 项目成员: 张连军, 王圣菲
-            </li>
-        </ul>
-    </section>
 
     <section>
         <h2>我的研究成果 (论文)</h2>
         <ul>
             <li class="publication-item">
-                4) Zhang LJ¹, Zhuang ZY¹, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. 棉蚜 CYP380C12 基因功能的分子机制研究：基于生物信息学和 RNAi 分析。《Journal of Economic Entomology》发表，JCR Q1 区。 <a href="https://doi.org/10.1093/jee/toaf067">文章链接</a>
+                4) Zhang LJ¹, Zhuang ZY¹, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. 棉蚜 CYP380C12 基因功能的分子机制研究：基于生物信息学和 RNAi 分析。《Journal of Economic Entomology》发表，JCR Q1 区。 <a href="https://doi.org/10.1093/jee/toaf067" target="_blank">文章链接</a> </li>
+            <li class="publication-item">
+                3) Li Y¹, Kong WT¹, Li TT¹, Zhang LJ, Zhuang ZY, Liu N , Liu XN. 2025. 基于去糖基化的乳糖酶在昆虫-植物协同进化中的功能分析。《Journal of Agricultural and Food Chemistry》发表，JCR Q1 区。 <a href="https://doi.org/10.1021/acs.jafc.4c12035" target="_blank">文章链接</a>
             </li>
             <li class="publication-item">
-                3) Li Y¹, Kong WT¹, Li TT¹, Zhang LJ, Zhuang ZY, Liu N , Liu XN. 2025. 基于去糖基化的乳糖酶在昆虫-植物协同进化中的功能分析。《Journal of Agricultural and Food Chemistry》发表，JCR Q1 区。 <a href="https://doi.org/10.1021/acs.jafc.4c12035">文章链接</a>
+                2) Xie JG¹, Wang SY¹, Zhuang ZY, Wang XH, Lin MH, Liu XN. 2025. 探究 CYP6AB328 在番茄潜叶蛾对多杀霉素抗性以及生长发育中的作用。《Pesticide Biochemistry and Physiology》发表，JCR Q1 区。 <a href="https://doi.org/10.1016/j.pestbp.2025.106316" target="_blank">文章链接</a>
             </li>
             <li class="publication-item">
-                2) Xie JG¹, Wang SY¹, Zhuang ZY, Wang XH, Lin MH, Liu XN. 2025. 探究 CYP6AB328 在番茄潜叶蛾对多杀霉素抗性以及生长发育中的作用。《Pesticide Biochemistry and Physiology》发表，JCR Q1 区。 <a href="https://doi.org/10.1016/j.pestbp.2025.106316">文章链接</a>
-            </li>
-            <li class="publication-item">
-                1) Xie JG¹, Ali A¹, Li Y, Zhuang ZY, Liu XN. 2024. 基于 RNA 干扰的番茄潜叶蛾 CYP304F1 功能研究。《Journal of Economic Entomology》发表，JCR Q1 区。 <a href="https://doi.org/10.1093/jee/toac283">文章链接</a>
+                1) Xie JG¹, Ali A¹, Li Y, Zhuang ZY, Liu XN. 2024. 基于 RNA 干扰的番茄潜叶蛾 CYP304F1 功能研究。《Journal of Economic Entomology》发表，JCR Q1 区。 <a href="https://doi.org/10.1093/jee/toac283" target="_blank">文章链接</a>
             </li>
         </ul>
         <p>¹ 共同第一作者</p>
     </section>
 
     <section>
-        <h2>研究与实践经历</h2>
+        <h2>我的研究兴趣</h2>
+        <p>
+            我对以下研究领域特别感兴趣：
+            <ul>
+                <li>害虫防治的分子机制</li>
+                <li>分子生物学与生物化学技术应用</li>
+                <li>生物信息学与结构生物学</li>
+                <li>AI 在生命科学中的应用</li>
+                </ul>
+        </p>
+         <h3>研究与实践经历</h3>
         <ul>
             <li>
                 <strong>夏令营</strong>
@@ -165,87 +185,36 @@
                 <br>研究方向：害虫防治、分子生物学、生物化学
             </li>
         </ul>
+         <h3>我的技能</h3>
+        <ul>
+            <li>
+                <strong>干实验技能</strong>
+                <br>熟练掌握分子对接、分子动力学模拟、生物信息学分析、AI for Science 等计算技能。
+                </li>
+            <li>
+                <strong>湿实验技能</strong>
+                <br>掌握基因克隆、蛋白质分析、生物测定、微生物分离鉴定等分子生物学和生物化学实验技能。
+                 </li>
+             <li>
+                <strong>其他技能</strong>
+                <br>具备显微镜操作和基础化学实验能力。
+            </li>
+        </ul>
     </section>
 
-    <section>
-        <h2>我的技能</h2>
-        <h3>干实验技能</h3>
-        <ul>
-            <li>
-                <strong>分子对接</strong>
-                <br>自学了多种分子对接软件 (Vina, ADFR, LeDock 等)，用于研究配体-蛋白质相互作用，助力药物发现，包括：
-                <ul>
-                    <li>分析农用化学品 (吡虫啉、多杀霉素) 与细胞色素 P450 亚型的结合构象</li>
-                    <li>通过分子对接确定乳糖酶 (LPH) 的底物结合模式</li>
-                    <li>绘制 Cryl Ac 毒素与氨肽酶 N (APN) 的结合界面</li>
-                    <li>分析 BRC-Z2 转录因子与 HaCHT4 启动子区域的 DNA-蛋白质相互作用</li>
-                </ul>
-            </li>
-            <li>
-                <strong>分子动力学 (MD) 模拟</strong>
-                <br>自学 GROMACS 和 AMBER 软件，熟练掌握全原子分子动力学模拟，用于研究：
-                 <ul>
-                    <li>底物结合过程中细胞色素 P450 的构象动力学</li>
-                    <li>甲酰基转移酶 (FTR)</li>
-                 </ul>
-            </li>
-            <li>
-                <strong>整合生物信息学与结构建模</strong>
-                <br>构建了多种计算流程，整合了：
-                <ul>
-                    <li>使用 RNA-Seq 数据分析基因表达</li>
-                    <li>进化分析 (系统发育、序列比对)</li>
-                    <li>基于 AI 的结构建模 (AlphaFold, Protenix) 和传统结构建模 (I-TASSER, Swiss-model 等)</li>
-                    <li>结构分析 (Pymol, Discovery Studio, ChimeraX, Jmol, VMD, Mol*, Mole 2 等)</li>
-                    <li>使用 InterPro, UniProt 等工具进行功能注释 (结构域分析、结合位点表征)</li>
-                </ul>
-            </li>
-            <li>
-                <strong>数据科学、定量分析与 AI for Science</strong>
-                <ul>
-                    <li>
-                        建模与分析
-                        <br>为复杂系统构建数学模型 (MCM 2025 Problem C)
-                        <br>对实验数据集进行严格的统计验证
-                    </li>
-                    <li>
-                        计算工具
-                        <br>统计分析: 假设检验、回归建模
-                        <br>高级可视化: Python (Matplotlib/Seaborn), MATLAB, R (ggplot2), Prism, SVG Encoding 等
-                        <br>数据处理: 缺失值填充、异常值检测
-                    </li>
-                    <li>
-                        AI4SCI
-                        <br>BOGDA: 一个用于害虫抗性预测的深度学习框架 (项目地址: <a href="https://github.com/ZiyanZhuang/BOGDA">https://github.com/ZiyanZhuang/BOGDA</a>)
-                    </li>
-                </ul>
-            </li>
-        </ul>
 
-        <h3>湿实验技能</h3>
-        <ul>
-            <li>
-                <strong>基于分子生物学与生物化学的基因功能鉴定</strong>
-                <br>基因克隆、表达、通过 RNAi 进行功能分析，以及从昆虫肠道中分离鉴定微生物组：
-                <ul>
-                    <li>核酸操作: RNA/DNA 提取、PCR、逆转录、电泳、dsRNA 合成等</li>
-                    <li>蛋白质分析: 蛋白质提取、SDS-PAGE 等</li>
-                    <li>生物测定: 昆虫毒力测试 (LC50) 等</li>
-                    <li>微生物学: 微生物分离 (依赖培养的分离)、16S rRNA 基因扩增和测序等</li>
+    <section>
+        <h2>课余生活与爱好</h2>
+        <p>
+            在学习和科研之余，我喜欢通过一些爱好来放松和丰富自己：
+            <ul>
+                <li>[例如：阅读]</li>
+                <li>[例如：摄影]</li>
+                <li>[例如：运动]</li>
+                <li>[例如：音乐/乐器]</li>
                 </ul>
-            </li>
-            <li>
-                <strong>显微镜技术</strong>
-                <br>使用 LSCM 观察 293T 细胞中的微管结构。
-                <br>熟练掌握细胞固定、荧光标记 (间接免疫荧光) 和成像技术 (ImageJ Fiji)。
-            </li>
-            <li>
-                <strong>化学实验</strong>
-                <br>参与甲烷微波热解实验。
-                <br>负责气体采样和 GC-MS 仪器的操作。
-                <br>其他基础化学实验。
-            </li>
-        </ul>
+            我相信广泛的兴趣爱好能够开阔视野，激发更多灵感。
+             </p>
     </section>
 
     <footer>
