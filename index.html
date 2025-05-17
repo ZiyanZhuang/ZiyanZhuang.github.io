@@ -31,20 +31,46 @@
             padding-bottom: 10px; /* 底部内边距 */
             border-bottom: 2px solid #e8eaed; /* 底部边框 */
         }
+        /* 导航样式 */
+        nav {
+            text-align: center; /* 导航居中 */
+            margin-bottom: 20px; /* 底部外边距 */
+             padding-bottom: 10px;
+             border-bottom: 1px solid #e8eaed;
+        }
+        nav a {
+            margin: 0 15px; /* 导航链接左右间距 */
+            text-decoration: none; /* 无下划线 */
+            color: #5f6368; /* 链接颜色 */
+            font-weight: 500;
+            transition: color 0.3s ease; /* 颜色过渡效果 */
+        }
+        nav a:hover {
+            color: #1a73e8; /* 鼠标悬停颜色 */
+            text-decoration: underline; /* 鼠标悬停时显示下划线 */
+        }
+
         /* 每个内容区块的样式 */
-        section {
+        .content-section {
             margin-bottom: 30px; /* 底部外边距 */
             padding: 0 20px; /* 左右内边距 */
+            display: none; /* 默认隐藏所有模块 */
         }
+
+         /* 默认显示的模块样式 */
+        .content-section.active {
+            display: block; /* 显示当前激活的模块 */
+        }
+
         /* 区块标题样式 */
-        section h2 {
+        .content-section h2 {
             color: #34a853; /* Google Green */
             margin-bottom: 15px; /* 底部外边距 */
             padding-bottom: 5px; /* 底部内边距 */
             border-bottom: 1px solid #e8eaed; /* 底部边框 */
         }
          /* 区块内的小标题样式 */
-         section h3 {
+         .content-section h3 {
             color: #fbbc05; /* Google Yellow */
             margin-top: 20px; /* 顶部外边距 */
             margin-bottom: 10px; /* 底部外边距 */
@@ -71,7 +97,7 @@
         /* 顶部的联系信息样式 */
         .contact-info {
             text-align: center; /* 居中显示 */
-            margin-bottom: 30px; /* 底部外边距 */
+            margin-bottom: 20px; /* 底部外边距 */
             color: #5f6368; /* Google Grey */
         }
         /* 联系信息段落样式 */
@@ -99,8 +125,8 @@
         /* 图片样式 */
          .profile-photo {
             display: block; /* 块级元素 */
-            margin: 20px auto; /* 居中显示，上下外边距 */
-            max-width: 200px; /* 最大宽度 */
+            margin: 0 auto 20px auto; /* 居中显示，底部外边距 */
+            max-width: 150px; /* 最大宽度，比之前小一点，放在 header 中 */
             border-radius: 50%; /* 使图片变成圆形 */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 图片阴影 */
          }
@@ -119,126 +145,180 @@
 
     <header>
         <h1>Ziyan Zhuang</h1>
-        <div class="contact-info">
+        <img src="https://via.placeholder.com/150" alt="My Personal Photo" class="profile-photo"> <div class="contact-info">
             <p>Undergraduate | Life Science</p>
             <p>Xinjiang University (2022-2026)</p>
             <p>Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
              </div>
-         <img src="https://via.placeholder.com/200" alt="My Personal Photo" class="profile-photo"> </header>
 
-    <section>
-        <h2>About Me</h2>
-        <p>
-            Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological science, especially in the fields of structural biology and computational biology. I enjoy exploring the unknown, conducting various interesting experiments in the lab, and solving problems through programming and data analysis. I believe that through continuous effort and learning, I can make meaningful contributions to the field of life science.
-            </p>
-    </section>
+        <nav>
+            <a href="#" data-target="about">About</a>
+            <a href="#" data-target="publications">Publications</a>
+            <a href="#" data-target="cv-highlights">CV Highlights</a>
+            <a href="#" data-target="blog-posts">Blog</a>
+        </nav>
+    </header>
 
-     <section>
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <strong>B. Sc Biological Science | Xinjiang University</strong>
-                <br>2022-2026
-                <br>Achieved good grades in university mathematics and physics courses, and performed well in core major courses.
-            </li>
-            <li>
-                <strong>Joint Minor in Climate Change and Carbon Neutrality | Tongji University & Xinjiang University</strong>
-                <br>2023-2024 | Received completion certificate | This program was reported by "People's Daily"
-            </li>
-        </ul>
-    </section>
+    <div id="main-content">
 
-     <section>
-        <h2>Honors and Awards</h2>
-        <ul>
-            <li>August 2024: Second Prize (1/5) | In China Undergraduate Life Sciences Contest (CULSC)</li>
-            <li>August 2024: Outstanding Newcomer Award | In The Chinese Society of Biochemistry and Molecular Biology (Branched of Agricultural)</li>
-        </ul>
-    </section>
+        <section id="about" class="content-section active">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological science, especially in the fields of structural biology and computational biology. I enjoy exploring the unknown, conducting various interesting experiments in the lab, and solving problems through programming and data analysis. I believe that through continuous effort and learning, I can make meaningful contributions to the field of life science.
+                </p>
+        </section>
 
-    <section>
-        <h2>Publications</h2>
-        <ul>
-            <li class="publication-item">
-                4) Zhang LJ¹, Zhuang ZY¹, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of CYP380C12 in Aphis gossypii Glover (Hemiptera: Aphididae): in silico and RNAi analyses. Journal of Economic Entomology. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank">https://doi.org/10.1093/jee/toaf067</a> JCR Q1 </li>
-            <li class="publication-item">
-                3) Li Y¹, Kong WT¹, Li TT¹, Zhang LJ, Zhuang ZY, Liu N , Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation. Journal of Agricultural and Food Chemistry. <a href="https://doi.org/10.1021/acs.jafc.4c12035" target="_blank">https://doi.org/10.1021/acs.jafc.4c12035</a> JCR Q1
-            </li>
-            <li class="publication-item">
-                2) Xie JG¹, Wang SY¹, Zhuang ZY, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of CYP6AB328 in spinetoram resistance and growth and development of Phthorimaea absoluta. Pesticide Biochemistry and Physiology. <a href="https://doi.org/10.1016/j.pestbp.2025.106316" target="_blank">https://doi.org/10.1016/j.pestbp.2025.106316</a> JCR Q1
-            </li>
-            <li class="publication-item">
-                1) Xie JG¹, Ali A¹, Li Y, Zhuang ZY, Liu XN. 2024. Functional Investigation of CYP304F1 in Tuta absoluta (Lepidopteran: Gelechiidae) by RNA Interference. Journal of Economic Entomology. <a href="https://doi.org/10.1093/jee/toac283" target="_blank">https://doi.org/10.1093/jee/toac283</a> JCR Q1
-            </li>
-        </ul>
-        <p>¹ Co-first author</p>
-    </section>
-
-    <section>
-        <h2>Research Interests, Experience & Skills</h2>
-         <h3>Research Interests</h3>
-        <p>
-            I am particularly interested in the following research areas:
+        <section id="publications" class="content-section">
+            <h2>Publications</h2>
             <ul>
-                <li>Molecular mechanisms of pest control</li>
-                <li>Application of molecular biology and biochemistry techniques</li>
-                <li>Bioinformatics and structural biology</li>
-                <li>Application of AI in life science</li>
-                </ul>
-        </p>
-         <h3>研究与实践经历 (Research & Professional Experience)</h3>
-        <ul>
-           <li>
-                <strong>Summer School</strong>
-                <br>July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)
-                <br>Topic: Quantitative Biology
-            </li>
-            <li>
-                <strong>Internship</strong>
-                <br>July 2024 | Xinjiang University | Chemical Engineering Institute
-                <br>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by biomass
-                <br>Supervisor: Adili Batuer
-            </li>
-            <li>
-                <strong>Research Experience in Prof. Xiaoning Liu's Lab</strong>
-                <br>2023-Present | Xinjiang University | College of Life Science and Technology
-                <br>Research Focus: Pest Control, Molecular Biology, and Biochemistry
-            </li>
-        </ul>
-         <h3>Skills</h3>
-        <ul>
-            <li>
-                <strong>Dry Lab Skills</strong>
-                <br>Proficient in computational skills such as molecular docking, molecular dynamics simulations, bioinformatics analysis, and AI for Science.
+                <li class="publication-item">
+                    4) Zhang LJ¹, Zhuang ZY¹, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of CYP380C12 in Aphis gossypii Glover (Hemiptera: Aphididae): in silico and RNAi analyses. Journal of Economic Entomology. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank">https://doi.org/10.1093/jee/toaf067</a> JCR Q1 </li>
+                <li class="publication-item">
+                    3) Li Y¹, Kong WT¹, Li TT¹, Zhang LJ, Zhuang ZY, Liu N , Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation. Journal of Agricultural and Food Chemistry. <a href="https://doi.org/10.1021/acs.jafc.4c12035" target="_blank">https://doi.org/10.1021/acs.jafc.4c12035</a> JCR Q1
                 </li>
-            <li>
-                <strong>Wet Lab Skills</strong>
-                <br>Master molecular biology and biochemistry experimental techniques including gene cloning, protein analysis, bioassays, and microbiome isolation/identification.
-                 </li>
-             <li>
-                <strong>Other Skills</strong>
-                <br>Possess microscopy operation and basic chemistry experimental abilities.
-            </li>
-        </ul>
-    </section>
+                <li class="publication-item">
+                    2) Xie JG¹, Wang SY¹, Zhuang ZY, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of CYP6AB328 in spinetoram resistance and growth and development of Phthorimaea absoluta. Pesticide Biochemistry and Physiology. <a href="https://doi.org/10.1016/j.pestbp.2025.106316" target="_blank">https://doi.org/10.1016/j.pestbp.2025.106316</a> JCR Q1
+                </li>
+                <li class="publication-item">
+                    1) Xie JG¹, Ali A¹, Li Y, Zhuang ZY, Liu XN. 2024. Functional Investigation of CYP304F1 in Tuta absoluta (Lepidopteran: Gelechiidae) by RNA Interference. Journal of Economic Entomology. <a href="https://doi.org/10.1093/jee/toac283" target="_blank">https://doi.org/10.1093/jee/toac283</a> JCR Q1
+                </li>
+            </ul>
+            <p>¹ Co-first author</p>
+        </section>
 
-    <section>
-        <h2>Hobbies & Interests</h2>
-        <p>
-            Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:
+        <section id="cv-highlights" class="content-section">
+            <h2>CV Highlights</h2>
+            <h3>Education</h3>
             <ul>
-                <li>Programming interesting projects</li>
-                <li>Rock climbing</li>
-                <li>Rock music, Jazz Hip Hop, Country music</li>
-                <li>Reading</li>
-                </ul>
-            I believe that broad interests can broaden horizons and inspire more ideas.
-             </p>
-    </section>
+                <li>
+                    <strong>B. Sc Biological Science | Xinjiang University</strong>
+                    <br>2022-2026
+                    <br>Achieved good grades in university mathematics and physics courses, and performed well in core major courses.
+                </li>
+                <li>
+                    <strong>Joint Minor in Climate Change and Carbon Neutrality | Tongji University & Xinjiang University</strong>
+                    <br>2023-2024 | Received completion certificate | This program was reported by "People's Daily"
+                </li>
+            </ul>
 
-    <footer>
+            <h3>Honors and Awards</h3>
+            <ul>
+                <li>August 2024: Second Prize (1/5) | In China Undergraduate Life Sciences Contest (CULSC)</li>
+                <li>August 2024: Outstanding Newcomer Award | In The Chinese Society of Biochemistry and Molecular Biology (Branched of Agricultural)</li>
+            </ul>
+
+            <h3>Research & Professional Experience</h3>
+            <ul>
+               <li>
+                    <strong>Summer School</strong>
+                    <br>July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)
+                    <br>Topic: Quantitative Biology
+                </li>
+                <li>
+                    <strong>Internship</strong>
+                    <br>July 2024 | Xinjiang University | Chemical Engineering Institute
+                    <br>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by biomass
+                    <br>Supervisor: Adili Batuer
+                </li>
+                <li>
+                    <strong>Research Experience in Prof. Xiaoning Liu's Lab</strong>
+                    <br>2023-Present | Xinjiang University | College of Life Science and Technology
+                    <br>Research Focus: Pest Control, Molecular Biology, and Biochemistry
+                </li>
+            </ul>
+
+             <h3>Skills</h3>
+            <ul>
+                <li>
+                    <strong>Dry Lab Skills</strong>
+                    <br>Proficient in computational skills such as molecular docking, molecular dynamics simulations, bioinformatics analysis, and AI for Science.
+                </li>
+                <li>
+                    <strong>Wet Lab Skills</strong>
+                    <br>Master molecular biology and biochemistry experimental techniques including gene cloning, protein analysis, bioassays, and microbiome isolation/identification.
+                </li>
+                 <li>
+                    <strong>Other Skills</strong>
+                    <br>Possess microscopy operation and basic chemistry experimental abilities.
+                </li>
+            </ul>
+        </section>
+
+        <section id="blog-posts" class="content-section">
+            <h2>Blog Posts</h2>
+            <p>
+                Here you can find my latest blog posts.
+            </p>
+            <ul>
+                <li><a href="#">Example Blog Post Title 1</a></li>
+                <li><a href="#">Example Blog Post Title 2</a></li>
+                </ul>
+             <p>Visit my blog on [Platform Name]: <a href="Your Blog URL Here" target="_blank">Your Blog Link</a></p>
+        </section>
+
+        <section id="hobbies" class="content-section">
+             <h2>Hobbies & Interests</h2>
+            <p>
+                Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:
+                <ul>
+                    <li>Programming interesting projects</li>
+                    <li>Rock climbing</li>
+                    <li>Rock music, Jazz Hip Hop, Country music</li>
+                    <li>Reading</li>
+                    </ul>
+                I believe that broad interests can broaden horizons and inspire more ideas.
+            </p>
+        </section>
+
+    </div> <footer>
         <p>&copy; 2024 Ziyan Zhuang. All rights reserved.</p> <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf (I really like this quote from Gandalf in French)</p>
     </footer>
+
+    <script>
+        // JavaScript 代码用于控制模块显示隐藏
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有的导航链接
+            const navLinks = document.querySelectorAll('nav a');
+            // 获取所有的内容模块
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // 函数：隐藏所有模块
+            function hideAllSections() {
+                contentSections.forEach(section => {
+                    section.classList.remove('active'); // 移除 active 类，通过 CSS 隐藏
+                });
+            }
+
+            // 函数：显示指定的模块
+            function showSection(targetId) {
+                hideAllSections(); // 先隐藏所有模块
+                const targetSection = document.getElementById(targetId); // 获取目标模块元素
+                if (targetSection) {
+                    targetSection.classList.add('active'); // 添加 active 类，通过 CSS 显示
+                }
+            }
+
+            // 为每个导航链接添加点击事件监听器
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // 阻止链接默认跳转行为
+                    const targetId = this.dataset.target; // 获取链接的 data-target 属性值，即目标模块的 ID
+                    showSection(targetId); // 显示对应的模块
+                });
+            });
+
+            // 可选：页面加载时检查 URL hash，显示对应模块
+            // 例如：访问 your-page.github.io/#publications 会直接显示 publications 模块
+            if (window.location.hash) {
+                const initialTargetId = window.location.hash.substring(1); // 移除 #
+                showSection(initialTargetId);
+            } else {
+                 // 如果没有 hash，默认显示 About 模块 (已经在 HTML 中设置了 active 类)
+                 // 如果你想默认显示其他模块，修改 HTML 中相应 section 的 class="active" 即可
+            }
+
+        });
+    </script>
 
 </body>
 </html>
