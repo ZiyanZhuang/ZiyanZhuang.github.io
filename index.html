@@ -6,9 +6,47 @@
     <title>Ziyan Zhuang's Personal Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 左侧头像为方形无边框 */
+        #avatar {
+            display: block;
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            background: none;
+        }
+        /* 相册样式 */
+        .photo-album {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .photo-album img {
+            width: 220px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            background: #f8f8f8;
+        }
+        @media (max-width: 700px) {
+            .photo-album {
+                justify-content: center;
+            }
+            .photo-album img {
+                width: 46vw;
+                height: 30vw;
+                max-width: 100%;
+                max-height: 160px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- 顶部导航栏 -->
     <nav id="navbar">
         <ul>
             <li><a href="#" data-target="about" class="active">About</a></li>
@@ -16,21 +54,19 @@
             <li><a href="#" data-target="cv-highlights">CV Highlights</a></li>
             <li><a href="#" data-target="blog-posts">Blog</a></li>
             <li><a href="#" data-target="hobbies">Hobbies</a></li>
+            <li><a href="#" data-target="photo">Photo</a></li>
         </ul>
         <button id="theme-toggle">切换主题</button>
     </nav>
-
     <div class="page-layout">
-        <!-- 左侧头像 -->
         <aside id="sidebar">
-            <img src="ziyan.jpg" alt="Ziyan's Avatar" id="avatar">
+            <img src="Ziyan1.jpg" alt="Ziyan's Avatar" id="avatar">
             <div class="contact-info">
                 <p>Undergraduate | Life Science</p>
                 <p>Xinjiang University (2022-2026)</p>
                 <p>Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
             </div>
         </aside>
-        <!-- 主要内容 -->
         <main id="content">
             <header>
                 <h1>Ziyan Zhuang</h1>
@@ -43,12 +79,20 @@
             <section id="publications" class="content-section">
                 <h2>Publications</h2>
                 <ul>
-                    <li class="publication-item">4) Zhang LJ¹, <strong>Zhuang ZY¹<strong>, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of <em>CYP380C12<em> in <em>Aphis gossypii<em> Glover (Hemiptera: Aphididae).</li>
-                    <li class="publication-item">3) Li Y¹, Kong WT¹, Li TT¹, Zhang LJ, <strong>Zhuang ZY<strong>, Liu N, Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation.</li>
-                    <li class="publication-item">2) Xie JG¹, Wang SY¹, <strong>Zhuang ZY<strong>, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of <em>CYP6AB328<em> in spinetoram resistance and growth and development of <em>Phthorimaea absoluta<em>.</li>
-                    <li class="publication-item">1) Xie JG¹, Ali A¹, Li Y, <strong>Zhuang ZY<strong>, Liu XN. 2024. Functional Investigation of <em>CYP304F1<em> in <em>Tuta absoluta<em> (Lepidopteran: Gelechiidae) by RNA Interference. Journal of Economic Entomology.</li>
+                    <li class="publication-item">
+                        4) Zhang LJ<sup>1</sup>, <strong>Zhuang ZY<sup>1</sup></strong>, Xie JG<sup>1</sup>, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover (Hemiptera: Aphididae). <em>Journal of Insect Science</em>.
+                    </li>
+                    <li class="publication-item">
+                        3) Li Y<sup>1</sup>, Kong WT<sup>1</sup>, Li TT<sup>1</sup>, Zhang LJ, <strong>Zhuang ZY</strong>, Liu N, Liu XN. 2025. Functional analysis of <em>lactase phlorizin hydrolase</em> in insect-plant coevolution based on deglycosylation. <em>Insect Biochemistry and Molecular Biology</em>.
+                    </li>
+                    <li class="publication-item">
+                        2) Xie JG<sup>1</sup>, Wang SY<sup>1</sup>, <strong>Zhuang ZY</strong>, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of <em>CYP6AB328</em> in spinetoram resistance and growth and development of <em>Phthorimaea absoluta</em>. <em>Frontiers in Physiology</em>.
+                    </li>
+                    <li class="publication-item">
+                        1) Xie JG<sup>1</sup>, Ali A<sup>1</sup>, Li Y, <strong>Zhuang ZY</strong>, Liu XN. 2024. Functional Investigation of <em>CYP304F1</em> in <em>Tuta absoluta</em> (Lepidopteran: Gelechiidae) by RNA Interference. <em>Journal of Economic Entomology</em>.
+                    </li>
                 </ul>
-                <p>¹ Co-first author</p>
+                <p><sup>1</sup> Co-first author</p>
             </section>
             <section id="cv-highlights" class="content-section">
                 <h2>CV Highlights</h2>
@@ -95,17 +139,16 @@
                 </ul>
                 <p>I believe that broad interests can broaden horizons and inspire more ideas.</p>
             </section>
-                         <!-- 新增相册模块 -->
             <section id="photo" class="content-section">
                 <h2>Photo Album</h2>
                 <div class="photo-album">
                     <img src="photo1.jpg" alt="Group Photo 1">
-            
-                    <!-- 可继续添加更多照片 -->
-                     </div>
+                   
+                    <!-- 如需更多照片，继续添加img标签 -->
+                </div>
             </section>
             <footer>
-                <p>&copy; 2025 Ziyan Zhuang. All rights reserved.</p>
+                <p>&copy; 2024 Ziyan Zhuang. All rights reserved.</p>
                 <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf</p>
             </footer>
         </main>
