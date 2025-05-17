@@ -1,56 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-CN"> <head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziyan Zhuang 的个人网站</title>
+    <title>Ziyan Zhuang's Personal Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         /* 基本样式，应用于整个页面 */
         body {
             font-family: 'Roboto', sans-serif; /* 设置字体 */
-            line-height: 1.6; /* 设置行高 */
+            line-height: 1.7; /* 设置行高，稍微宽松一点 */
             margin: 0;
             padding: 20px;
-            max-width: 900px; /* 限制页面最大宽度 */
-            margin: auto; /* 页面居中显示 */
-            background-color: #f8f9fa; /* 背景颜色 */
+            max-width: 800px; /* 页面内容宽度，稍微窄一点，更聚焦 */
+            margin: 20px auto; /* 页面居中显示，上下留点外边距 */
+            background-color: #e8f0fe; /* 浅蓝色背景，干净 */
             color: #333; /* 文本颜色 */
+            box-shadow: 0 0 15px rgba(0,0,0,0.05); /* 添加一点整体阴影效果 */
+            border-radius: 8px; /* 页面主体也加点圆角 */
+            background: #fff; /* 内容区域背景为白色 */
         }
         /* 设置标题颜色和字重 */
         h1, h2, h3 {
-            color: #1a73e8; /* Google Blue */
             font-weight: 500;
+            margin-top: 0; /* 移除顶部默认外边距 */
         }
-        /* 主标题样式 */
-        h1 {
-            text-align: center; /* 居中显示 */
-            margin-bottom: 40px; /* 底部外边距 */
+         h1 {
             color: #1a73e8; /* Google Blue */
+            text-align: center; /* 居中显示 */
+            margin-bottom: 20px; /* 底部外边距 */
+            padding-bottom: 10px; /* 底部内边距 */
+            border-bottom: 2px solid #e8eaed; /* 底部边框 */
         }
         /* 每个内容区块的样式 */
         section {
-            margin-bottom: 40px; /* 底部外边距 */
-            padding: 20px; /* 内边距 */
-            background-color: #fff; /* 背景颜色 */
-            border-radius: 8px; /* 圆角 */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 */
+            margin-bottom: 30px; /* 底部外边距 */
+            padding: 0 20px; /* 左右内边距 */
         }
         /* 区块标题样式 */
         section h2 {
-            margin-top: 0;
-            border-bottom: 2px solid #e8eaed; /* 底部边框 */
-            padding-bottom: 10px; /* 底部内边距 */
-            margin-bottom: 20px; /* 底部外边距 */
             color: #34a853; /* Google Green */
+            margin-bottom: 15px; /* 底部外边距 */
+            padding-bottom: 5px; /* 底部内边距 */
+            border-bottom: 1px solid #e8eaed; /* 底部边框 */
         }
          /* 区块内的小标题样式 */
          section h3 {
             color: #fbbc05; /* Google Yellow */
+            margin-top: 20px; /* 顶部外边距 */
+            margin-bottom: 10px; /* 底部外边距 */
         }
         /* 列表样式 */
         ul {
             list-style: none; /* 移除默认列表样式 */
             padding: 0; /* 移除内边距 */
+            margin-top: 0;
         }
         /* 列表项样式 */
         ul li {
@@ -65,29 +68,48 @@
         a:hover {
             text-decoration: underline; /* 添加下划线 */
         }
-        /* 联系信息区块样式 */
+        /* 顶部的联系信息样式 */
         .contact-info {
             text-align: center; /* 居中显示 */
-            margin-bottom: 40px; /* 底部外边距 */
+            margin-bottom: 30px; /* 底部外边距 */
             color: #5f6368; /* Google Grey */
         }
         /* 联系信息段落样式 */
         .contact-info p {
             margin: 5px 0; /* 上下外边距 */
         }
-        /* 论文列表项样式 */
+        /* Publication list item styles */
         .publication-item {
             margin-bottom: 15px; /* 底部外边距 */
+            padding-left: 20px; /* 左侧内边距，模仿缩进 */
+            position: relative; /* 用于创建自定义列表点 */
         }
-        /* 论文标题或主要信息样式 */
+        .publication-item::before {
+            content: "•"; /* 使用圆点作为列表标记 */
+            color: #1a73e8; /* 圆点颜色 */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        /* Publication title or main info styles */
         .publication-item strong {
             display: block; /* 块级显示 */
             margin-bottom: 5px; /* 底部外边距 */
         }
+        /* 图片样式 */
+         .profile-photo {
+            display: block; /* 块级元素 */
+            margin: 20px auto; /* 居中显示，上下外边距 */
+            max-width: 200px; /* 最大宽度 */
+            border-radius: 50%; /* 使图片变成圆形 */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 图片阴影 */
+         }
          /* 页面底部样式 */
          footer {
             text-align: center; /* 居中显示 */
             margin-top: 40px; /* 顶部外边距 */
+            padding-top: 20px; /* 顶部内边距 */
+            border-top: 1px solid #e8eaed; /* 顶部边框 */
             color: #5f6368; /* Google Grey */
             font-size: 0.9em; /* 字体大小 */
         }
@@ -96,47 +118,47 @@
 <body>
 
     <header>
-        <h1>Ziyan Zhuang 的个人网站</h1>
+        <h1>Ziyan Zhuang</h1>
         <div class="contact-info">
-            <p>本科生</p>
-            <p>新疆大学 (2022-2026)</p>
-            <p>邮箱: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
-        </div>
-    </header>
+            <p>Undergraduate | Life Science</p>
+            <p>Xinjiang University (2022-2026)</p>
+            <p>Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
+             </div>
+         <img src="https://via.placeholder.com/200" alt="My Personal Photo" class="profile-photo"> </header>
 
     <section>
-        <h2>关于我</h2>
+        <h2>About Me</h2>
         <p>
-            你好！我叫庄子岩，目前是新疆大学生命科学与技术学院的一名本科生。我对生物科学充满了热情，特别是结构生物学和计算生物学领域。我乐于探索未知，喜欢进行各种有趣的实验，也享受通过编程和数据分析解决问题的过程。我相信通过不懈的努力和学习，能够在生命科学领域做出一些有意义的贡献。
+            Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological science, especially in the fields of structural biology and computational biology. I enjoy exploring the unknown, conducting various interesting experiments in the lab, and solving problems through programming and data analysis. I believe that through continuous effort and learning, I can make meaningful contributions to the field of life science.
             </p>
     </section>
 
      <section>
-        <h2>教育经历</h2>
+        <h2>Education</h2>
         <ul>
             <li>
-                <strong>生物科学 | 新疆大学</strong>
+                <strong>B. Sc Biological Science | Xinjiang University</strong>
                 <br>2022-2026
-                <br>在大学数学和物理课程中取得了不错的成绩，核心专业课也都表现良好。
+                <br>Achieved good grades in university mathematics and physics courses, and performed well in core major courses.
             </li>
             <li>
-                <strong>气候变化与碳中和 微专业 | 同济大学 & 新疆大学</strong>
-                <br>2023-2024 | 获得了结业证书 | 该项目曾被 《人民日报》 报道
+                <strong>Joint Minor in Climate Change and Carbon Neutrality | Tongji University & Xinjiang University</strong>
+                <br>2023-2024 | Received completion certificate | This program was reported by "People's Daily"
             </li>
         </ul>
     </section>
 
      <section>
-        <h2>荣誉与奖项</h2>
+        <h2>Honors and Awards</h2>
         <ul>
-            <li>2024 年 8 月: 全国大学生生命科学竞赛二等奖 (1/5)</li>
-            <li>2024 年 8 月: 中国生物化学与分子生物学会优秀新人奖 (农业分会)</li>
+            <li>August 2024: Second Prize (1/5) | In China Undergraduate Life Sciences Contest (CULSC)</li>
+            <li>August 2024: Outstanding Newcomer Award | In The Chinese Society of Biochemistry and Molecular Biology (Branched of Agricultural)</li>
         </ul>
     </section>
 
-
-   <section>
-        <h2>我的研究成果 (Publications)</h2> <ul>
+    <section>
+        <h2>Publications</h2>
+        <ul>
             <li class="publication-item">
                 4) Zhang LJ¹, Zhuang ZY¹, Xie JG¹, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of CYP380C12 in Aphis gossypii Glover (Hemiptera: Aphididae): in silico and RNAi analyses. Journal of Economic Entomology. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank">https://doi.org/10.1093/jee/toaf067</a> JCR Q1 </li>
             <li class="publication-item">
@@ -149,74 +171,73 @@
                 1) Xie JG¹, Ali A¹, Li Y, Zhuang ZY, Liu XN. 2024. Functional Investigation of CYP304F1 in Tuta absoluta (Lepidopteran: Gelechiidae) by RNA Interference. Journal of Economic Entomology. <a href="https://doi.org/10.1093/jee/toac283" target="_blank">https://doi.org/10.1093/jee/toac283</a> JCR Q1
             </li>
         </ul>
-        <p>¹ Co-first author</p> </section>
+        <p>¹ Co-first author</p>
     </section>
 
     <section>
-        <h2>我的研究兴趣</h2>
+        <h2>Research Interests, Experience & Skills</h2>
+         <h3>Research Interests</h3>
         <p>
-            我对以下研究领域特别感兴趣：
+            I am particularly interested in the following research areas:
             <ul>
-                <li>害虫防治的分子机制</li>
-                <li>分子生物学与生物化学技术应用</li>
-                <li>生物信息学与结构生物学</li>
-                <li>AI 在生命科学中的应用</li>
+                <li>Molecular mechanisms of pest control</li>
+                <li>Application of molecular biology and biochemistry techniques</li>
+                <li>Bioinformatics and structural biology</li>
+                <li>Application of AI in life science</li>
                 </ul>
         </p>
-         <h3>研究与实践经历</h3>
+         <h3>研究与实践经历 (Research & Professional Experience)</h3>
         <ul>
-            <li>
-                <strong>夏令营</strong>
-                <br>2024 年 7 月 | 北京大学 | 生命科学联合中心 (CLS) | 前沿交叉学科研究院定量生物学中心 (CQB)
-                <br>主题：定量生物学
+           <li>
+                <strong>Summer School</strong>
+                <br>July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)
+                <br>Topic: Quantitative Biology
             </li>
             <li>
-                <strong>实习经历</strong>
-                <br>2024 年 7 月 | 新疆大学 | 化学工程学院
-                <br>主题：生物质热解；微波辅助催化甲烷热解生物质
-                <br>导师：Adili Batuer
+                <strong>Internship</strong>
+                <br>July 2024 | Xinjiang University | Chemical Engineering Institute
+                <br>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by biomass
+                <br>Supervisor: Adili Batuer
             </li>
             <li>
-                <strong>刘小宁老师实验室科研经历</strong>
-                <br>2023 年至今 | 新疆大学 | 生命科学与技术学院
-                <br>研究方向：害虫防治、分子生物学、生物化学
+                <strong>Research Experience in Prof. Xiaoning Liu's Lab</strong>
+                <br>2023-Present | Xinjiang University | College of Life Science and Technology
+                <br>Research Focus: Pest Control, Molecular Biology, and Biochemistry
             </li>
         </ul>
-         <h3>我的技能</h3>
+         <h3>Skills</h3>
         <ul>
             <li>
-                <strong>干实验技能</strong>
-                <br>熟练掌握分子对接、分子动力学模拟、生物信息学分析、AI for Science 等计算技能。
+                <strong>Dry Lab Skills</strong>
+                <br>Proficient in computational skills such as molecular docking, molecular dynamics simulations, bioinformatics analysis, and AI for Science.
                 </li>
             <li>
-                <strong>湿实验技能</strong>
-                <br>掌握基因克隆、蛋白质分析、生物测定、微生物分离鉴定等分子生物学和生物化学实验技能。
+                <strong>Wet Lab Skills</strong>
+                <br>Master molecular biology and biochemistry experimental techniques including gene cloning, protein analysis, bioassays, and microbiome isolation/identification.
                  </li>
              <li>
-                <strong>其他技能</strong>
-                <br>具备显微镜操作和基础化学实验能力。
+                <strong>Other Skills</strong>
+                <br>Possess microscopy operation and basic chemistry experimental abilities.
             </li>
         </ul>
     </section>
 
-
     <section>
-        <h2>课余生活与爱好</h2>
+        <h2>Hobbies & Interests</h2>
         <p>
-            在学习和科研之余，我喜欢通过一些爱好来放松和丰富自己：
+            Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:
             <ul>
-                <li>编写有意思的程序</li>
-                <li>攀岩</li>
-                <li>摇滚乐、jazzHipHop、乡村音乐</li>
-                <li>阅读</li>
+                <li>Programming interesting projects</li>
+                <li>Rock climbing</li>
+                <li>Rock music, Jazz Hip Hop, Country music</li>
+                <li>Reading</li>
                 </ul>
-            我相信广泛的兴趣爱好能够开阔视野，激发更多灵感。
+            I believe that broad interests can broaden horizons and inspire more ideas.
              </p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Ziyan Zhuang. 保留所有权利。</p>
-        <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf (甘道夫的这句法语我很喜欢)</p>
+        <p>&copy; 2024 Ziyan Zhuang. All rights reserved.</p> <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf (I really like this quote from Gandalf in French)</p>
     </footer>
 
 </body>
