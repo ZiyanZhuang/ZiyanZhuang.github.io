@@ -111,12 +111,12 @@ body.dark #sidebar {
     display: block;
     width: 140px;
     height: 140px;
-    border-radius: 50%;
+    border-radius: 0
     object-fit: cover;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border: 3px solid #ccc;
-    margin-bottom: 18px;
-    background: #fff;
+    border: none;
+    #margin-bottom: 18px;
+    background: none;
 }
 
 body.dark #avatar {
