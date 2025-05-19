@@ -19,7 +19,7 @@
         </ul>
        <!-- 主题切换按钮：用图标替换文字，初始为太阳 -->
         <button id="theme-toggle" aria-label="Toggle theme">
-            <span id="theme-icon">☀️</span>
+            <span id="theme-icon">☀</span>
         </button>
     </nav>
     <div class="page-layout">
@@ -202,7 +202,7 @@ This computational design phase is complemented by molecular dynamics (MD) simul
 
     function updateThemeIcon(theme) {
         // 如果当前是dark，则显示月亮；否则显示太阳
-        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+        themeIcon.textContent = theme === 'dark' ? 'Moon' : '☀';
     }
 
     toggleBtn.addEventListener('click', () => {
