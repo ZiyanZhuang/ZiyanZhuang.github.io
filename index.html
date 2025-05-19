@@ -6,8 +6,7 @@
     <title>Ziyan Zhuang's Personal Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- 网站图标，🪨 -->
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav id="navbar">
@@ -19,7 +18,6 @@
             <li><a href="#" data-target="hobbies">Hobbies</a></li>
             <li><a href="#" data-target="photo">Photo</a></li>
         </ul>
-       <!-- 主题切换按钮：用图标替换文字，初始为太阳 -->
         <button id="theme-toggle" aria-label="Toggle theme">
             <span id="theme-icon">☀</span>
         </button>
@@ -32,6 +30,14 @@
                 <p>Xinjiang University (2022-2026)</p>
                 <p>Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
                 <p>ORCID: <a href="https://orcid.org/0009-0007-3915-1614" target="_blank" rel="noopener">0009-0007-3915-1614</a></p>
+                <p>
+                    <a href="https://github.com/ZiyanZhuang" target="_blank" rel="noopener" style="text-decoration:none; display: inline-flex; align-items: center;">
+                        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:middle; margin-right: 5px;">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </p>
             </div>
         </aside>
         <main id="content">
@@ -42,41 +48,32 @@
             <section id="about" class="content-section active">
                 <h2>About Me</h2>
                 <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and look forward to making meaningful contributions in my field.</p>
-                <h3>Some ideas<h3>
-                    <p>My one idea is driven by the recognition that while natural enzymes are exquisite catalysts, their inherent limitations in scope and stability necessitate the development of artificial counterparts. Overcoming the current bottlenecks in enzyme engineering – moving beyond empirical methods like directed evolution to predictable, de novo design – requires a deep understanding of the fundamental physical and chemical principles governing enzyme catalysis.
+                
+                <h3>Some ideas</h3> {/* Corrected closing tag and made it a direct child of section */}
+                <p>My one idea is driven by the recognition that while natural enzymes are exquisite catalysts, their inherent limitations in scope and stability necessitate the development of artificial counterparts. Overcoming the current bottlenecks in enzyme engineering – moving beyond empirical methods like directed evolution to predictable, de novo design – requires a deep understanding of the fundamental physical and chemical principles governing enzyme catalysis.</p>
+                <p>Towards this goal, I am particularly interested in leveraging multiscale simulation techniques rooted in first-principles quantum mechanics and statistical mechanics. My research ideas revolve around developing and applying computational frameworks that begin with the intrinsic quantum chemical nature of a target reaction's transition state. By precisely characterizing the electronic structure and geometry of this transient state, we can define the ideal catalytic microenvironment required within a protein scaffold. Subsequently, techniques like Markov Chain Monte Carlo (MCMC) sampling and energy optimization algorithms can be employed to search the vast sequence and conformational space for amino acid combinations capable of stabilizing this transition state.</p>
+                <p>This computational design phase is complemented by molecular dynamics (MD) simulations, which provide crucial insights into the dynamic behavior, flexibility, and solvent effects of the designed enzyme-substrate complexes under different thermodynamic ensembles. Calculating key thermodynamic quantities, such as binding and activation free energies, using enhanced sampling methods allows for a theoretical evaluation of catalytic efficiency. Finally, high-accuracy quantum mechanics/molecular mechanics (QM/MM) methods are indispensable for refining the catalytic mechanism and validating the design at an atomic level.</p>
+            </section>
 
-Towards this goal, I am particularly interested in leveraging multiscale simulation techniques rooted in first-principles quantum mechanics and statistical mechanics. My research ideas revolve around developing and applying computational frameworks that begin with the intrinsic quantum chemical nature of a target reaction's transition state. By precisely characterizing the electronic structure and geometry of this transient state, we can define the ideal catalytic microenvironment required within a protein scaffold. Subsequently, techniques like Markov Chain Monte Carlo (MCMC) sampling and energy optimization algorithms can be employed to search the vast sequence and conformational space for amino acid combinations capable of stabilizing this transition state.
-
-This computational design phase is complemented by molecular dynamics (MD) simulations, which provide crucial insights into the dynamic behavior, flexibility, and solvent effects of the designed enzyme-substrate complexes under different thermodynamic ensembles. Calculating key thermodynamic quantities, such as binding and activation free energies, using enhanced sampling methods allows for a theoretical evaluation of catalytic efficiency. Finally, high-accuracy quantum mechanics/molecular mechanics (QM/MM) methods are indispensable for refining the catalytic mechanism and validating the design at an atomic level.
-</p>
-                </section>      
             <section id="publications" class="content-section">
                 <h2>Publications</h2>
                 <ul>
                     <li class="publication-item">
-                        4) Zhang LJ<sup>1</sup>, <strong>Zhuang ZY<sup>1</sup></strong>, Xie JG<sup>1</sup>, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover (Hemiptera: Aphididae): in silico and RNAi analyses. <em>Journal of Economic Entomology</em>. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank">https://doi.org/10.1093/jee/toaf067</a> JCR Q1 
+                        4) Zhang LJ<sup>1</sup>, <strong>Zhuang ZY<sup>1</sup></strong>, Xie JG<sup>1</sup>, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover (Hemiptera: Aphididae): in silico and RNAi analyses. <em>Journal of Economic Entomology</em>. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">https://doi.org/10.1093/jee/toaf067</a> JCR Q1 
                     </li>
                     <li class="publication-item">
-                        3) Li Y<sup>1</sup>, Kong WT<sup>1</sup>, Li TT<sup>1</sup>, Zhang LJ, <strong>Zhuang ZY</strong>, Liu N, Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation. <em>Journal of Agricultural and Food Chemistry</em>. <a href="https://doi.org/10.1021/acs.jafc.4c12035" target="_blank">https://doi.org/10.1021/acs.jafc.4c12035</a> JCR Q1
+                        3) Li Y<sup>1</sup>, Kong WT<sup>1</sup>, Li TT<sup>1</sup>, Zhang LJ, <strong>Zhuang ZY</strong>, Liu N, Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation. <em>Journal of Agricultural and Food Chemistry</em>. <a href="https://doi.org/10.1021/acs.jafc.4c12035" target="_blank" rel="noopener">https://doi.org/10.1021/acs.jafc.4c12035</a> JCR Q1
                     </li>
                     <li class="publication-item">
-                        2) Xie JG<sup>1</sup>, Wang SY<sup>1</sup>, <strong>Zhuang ZY</strong>, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of <em>CYP6AB328</em> in spinetoram resistance and growth and development of <em>Phthorimaea absoluta</em>. <em>Pesticide Biochemistry and Physiology</em>. <a href="https://doi.org/10.1016/j.pestbp.2025.106316" target="_blank">https://doi.org/10.1016/j.pestbp.2025.106316</a> JCR Q1
+                        2) Xie JG<sup>1</sup>, Wang SY<sup>1</sup>, <strong>Zhuang ZY</strong>, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of <em>CYP6AB328</em> in spinetoram resistance and growth and development of <em>Phthorimaea absoluta</em>. <em>Pesticide Biochemistry and Physiology</em>. <a href="https://doi.org/10.1016/j.pestbp.2025.106316" target="_blank" rel="noopener">https://doi.org/10.1016/j.pestbp.2025.106316</a> JCR Q1
                     </li>
                     <li class="publication-item">
-                        1) Xie JG<sup>1</sup>, Ali A<sup>1</sup>, Li Y, <strong>Zhuang ZY</strong>, Liu XN. 2024. Functional Investigation of <em>CYP304F1</em> in <em>Tuta absoluta</em> (Lepidopteran: Gelechiidae) by RNA Interference. <em>Journal of Economic Entomology</em>. <a href="https://doi.org/10.1093/jee/toac283" target="_blank">https://doi.org/10.1093/jee/toac283</a> JCR Q1
+                        1) Xie JG<sup>1</sup>, Ali A<sup>1</sup>, Li Y, <strong>Zhuang ZY</strong>, Liu XN. 2024. Functional Investigation of <em>CYP304F1</em> in <em>Tuta absoluta</em> (Lepidopteran: Gelechiidae) by RNA Interference. <em>Journal of Economic Entomology</em>. <a href="https://doi.org/10.1093/jee/toac283" target="_blank" rel="noopener">https://doi.org/10.1093/jee/toac283</a> JCR Q1
                     </li>
                 </ul>
                 <p><sup>1</sup> Co-first author</p>
             </section>
-            <section id="software-data">
-              <h3>Softwares and Data</h3>
-              <ul>
-                <li>
-              <a href="https://github.com/ZiyanZhuang/BOGDA" target="_blank">BOGDA</a> - A Deep Learning Framework for Pest Resistance Prediction
-                </li>
-        <!-- 可以继续添加更多项目 -->
-               </ul>
-            </section>         
+            
             <section id="cv-highlights" class="content-section">
                 <h2>CV Highlights</h2>
                 <h3>Education</h3>
@@ -84,49 +81,60 @@ This computational design phase is complemented by molecular dynamics (MD) simul
                     <li><strong>B. Sc Biological Science | Xinjiang University</strong><br>2022-2026<br>Achieved good grades in university mathematics and physics courses, and performed well in core subjects.</li>
                     <li><strong>Joint Minor in Climate Change and Carbon Neutrality | Tongji University & Xinjiang University</strong><br>2023-2024 | Received completion certificate | This program broadened my academic vision.</li>
                 </ul>
+                
                 <h3>Honors and Awards</h3>
                 <ul>
                     <li>August 2024: Second Prize (1/5) | In China Undergraduate Life Sciences Contest (CULSC)</li>
                     <li>August 2024: Outstanding Newcomer Award | In The Chinese Society of Biochemistry and Molecular Biology (Branched of Agricultural)</li>
                 </ul>
+                
                 <h3>Research & Professional Experience</h3>
                 <ul>
                     <li><strong>Summer School</strong><br>July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)<br>Topic: Quantitative Biology</li>
                     <li><strong>Internship</strong><br>July 2024 | Xinjiang University | Chemical Engineering Institute<br>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by carbon materials</li>
                     <li><strong>Research Experience in Prof. Xiaoning Liu's Lab</strong><br>2023-Present | Xinjiang University | College of Life Science and Technology<br>Research Focus: Pest Control, Cytochrome P450, Insecticide Resistance.</li>
                 </ul>
+
+                <h3>Projects & Software</h3> {/* Integrated "Software and Data" here */}
+                <ul>
+                    <li>
+                        <a href="https://github.com/ZiyanZhuang/BOGDA" target="_blank" rel="noopener">BOGDA</a> - A Deep Learning Framework for Pest Resistance Prediction
+                    </li>
+                </ul>
+
                 <h3>Skills</h3>
-               <ul>
-                <li>
-                <strong>Dry Lab Skills</strong><br>
-                    Proficient in computational techniques for molecular biology and bioinformatics. Expertise includes:
                 <ul>
-                <li>Molecular Docking: Utilizing tools such as Vina, ADFR, and LeDock to investigate ligand-protein interactions and characterize binding conformations of agrochemicals and proteins.</li>
-                <li>Molecular Dynamics (MD) Simulations: Experienced in all-atom MD simulations using GROMACS and AMBER for analyzing conformational dynamics.</li>
-                <li>Integrated Bioinformatics & Structural Modeling: Developing computational pipelines for analyzing gene expression (RNA-Seq), evolutionary analysis, AI-based structural modeling (AlphaFold, Protenix), traditional modeling (I-TASSER, Swiss-model), and structural analysis (Pymol, Discovery Studio, ChimeraX, Jmol, VMD, Mol*, Mole 2). Functional annotation using InterPro, UniProt, etc.</li>
-                <li>Data Science & Quantitative Analysis & AI for Science: Building mathematical models, processing experimental datasets with statistical validation, statistical analysis (hypothesis testing, regression modeling), advanced visualization (Python, MATLAB, R, Prism), and data wrangling. Developed BOGDA, a Deep Learning Framework for Pest Resistance Prediction.</li>
+                    <li>
+                        <strong>Dry Lab Skills</strong><br>
+                        Proficient in computational techniques for molecular biology and bioinformatics. Expertise includes:
+                        <ul>
+                            <li>Molecular Docking: Utilizing tools such as Vina, ADFR, and LeDock to investigate ligand-protein interactions and characterize binding conformations of agrochemicals and proteins.</li>
+                            <li>Molecular Dynamics (MD) Simulations: Experienced in all-atom MD simulations using GROMACS and AMBER for analyzing conformational dynamics.</li>
+                            <li>Integrated Bioinformatics & Structural Modeling: Developing computational pipelines for analyzing gene expression (RNA-Seq), evolutionary analysis, AI-based structural modeling (AlphaFold, Protenix), traditional modeling (I-TASSER, Swiss-model), and structural analysis (Pymol, Discovery Studio, ChimeraX, Jmol, VMD, Mol*, Mole 2). Functional annotation using InterPro, UniProt, etc.</li>
+                            <li>Data Science & Quantitative Analysis & AI for Science: Building mathematical models, processing experimental datasets with statistical validation, statistical analysis (hypothesis testing, regression modeling), advanced visualization (Python, MATLAB, R, Prism), and data wrangling. Developed BOGDA, a Deep Learning Framework for Pest Resistance Prediction.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Wet Lab Skills</strong><br>
+                        Mastery of fundamental molecular biology and biochemistry experimental techniques:
+                        <ul>
+                            <li>Functional Characterization of Genes: Via gene cloning, expression, and functional analysis using RNAi. Includes techniques such as nucleic acid extraction, PCR, reverse transcription, electrophoresis, and dsRNA synthesis.</li>
+                            <li>Protein Analysis: Including protein extraction and SDS-PAGE.</li>
+                            <li>Bioassays: Performing insect toxicity testing (LC50).</li>
+                            <li>Microbiology: Microbiome isolation (culture-dependent), 16S rRNA gene amplification and sequencing.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Microscopy & Chemistry Skills</strong><br>
+                        Experienced in microscopy and basic chemistry experimental techniques:
+                        <ul>
+                            <li>Microscopy: Operation of LSCM for observing cellular structures, skilled in cell fixation, fluorescent labeling (indirect immunofluorescence), and imaging techniques (ImageJ Fiji).</li>
+                            <li>Chemistry: Participation in methane microwave pyrolysis experiments, including gas sampling and operation of GC-MS instrumentation.</li>
+                        </ul>
+                    </li>
                 </ul>
-                </li>
-                <li>
-                <strong>Wet Lab Skills</strong><br>
-                Mastery of fundamental molecular biology and biochemistry experimental techniques:
-                <ul>
-                <li>Functional Characterization of Genes: Via gene cloning, expression, and functional analysis using RNAi. Includes techniques such as nucleic acid extraction, PCR, reverse transcription, electrophoresis, and dsRNA synthesis.</li>
-                <li>Protein Analysis: Including protein extraction and SDS-PAGE.</li>
-                <li>Bioassays: Performing insect toxicity testing (LC50).</li>
-                <li>Microbiology: Microbiome isolation (culture-dependent), 16S rRNA gene amplification and sequencing.</li>
-                </ul>
-                </li>
-                <li>
-                <strong>Microscopy & Chemistry Skills</strong><br>
-                Experienced in microscopy and basic chemistry experimental techniques:
-                <ul>
-                <li>Microscopy: Operation of LSCM for observing cellular structures, skilled in cell fixation, fluorescent labeling (indirect immunofluorescence), and imaging techniques (ImageJ Fiji).</li>
-                <li>Chemistry: Participation in methane microwave pyrolysis experiments, including gas sampling and operation of GC-MS instrumentation.</li>
-                </ul>
-                </li>
-            </ul>
             </section>
+
             <section id="blog-posts" class="content-section">
                 <h2>Blog Posts</h2>
                 <p>Here you can find my latest blog posts.</p>
@@ -134,44 +142,44 @@ This computational design phase is complemented by molecular dynamics (MD) simul
                     <li><a href="#">Example Blog Post Title 1</a></li>
                     <li><a href="#">Example Blog Post Title 2</a></li>
                 </ul>
-                <p>Visit my blog on [Platform Name]: <a href="Your Blog URL Here" target="_blank">Your Blog Link</a></p>
+                <p>Visit my blog on [Platform Name]: <a href="Your Blog URL Here" target="_blank" rel="noopener">Your Blog Link</a></p> {/* Added rel="noopener" */}
             </section>
+
             <section id="hobbies" class="content-section">
-        <h2>Hobbies & Interests</h2>
-        <p>Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:</p>
-        <ul>
-        <li>Programming interesting projects</li>
-        <li>Rock climbing</li>
-        <li>Fishing</li>
-        <li>Rock music, Jazz Hip Hop, Country music</li>
-        <li>Reading</li>
-        </ul>
-    <!-- 喜爱乐队/歌曲栏目 -->
-        <h3>Favorite Bands / Songs</h3>
-        <ul>
-            <li>Augustana – Boston</li>
-            <li>Green Day – Wake Me Up When September Ends</li>
-            <li>Oasis – Songbird</li>
-        </ul>
-    <p>I believe that broad interests can broaden horizons and inspire more ideas.</p>
-</section>
+                <h2>Hobbies & Interests</h2>
+                <p>Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:</p>
+                <ul>
+                    <li>Programming interesting projects</li>
+                    <li>Rock climbing</li>
+                    <li>Fishing</li>
+                    <li>Rock music, Jazz Hip Hop, Country music</li>
+                    <li>Reading</li>
+                </ul>
+                <h3>Favorite Bands / Songs</h3>
+                <ul>
+                    <li>Augustana – Boston</li>
+                    <li>Green Day – Wake Me Up When September Ends</li>
+                    <li>Oasis – Songbird</li>
+                </ul>
+                <p>I believe that broad interests can broaden horizons and inspire more ideas.</p>
+            </section>
+
             <section id="photo" class="content-section">
                 <h2>Photo Album</h2>
                 <div class="photo-album">
                     <img src="Ziyan1.jpg" alt="Ziyan's Photo">
                     <img src="photo1.jpg" alt="Group Photo 1">
-                    <!-- 可继续添加更多照片 -->
-                </div>
+                    </div>
             </section>
+            
             <footer>
                 <p>&copy; 2025 Ziyan Zhuang. All rights reserved.</p>
                 <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf</p>
-            </footer>
+                </footer>
         </main>
     </div>
-    <script src="theme.js"></script>
-    <script>
-    // 导航切换
+    <script src="theme.js"></script> <script>
+    // Navigation switching
     document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('#navbar a');
         const contentSections = document.querySelectorAll('.content-section');
@@ -197,69 +205,56 @@ This computational design phase is complemented by molecular dynamics (MD) simul
             });
         });
 
-        // 页面加载根据 hash 显示对应部分
+        // Load section based on hash
         if (window.location.hash) {
             const initialTargetId = window.location.hash.substring(1);
-            const navLink = Array.from(navLinks).find(link => link.dataset.target === initialTargetId);
-            showSection(initialTargetId, navLink);
+            const navLink = document.querySelector(`#navbar a[data-target="${initialTargetId}"]`); // More direct selector
+            if (navLink && document.getElementById(initialTargetId)) { // Check if target exists
+                 showSection(initialTargetId, navLink);
+            } else { // Fallback to default if hash is invalid
+                 showSection('about', document.querySelector('#navbar a[data-target="about"]'));
+            }
+        } else { // Default to 'about' if no hash
+            showSection('about', document.querySelector('#navbar a[data-target="about"]'));
         }
     });
     </script>
     <script>
-   // 主题切换
-    // 按钮文本已更换为图标，根据主题动态切换图标
+    // Theme toggle (assuming this is in theme.js, or place it here)
+    // If this code is in theme.js, ensure theme.js is loaded before this script or combine them.
+    // For this example, I'll put the refined theme logic here.
     const toggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
 
     function updateThemeIcon(theme) {
-        // 如果当前是dark，则显示月亮；否则显示太阳
-        themeIcon.textContent = theme === 'dark' ? 'Moon' : '☀';
+        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀'; // Use moon icon
+    }
+
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateThemeIcon(theme);
     }
 
     toggleBtn.addEventListener('click', () => {
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        const newTheme = isDark ? 'light' : 'dark';
-        document.body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
     });
 
-    window.onload = () => {
-        let theme = localStorage.getItem('theme');
-        if (theme) {
-            document.body.setAttribute('data-theme', theme);
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            theme = 'dark';
-            document.body.setAttribute('data-theme', 'dark');
-        } else {
-            theme = 'light';
-            document.body.setAttribute('data-theme', 'light');
+    // Initialize theme on load
+    // Ensure this runs after the DOM is ready or at the end of the body
+    // document.addEventListener('DOMContentLoaded', () => { // Or simply ensure script is at end of body
+        let preferredTheme = localStorage.getItem('theme');
+        if (!preferredTheme) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                preferredTheme = 'dark';
+            } else {
+                preferredTheme = 'light';
+            }
         }
-        updateThemeIcon(theme);
-    };
+        applyTheme(preferredTheme);
+    // });
     </script>
-<footer>
-  <span>Follow: </span>
-  <a href="https://github.com/ZiyanZhuang" target="_blank" style="text-decoration:none;">
-    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:middle;">
-      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 
-      6.53 5.47 7.59.4.07.55-.17.55-.38 
-      0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09
-      -.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63
-      -.01 1.08.58 1.23.82.72 1.21 1.87.87 
-      2.33.66.07-.52.28-.87.5-1.07-1.78-.2
-      -3.64-.89-3.64-3.95 0-.87.31-1.59.82
-      -2.15-.08-.2-.36-1.01.08-2.12 0 0 .67
-      -.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68
-      0 1.36.09 2 .27 1.53-1.04 2.2-.82 
-      2.2-.82.44 1.11.16 1.92.08 2.12.51
-      .56.82 1.27.82 2.15 0 3.07-1.87 3.75
-      -3.65 3.95.29.25.54.73.54 1.48 0 1.07
-      -.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01
-      8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-    </svg>
-    GitHub
-  </a>
-</footer>
-</body>
+    </body>
 </html>
