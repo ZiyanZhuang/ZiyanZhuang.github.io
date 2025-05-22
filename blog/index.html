@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZiyanZhuang Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --font-main: 'Roboto', 'Microsoft YaHei', Arial, sans-serif;
-      --font-poetry: 'Zhi Mang Xing', cursive;
       --transition: 0.4s cubic-bezier(.4,0,.2,1);
 
-      /* 主题色板 */
       --bg-day: #f8fafc;
       --bg-night: #181c23;
       --bg-eye: #e7f7ee;
@@ -85,7 +83,6 @@
     }
     .logo {
       font-size: 1.9rem;
-      font-family: var(--font-poetry), var(--font-main);
       color: var(--accent);
       letter-spacing: 0.18em;
       margin-right: 12px;
@@ -137,23 +134,23 @@
       margin: 60px 0 38px 0;
     }
     .hero-title {
-      font-family: var(--font-poetry), var(--font-main);
       font-size: 2.7rem;
       letter-spacing: 0.13em;
       margin-bottom: 12px;
       color: var(--accent);
       text-shadow: 0 2px 18px #0078d41a;
+      font-family: var(--font-main);
     }
     .hero-desc {
       font-size: 1.18rem;
       color: #6d7a89;
       margin-bottom: 8px;
+      font-family: var(--font-main);
     }
 
     .blog-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 32px;
+      display: flex;
+      flex-direction: column;
       max-width: 900px;
       margin: 0 auto 60px auto;
       padding: 0 12px;
@@ -170,6 +167,8 @@
       cursor: pointer;
       transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
       min-height: 170px;
+      margin-bottom: 0;
+      font-family: var(--font-main);
     }
     .blog-card:hover {
       border-color: var(--accent);
@@ -178,10 +177,19 @@
     }
     .blog-card-title {
       font-size: 1.22rem;
-      font-family: var(--font-poetry), var(--font-main);
+      font-family: var(--font-main);
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    .blog-date {
+      font-size: 0.88em;
+      color: #b8b8b8;
+      margin-left: 12px;
+      font-family: inherit;
+      font-weight: normal;
     }
     .blog-card-desc {
       color: #7b8ca3;
@@ -189,18 +197,12 @@
       font-family: var(--font-main);
       flex: 1;
     }
-
-    /* 书卷气装饰 */
-    .scroll-decor {
-      font-family: var(--font-poetry), var(--font-main);
-      color: #bfa063;
-      font-size: 2.5rem;
-      text-align: center;
-      margin-top: 30px;
-      margin-bottom: -18px;
-      letter-spacing: 0.18em;
-      opacity: 0.18;
-      user-select: none;
+    .blog-divider {
+      border: none;
+      border-top: 1.2px solid var(--card-border);
+      margin: 28px 0;
+      width: 100%;
+      opacity: 0.8;
     }
 
     @media (max-width: 600px) {
@@ -210,14 +212,10 @@
         padding: 14px 8px 6px;
       }
       .blog-list {
-        gap: 16px;
         padding: 0 2px;
       }
       .hero-title {
         font-size: 1.7rem;
-      }
-      .scroll-decor {
-        font-size: 1.2rem;
       }
     }
   </style>
@@ -241,16 +239,22 @@
   </section>
   <section class="blog-list">
     <div class="blog-card" onclick="location.href='blog/essay1.html'">
-      <div class="blog-card-title">我们还能深度思考吗？<span style="font-size:0.88em;color:#b8b8b8;font-family:inherit;">5/22/2025</span></div>
+      <div class="blog-card-title">我们还能深度思考吗？<span class="blog-date">5/22/2025</span></div>
       <div class="blog-card-desc">迷你小说</div>
     </div>
-    <!-- 可继续添加更多博文卡片 -->
+    <hr class="blog-divider">
+    <!-- 新增文章示例
+    <div class="blog-card" onclick="location.href='blog/essay2.html'">
+      <div class="blog-card-title">新的文章标题<span class="blog-date">5/23/2025</span></div>
+      <div class="blog-card-desc">文章简介</div>
+    </div>
+    <hr class="blog-divider">
+    -->
   </section>
   <script>
     // 主题切换逻辑
     const html = document.documentElement;
     const themeBtns = document.querySelectorAll('.theme-btn');
-    // 读取本地存储
     function setTheme(theme) {
       html.setAttribute('data-theme', theme);
       localStorage.setItem('blog-theme', theme);
