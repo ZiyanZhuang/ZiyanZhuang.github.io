@@ -4,148 +4,266 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZiyanZhuang Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-gradient: linear-gradient(135deg, #101822 0%, #1a2233 100%);
-      --neon-blue: #00e6ff;
-      --neon-green: #16fcb3;
-      --card-bg: rgba(30, 38, 54, 0.9);
-      --text-main: #fff;
-      --text-sub: #c6e2ff;
-      --border-radius: 16px;
-      --shadow: 0 4px 32px rgba(0,0,0,0.25);
-      --transition: 0.3s cubic-bezier(.4,0,.2,1);
+      --font-main: 'Roboto', 'Microsoft YaHei', Arial, sans-serif;
+      --font-poetry: 'Zhi Mang Xing', cursive;
+      --transition: 0.4s cubic-bezier(.4,0,.2,1);
+
+      /* 主题色板 */
+      --bg-day: #f8fafc;
+      --bg-night: #181c23;
+      --bg-eye: #e7f7ee;
+      --bg-scroll: #f5ecd2;
+
+      --text-day: #202228;
+      --text-night: #f7fafd;
+      --text-eye: #234c2e;
+      --text-scroll: #5d4022;
+
+      --accent: #0078d4;
+      --paper: #fffbe8;
+      --border: #ececec;
+
+      --card-radius: 20px;
+      --shadow: 0 2px 24px 0 rgba(0,0,0,0.04);
     }
+
+    html[data-theme="day"] {
+      --bg-base: var(--bg-day);
+      --text-base: var(--text-day);
+      --card-bg: #fff;
+      --card-border: #e3e3e3;
+      --header-bg: rgba(255,255,255,0.85);
+    }
+    html[data-theme="night"] {
+      --bg-base: var(--bg-night);
+      --text-base: var(--text-night);
+      --card-bg: #242832;
+      --card-border: #22242a;
+      --header-bg: rgba(24,28,35,0.92);
+    }
+    html[data-theme="eye"] {
+      --bg-base: var(--bg-eye);
+      --text-base: var(--text-eye);
+      --card-bg: #eaf9f1;
+      --card-border: #b7e2ce;
+      --header-bg: rgba(231, 247, 238, 0.85);
+    }
+    html[data-theme="scroll"] {
+      --bg-base: var(--bg-scroll);
+      --text-base: var(--text-scroll);
+      --card-bg: #f8f5e2;
+      --card-border: #e6dbb7;
+      --header-bg: rgba(248,245,226,0.88);
+    }
+
     body {
+      background: var(--bg-base);
+      color: var(--text-base);
+      font-family: var(--font-main);
       margin: 0;
-      background: var(--bg-gradient);
-      font-family: 'Roboto', Arial, sans-serif;
-      color: var(--text-main);
+      padding: 0;
       min-height: 100vh;
-      letter-spacing: 0.03em;
+      transition: background var(--transition), color var(--transition);
+      letter-spacing: 0.02em;
     }
+
     header {
-      width: 100%;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      background: rgba(16,24,34,0.75);
+      background: var(--header-bg);
       backdrop-filter: blur(8px);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      z-index: 100;
-      box-shadow: var(--shadow);
+      justify-content: space-between;
+      padding: 18px 32px 12px;
+      z-index: 10;
+      border-bottom: 1px solid var(--card-border);
+      transition: background var(--transition), border-color var(--transition);
     }
-    header h1 {
-      font-size: 2rem;
-      background: linear-gradient(90deg, var(--neon-blue), var(--neon-green));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 0.12em;
+    .logo {
+      font-size: 1.9rem;
+      font-family: var(--font-poetry), var(--font-main);
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      margin-right: 12px;
+      user-select: none;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
     }
     nav a {
-      color: var(--text-sub);
+      color: var(--text-base);
       text-decoration: none;
-      margin-left: 24px;
-      font-weight: 700;
-      transition: color var(--transition);
+      font-weight: 500;
+      border-radius: 6px;
+      padding: 4px 10px;
+      transition: background var(--transition), color var(--transition);
     }
     nav a:hover {
-      color: var(--neon-blue);
+      background: var(--accent);
+      color: #fff;
     }
-    .hero {
+
+    .theme-switcher {
       display: flex;
-      flex-direction: column;
+      gap: 10px;
       align-items: center;
-      justify-content: center;
-      min-height: 60vh;
-      padding-top: 120px;
-      padding-bottom: 40px;
+      margin-left: 16px;
+    }
+    .theme-btn {
+      background: none;
+      border: 1.2px solid var(--card-border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.95rem;
+      color: var(--text-base);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border var(--transition);
+      outline: none;
+      font-family: var(--font-main);
+    }
+    .theme-btn.active, .theme-btn:focus {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .hero {
       text-align: center;
+      margin: 60px 0 38px 0;
     }
     .hero-title {
-      font-size: 3.2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 24px #00e6ff44;
+      font-family: var(--font-poetry), var(--font-main);
+      font-size: 2.7rem;
+      letter-spacing: 0.13em;
+      margin-bottom: 12px;
+      color: var(--accent);
+      text-shadow: 0 2px 18px #0078d41a;
     }
     .hero-desc {
-      font-size: 1.3rem;
-      color: var(--text-sub);
-      margin-bottom: 32px;
-      max-width: 550px;
+      font-size: 1.18rem;
+      color: #6d7a89;
+      margin-bottom: 8px;
     }
+
     .blog-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 16px 80px;
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      padding: 0 12px;
     }
     .blog-card {
       background: var(--card-bg);
-      border-radius: var(--border-radius);
+      border-radius: var(--card-radius);
+      border: 1.5px solid var(--card-border);
       box-shadow: var(--shadow);
-      border: 1.5px solid transparent;
-      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
-      padding: 32px 24px 24px;
       display: flex;
       flex-direction: column;
-      min-height: 220px;
       justify-content: flex-end;
+      padding: 28px 22px 22px;
       cursor: pointer;
+      transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+      min-height: 170px;
     }
     .blog-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      border-color: var(--neon-blue);
-      box-shadow: 0 8px 40px #00e6ff22;
+      border-color: var(--accent);
+      box-shadow: 0 4px 36px #0078d41c;
+      transform: translateY(-4px) scale(1.012);
     }
     .blog-card-title {
-      font-size: 1.3rem;
+      font-size: 1.22rem;
+      font-family: var(--font-poetry), var(--font-main);
       font-weight: 700;
-      margin-bottom: 14px;
-      color: var(--neon-blue);
-      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 12px;
     }
     .blog-card-desc {
-      color: var(--text-sub);
+      color: #7b8ca3;
       font-size: 1rem;
+      font-family: var(--font-main);
       flex: 1;
     }
+
+    /* 书卷气装饰 */
+    .scroll-decor {
+      font-family: var(--font-poetry), var(--font-main);
+      color: #bfa063;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: -18px;
+      letter-spacing: 0.18em;
+      opacity: 0.18;
+      user-select: none;
+    }
+
     @media (max-width: 600px) {
       header {
         flex-direction: column;
-        padding: 16px 8px;
-      }
-      .hero-title {
-        font-size: 2.1rem;
+        align-items: flex-start;
+        padding: 14px 8px 6px;
       }
       .blog-list {
-        gap: 18px;
-        padding: 24px 4px 60px;
+        gap: 16px;
+        padding: 0 2px;
+      }
+      .hero-title {
+        font-size: 1.7rem;
+      }
+      .scroll-decor {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
+    <span class="logo">子衍书斋</span>
+    <nav>
+      <a href="/">首页</a>
+      <a href="/blog/index.html" style="font-weight:700">博客</a>
+      <a href="/about.html">关于</a>
+    </nav>
+    <div class="theme-switcher">
+      <button class="theme-btn" data-theme="day">日间</button>
+      <button class="theme-btn" data-theme="night">夜间</button>
+      <button class="theme-btn" data-theme="eye">护眼</button>
+      <button class="theme-btn" data-theme="scroll">羊皮卷</button>
+    </div>
+  </header>
+  <div class="scroll-decor">书卷气自华</div>
   <section class="hero">
     <div class="hero-title">我思故我在</div>
-    <div class="hero-desc">记录些许思考</div>
+    <div class="hero-desc">思考与表达，记录片刻灵感。</div>
   </section>
   <section class="blog-list">
     <div class="blog-card" onclick="location.href='blog/essay1.html'">
-      <div class="blog-card-title">我们还能深度思考吗？5/22/2025</div>
+      <div class="blog-card-title">我们还能深度思考吗？<span style="font-size:0.88em;color:#b8b8b8;font-family:inherit;">5/22/2025</span></div>
       <div class="blog-card-desc">迷你小说</div>
     </div>
-
+    <!-- 可继续添加更多博文卡片 -->
   </section>
+  <script>
+    // 主题切换逻辑
+    const html = document.documentElement;
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    // 读取本地存储
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('blog-theme', theme);
+      themeBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.theme === theme));
+    }
+    const saved = localStorage.getItem('blog-theme');
+    setTheme(saved || 'day');
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', () => setTheme(btn.dataset.theme));
+    });
+  </script>
 </body>
 </html>
