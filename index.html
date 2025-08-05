@@ -7,6 +7,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        .news-item {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .news-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .research-interests {
+            margin: 15px 0;
+        }
+
+        .research-interests ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .research-interests li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
     <nav id="navbar">
@@ -49,10 +79,25 @@
                 <h2>About Me</h2>
                 <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and look forward to making meaningful contributions in my field.</p>
                 
-                <h3>Some ideas</h3>
-                <p>My one idea is driven by the recognition that while natural enzymes are exquisite catalysts, their inherent limitations in scope and stability necessitate the development of artificial counterparts. Overcoming the current bottlenecks in enzyme engineering – moving beyond empirical methods like directed evolution to predictable, de novo design – requires a deep understanding of the fundamental physical and chemical principles governing enzyme catalysis.</p>
-                <p>Towards this goal, I am particularly interested in leveraging multiscale simulation techniques rooted in first-principles quantum mechanics and statistical mechanics. My research ideas revolve around developing and applying computational frameworks that begin with the intrinsic quantum chemical nature of a target reaction's transition state. By precisely characterizing the electronic structure and geometry of this transient state, we can define the ideal catalytic microenvironment required within a protein scaffold. Subsequently, techniques like Markov Chain Monte Carlo (MCMC) sampling and energy optimization algorithms can be employed to search the vast sequence and conformational space for amino acid combinations capable of stabilizing this transition state.</p>
-                <p>This computational design phase is complemented by molecular dynamics (MD) simulations, which provide crucial insights into the dynamic behavior, flexibility, and solvent effects of the designed enzyme-substrate complexes under different thermodynamic ensembles. Calculating key thermodynamic quantities, such as binding and activation free energies, using enhanced sampling methods allows for a theoretical evaluation of catalytic efficiency. Finally, high-accuracy quantum mechanics/molecular mechanics (QM/MM) methods are indispensable for refining the catalytic mechanism and validating the design at an atomic level.</p>
+                <h3>News</h3>
+                <div class="news-item">
+                    <img src="paperwall.jpg" alt="Paper Wall" class="news-image">
+                    <p><strong>March 2025:</strong> Our paper titled "Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover (Hemiptera: Aphididae): in silico and RNAi analyses" has been accepted for publication in the <em>Journal of Economic Entomology</em>!</p>
+                </div>
+
+                <h3>Research Interests</h3>
+                <div class="research-interests">
+                    <p>My research focuses on enzyme engineering and computational biology. I am particularly interested in:</p>
+                    <ul>
+                        <li>De novo enzyme design using quantum mechanics and statistical mechanics</li>
+                        <li>Molecular dynamics simulations of protein-substrate interactions</li>
+                        <li>Development of computational frameworks for predicting enzyme catalysis</li>
+                        <li>Application of QM/MM methods for mechanism validation</li>
+                    </ul>
+                </div>
+
+                <h3>Research Vision</h3>
+                <p>My vision is driven by the recognition that while natural enzymes are exquisite catalysts, their inherent limitations in scope and stability necessitate the development of artificial counterparts. I aim to overcome current bottlenecks in enzyme engineering by moving beyond empirical methods to predictable, de novo design through understanding fundamental physical and chemical principles.</p>
             </section>
 
             <section id="publications" class="content-section">
