@@ -36,6 +36,23 @@
             margin-bottom: 8px;
             line-height: 1.6;
         }
+
+        h4 {
+            color: var(--text-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            font-size: 1.1em;
+        }
+
+        #about ul {
+            margin-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+
+        #about li {
+            margin-bottom: 0.8em;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -86,18 +103,29 @@
                 </div>
 
                 <h3>Research Interests</h3>
-                <div class="research-interests">
-                    <p>My research focuses on enzyme engineering and computational biology. I am particularly interested in:</p>
-                    <ul>
-                        <li>De novo enzyme design using quantum mechanics and statistical mechanics</li>
-                        <li>Molecular dynamics simulations of protein-substrate interactions</li>
-                        <li>Development of computational frameworks for predicting enzyme catalysis</li>
-                        <li>Application of QM/MM methods for mechanism validation</li>
-                    </ul>
-                </div>
+                <p>My research is driven by a fundamental curiosity about how we can move beyond traditional, empirical methods to design complex systems—be it a novel protein or a truly adaptive AI. My goal is to leverage computational methods to develop frameworks that are not only effective but also grounded in first principles, whether they are the laws of physics and chemistry or the evolutionary principles governing biological intelligence.</p>
+
+                <h4>Direction 1: MCMC and PINNs for De Novo Protein Design</h4>
+                <p>The first direction of my research focuses on developing predictive and robust methodologies for <strong>de novo protein design</strong> from a computational chemistry perspective. I believe that by integrating statistical mechanics and deep learning, we can overcome the limitations of traditional molecular dynamics and empirical design.</p>
+                
+                <p>I am particularly interested in two synergistic approaches:</p>
+                <ul>
+                    <li><strong>Markov Chain Monte Carlo (MCMC) Framework:</strong> This approach efficiently samples the vast conformational space of proteins by defining the design space with physically and chemically meaningful moves. The acceptance of these moves will be guided by a scoring function that combines established force fields with statistical potentials derived from known protein structures.</li>
+                    <li><strong>Physics-Informed Neural Networks (PINNs):</strong> While deep learning models like AlphaFold are powerful, they can sometimes produce physically unrealistic structures. My approach augments the neural network's loss function with terms that enforce fundamental physical constraints, ensuring generated protein structures are both plausible and physically stable.</li>
+                </ul>
+
+                <h4>Direction 2: An Evolving Agent Framework for Continuous Learning</h4>
+                <p>My second research direction is inspired by a critical observation: current Agent frameworks, despite their potential, are inherently limited by the static, "train-and-predict" paradigm of their underlying Large Language Models (LLMs).</p>
+                
+                <p>I propose to develop:</p>
+                <ul>
+                    <li>A novel <strong>Agent architecture</strong> that integrates principles of biological intelligence, creating a dynamic system that continuously learns and adapts.</li>
+                    <li>A cyclical learning mechanism, analogous to the human sleep-wake cycle, for daily information integration and consolidation.</li>
+                    <li>An evolutionary selection mechanism to refine the architecture, mimicking natural selection to enhance the system's overall performance.</li>
+                </ul>
 
                 <h3>Research Vision</h3>
-                <p>My vision is driven by the recognition that while natural enzymes are exquisite catalysts, their inherent limitations in scope and stability necessitate the development of artificial counterparts. I aim to overcome current bottlenecks in enzyme engineering by moving beyond empirical methods to predictable, de novo design through understanding fundamental physical and chemical principles.</p>
+                <p>My ultimate goal is to bridge the gap between computational design and biological systems, creating frameworks that can truly evolve and adapt. Whether designing novel proteins or developing intelligent systems, I aim to ground my work in fundamental principles while pushing the boundaries of what's possible.</p>
             </section>
 
             <section id="publications" class="content-section">
@@ -144,6 +172,15 @@
                 <ul>
                     <li>
                         <a href="https://github.com/ZiyanZhuang/BOGDA" target="_blank" rel="noopener">BOGDA</a> - A Deep Learning Framework for Pest Resistance Prediction
+                    </li>
+                    <li>
+                        <a href="https://github.com/ZiyanZhuang/ProXplorer" target="_blank" rel="noopener">ProXplorer</a> - An Integrated Python Framework for Protein Structure Analysis
+                        <ul>
+                            <li>Features comprehensive tools for protein structure visualization and analysis</li>
+                            <li>Implements advanced algorithms for structural comparison and pattern recognition</li>
+                            <li>Provides seamless integration with popular molecular dynamics packages</li>
+                            <li>Built with modern Python practices and extensive documentation</li>
+                        </ul>
                     </li>
                 </ul>
 
@@ -200,15 +237,6 @@
                 </ul>
                 <h3>Favorite Bands / Songs</h3>
                 <ul>
-                    <li>Augustana – Boston</li>
-                    <li>Green Day – Wake Me Up When September Ends</li>
-                    <li>Oasis – Songbird</li>
-                </ul>
-                <p>I believe that broad interests can broaden horizons and inspire more ideas.</p>
-            </section>
-
-            <section id="photo" class="content-section">
-                <h2>Photo Album</h2>
                 <div class="photo-album">
                     <img src="Ziyan1.jpg" alt="Ziyan's Photo">
                     <img src="photo1.jpg" alt="Group Photo 1">
