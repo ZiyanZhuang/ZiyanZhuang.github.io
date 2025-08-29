@@ -4,180 +4,295 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ziyan Zhuang's Personal Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        .news-item {
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 8px;
-            background: var(--card-bg);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        :root {
+            --primary: #0a7cff;
+            --bg: #f7f9fb;
+            --card-bg: #fff;
+            --text-color: #23272f;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --radius: 18px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.07);
+            --font-main: 'Inter', 'Roboto', Arial, sans-serif;
+            --font-size: 17px;
+            --font-size-sm: 15px;
+            --font-size-lg: 22px;
+            --transition: all 0.18s cubic-bezier(.77,0,.18,1);
         }
-
-        .news-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-
-        .research-interests {
-            margin: 15px 0;
-        }
-
-        .research-interests ul {
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        .research-interests li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        h4 {
+        html, body {
+            background: var(--bg);
             color: var(--text-color);
-            margin-top: 1.5em;
-            margin-bottom: 0.8em;
-            font-size: 1.1em;
+            font-family: var(--font-main);
+            font-size: var(--font-size);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
-
-        #about ul {
-            margin-left: 1.5em;
-            margin-bottom: 1.5em;
+        body[data-theme="dark"] {
+            --bg: #181a1b;
+            --card-bg: #23272f;
+            --text-color: #e5e7eb;
+            --text-light: #a1a1aa;
+            --border: #2d3238;
         }
-
-        #about li {
-            margin-bottom: 0.8em;
-            line-height: 1.6;
-        }
-
-        .field-work {
-            margin: 20px 0;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .photo-item {
-            position: relative;
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .photo-item img:hover {
-            transform: scale(1.02);
-        }
-
-        .caption {
-            font-size: 0.9em;
+        h1, h2, h3, h4 {
+            font-family: var(--font-main);
+            font-weight: 700;
             color: var(--text-color);
-            margin-top: 8px;
-            text-align: center;
+            margin-top: 0;
         }
-
-        .video-container {
-            margin: 20px 0;
-            width: 100%;
+        h1 { font-size: 2.2em; margin-bottom: 0.3em; }
+        h2 { font-size: 1.5em; margin-bottom: 0.7em; }
+        h3 { font-size: 1.15em; margin-bottom: 0.7em; letter-spacing: 0.01em;}
+        h4 { font-size: 1em; margin-bottom: 0.5em; }
+        p, li, ul {
+            font-size: 1em;
+            color: var(--text-color);
         }
-
-        .video-container video {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 8px;
-            margin: 0 auto;
-            display: block;
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.15s;
         }
-
-        /* ===== 新增：新闻轮播样式 ===== */
-        .news-carousel {
-            position: relative;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            overflow: hidden;
-            border-radius: 8px;
+        a:hover { color: #005bbd; }
+        /* Navbar */
+        #navbar {
             background: var(--card-bg);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding: 12px;
-        }
-        .news-slides {
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            margin: 18px auto 28px auto;
+            max-width: 900px;
+            padding: 0.5em 1.5em;
             display: flex;
-            transition: transform 0.5s ease;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #navbar ul {
+            display: flex;
+            gap: 1.5em;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #navbar a {
+            font-size: 1em;
+            font-weight: 500;
+            color: var(--text-color);
+            padding: 0.3em 0.7em;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+        #navbar a.active, #navbar a:hover {
+            background: #eaf3ff;
+            color: var(--primary);
+        }
+        #theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.3em;
+            cursor: pointer;
+            color: var(--primary);
+            margin-left: 1em;
+        }
+        .page-layout {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            gap: 2.5em;
+            padding: 0 1.5em;
+        }
+        #sidebar {
+            min-width: 220px;
+            max-width: 260px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2em 1.2em 1.2em 1.2em;
+            margin-top: 1.5em;
+            align-self: flex-start;
+        }
+        #avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 1.2em auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+        .contact-info p, .contact-info a {
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+            margin: 0.3em 0;
+        }
+        main#content {
+            flex: 1 1 0;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2.5em 2.2em 2em 2.2em;
+            margin-top: 1.5em;
+            min-width: 0;
+        }
+        header h1 {
+            font-size: var(--font-size-lg);
+            margin-bottom: 0.1em;
+        }
+        .content-section {
+            margin-bottom: 2.5em;
+        }
+        .content-section:not(.active) { display: none; }
+        ul { padding-left: 1.2em; }
+        li { margin-bottom: 0.5em; }
+        /* News Carousel v2: OpenAI-style, image-dominant, smooth */
+        .news-carousel-v2 {
+            position: relative;
+            max-width: 680px;
+            margin: 0 auto 2.5em auto;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            padding: 0;
+            outline: none;
+        }
+        .news-slides-v2 {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(.77,0,.18,1);
             will-change: transform;
         }
-        .news-slide {
+        .news-slide-v2 {
             min-width: 100%;
-            box-sizing: border-box;
-            padding: 8px 12px;
             display: flex;
-            gap: 12px;
-            align-items: flex-start;
+            flex-direction: row;
+            align-items: stretch;
+            background: none;
         }
-        .news-slide img {
-            width: 140px;
-            height: 96px;
-            object-fit: cover;
-            border-radius: 6px;
-            flex-shrink: 0;
-        }
-        .news-meta {
-            flex: 1;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .news-meta a { color: var(--link-color); text-decoration: underline; }
-        .news-controls {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 8px;
-            display: flex;
-            gap: 8px;
-        }
-        .news-btn {
-            background: rgba(0,0,0,0.06);
-            border: none;
-            padding: 6px 10px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        .news-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            cursor: pointer;
+        .news-imgbox {
+            flex: 1.2 1 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #f7f7fa;
+            min-height: 180px;
+            max-height: 260px;
+            overflow: hidden;
         }
-        .news-prev { left: 10px; }
-        .news-next { right: 10px; }
-
-        @media (max-width:600px) {
-            .news-slide { flex-direction: column; align-items: stretch; }
-            .news-slide img { width: 100%; height: auto; }
+        .news-imgbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            display: block;
         }
-        /* ===== 结束 ===== */
+        .news-contentbox {
+            flex: 1 1 0;
+            padding: 2.2em 2em 2em 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: none;
+        }
+        .news-date {
+            font-size: 1em;
+            color: var(--text-light);
+            margin-bottom: 0.3em;
+            letter-spacing: 0.02em;
+        }
+        .news-title {
+            font-size: 1.18em;
+            font-weight: 600;
+            margin-bottom: 0.7em;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        .news-desc {
+            font-size: 1em;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .news-desc a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 0.2em;
+        }
+        .news-nav-v2 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.92);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+            font-size: 1.3em;
+            color: #444;
+            z-index: 2;
+            transition: background 0.2s;
+        }
+        .news-nav-v2:hover { background: #eaf3ff; }
+        .news-prev-v2 { left: 10px; }
+        .news-next-v2 { right: 10px; }
+        .news-dots-v2 {
+            position: absolute;
+            left: 50%;
+            bottom: 16px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .news-dot-v2 {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #d0d6e0;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            padding: 0;
+        }
+        .news-dot-v2.active {
+            background: var(--primary);
+        }
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .page-layout { flex-direction: column; gap: 0; }
+            #sidebar { max-width: 100%; margin-bottom: 1.5em; }
+            main#content { padding: 1.5em 1em 1em 1em; }
+        }
+        @media (max-width: 700px) {
+            html { font-size: 15px; }
+            #navbar { flex-direction: column; gap: 0.5em; padding: 0.7em 0.7em; }
+            .news-carousel-v2 { max-width: 98vw; }
+            .news-slide-v2 { flex-direction: column; }
+            .news-imgbox { min-height: 160px; max-height: 200px; }
+            .news-contentbox { padding: 1.2em 1em 1.5em 1em; }
+        }
+        @media (max-width: 500px) {
+            html { font-size: 14px; }
+            #sidebar, main#content { padding: 1em 0.5em; }
+        }
+        /* Misc */
+        .photo-grid { gap: 1.2em; }
+        .photo-item img { border-radius: 10px; }
+        .video-container video { border-radius: 10px; }
+        footer {
+            text-align: center;
+            color: var(--text-light);
+            font-size: var(--font-size-sm);
+            margin: 2.5em 0 0 0;
+            padding: 1.2em 0 0 0;
+        }
     </style>
 </head>
 <body>
@@ -222,40 +337,42 @@
                 <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and look forward to making meaningful contributions in my field.</p>
                 
                 <h3>News</h3>
-
-                <!-- 替换原有静态 news-item 为轮播 -->
-                <div class="news-carousel" id="newsCarousel" aria-roledescription="carousel">
-                    <div class="news-slides">
-                        <!-- 新增新闻（使用 new829.jpg） -->
-                        <article class="news-slide" aria-roledescription="slide">
-                            <img src="new829.jpg" alt="Spinetoram paper">
-                            <div class="news-meta">
-                                <strong>Aug 28, 2025 — Pesticide Biochemistry and Physiology</strong>
-                                <p style="margin:.4em 0;">
-                                Congratulations to senior colleague Xie! The paper “Spinetoram resistance in Tuta absoluta: selection, inheritance, biochemical mechanism and fitness cost” is now online (In Press, 106659). After 20 generations of selection, resistance to spinetoram increased ≈410.9-fold. The resistance is polygenic, autosomal, and partially recessive (h² = 0.36). Elevated activities of P450s, GSTs, and CarEs constitute the principal metabolic resistance mechanism. The resistant strain incurs fitness costs including prolonged larval development and reduced adult longevity.
-                                DOI: <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">10.1016/j.pestbp.2025.106659</a>
-                                </p>
-                            </div>
-                        </article>
-
-                        <!-- 原有新闻作为第二张幻灯片 -->
-                        <article class="news-slide" aria-roledescription="slide">
-                            <img src="paperwall.jpg" alt="Paper Wall">
-                            <div class="news-meta">
-                                <strong>Mar 2025</strong>
-                                <p style="margin:.4em 0;">论文《Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover…》已被 <em>Journal of Economic Entomology</em> 接收。</p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <button class="news-nav news-prev" aria-label="Previous slide">&#8592;</button>
-                    <button class="news-nav news-next" aria-label="Next slide">&#8594;</button>
-
-                    <div class="news-controls" aria-hidden="true">
-                        <button class="news-btn" id="pauseBtn">Pause</button>
-                        <button class="news-btn" id="readAllBtn" onclick="location.href='#publications'">更多 →</button>
-                    </div>
+                <!-- News Carousel: OpenAI-style, image-dominant, smooth layout -->
+<div class="news-carousel-v2" id="newsCarousel" aria-roledescription="carousel" tabindex="0">
+    <div class="news-slides-v2">
+        <!-- Newest News -->
+        <article class="news-slide-v2">
+            <div class="news-imgbox">
+                <img src="new829.jpg" alt="Spinetoram Resistance Research">
+            </div>
+            <div class="news-contentbox">
+                <div class="news-date">Aug 28, 2025</div>
+                <div class="news-title">Breakthrough: Spinetoram Resistance Mechanisms in Tuta absoluta</div>
+                <div class="news-desc">
+                    Congratulations to Xie and team! Our latest paper in <em>Pesticide Biochemistry and Physiology</em> reveals a 410-fold increase in spinetoram resistance after 20 generations. The resistance is polygenic, autosomal, and partially recessive (h²=0.36), driven by elevated P450s, GSTs, and CarEs. Notably, resistance comes with fitness costs—longer larval stages and shorter adult lifespan.<br>
+                    <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read the paper &rarr;</a>
                 </div>
+            </div>
+        </article>
+        <!-- Previous News -->
+        <article class="news-slide-v2">
+            <div class="news-imgbox">
+                <img src="paperwall.jpg" alt="Paper Wall">
+            </div>
+            <div class="news-contentbox">
+                <div class="news-date">Mar 2025</div>
+                <div class="news-title">CYP380C12 Function in Cotton Aphid Published</div>
+                <div class="news-desc">
+                    Our study on <em>CYP380C12</em> in <em>Aphis gossypii</em> is accepted by <em>Journal of Economic Entomology</em>!<br>
+                    <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read more &rarr;</a>
+                </div>
+            </div>
+        </article>
+    </div>
+    <button class="news-nav-v2 news-prev-v2" aria-label="Previous slide">&#8592;</button>
+    <button class="news-nav-v2 news-next-v2" aria-label="Next slide">&#8594;</button>
+    <div class="news-dots-v2"></div>
+</div>
 
                 <h3>Research Interests</h3>
                 <p>My research is driven by a fundamental curiosity about how we can move beyond traditional, empirical methods to design complex systems—be it a novel protein or a truly adaptive AI. My goal is to leverage computational methods to develop frameworks that are not only effective but also grounded in first principles, whether they are the laws of physics and chemistry or the evolutionary principles governing biological intelligence.</p>
@@ -286,6 +403,9 @@
             <section id="publications" class="content-section">
                 <h2>Publications</h2>
                 <ul>
+                    <li class="publication-item">
+                        5) Xie JG<sup>1</sup>, Turak R<sup>1</sup>, Liu N, <strong>Zhuang ZY</strong>, Liu XN, Song Y. 2025. Spinetoram resistance in <em>Tuta absoluta</em>: selection, inheritance, biochemical mechanism and fitness cost. <em>Pesticide Biochemistry and Physiology</em>. <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read the paper &rarr;</a> JCR Q1
+                    </li>
                     <li class="publication-item">
                         4) Zhang LJ<sup>1</sup>, <strong>Zhuang ZY<sup>1</sup></strong>, Xie JG<sup>1</sup>, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover (Hemiptera: Aphididae): in silico and RNAi analyses. <em>Journal of Economic Entomology</em>. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">https://doi.org/10.1093/jee/toaf067</a> JCR Q1 
                     </li>
@@ -563,29 +683,53 @@
     })();
     // ===== 结束 =====
     </script>
-    </body>
-</html><script>
-document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.news-slide');
-    const prevBtn = document.querySelector('.news-prev');
-    const nextBtn = document.querySelector('.news-next');
-    let current = 0;
-
-    function showSlide(idx) {
-        slides.forEach((slide, i) => slide.classList.toggle('active', i === idx));
+    <script>
+// News Carousel v2: OpenAI-style, smooth, dots, image-dominant
+(function() {
+    const carousel = document.getElementById('newsCarousel');
+    if (!carousel) return;
+    const slidesWrap = carousel.querySelector('.news-slides-v2');
+    const slides = Array.from(carousel.querySelectorAll('.news-slide-v2'));
+    const prev = carousel.querySelector('.news-prev-v2');
+    const next = carousel.querySelector('.news-next-v2');
+    const dotsBox = carousel.querySelector('.news-dots-v2');
+    let index = 0, interval = null, delay = 6000;
+    // Dots
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'news-dot-v2' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i+1));
+        dot.addEventListener('click', () => { goTo(i); stopAuto(); });
+        dotsBox.appendChild(dot);
+    });
+    const dots = Array.from(dotsBox.children);
+    function updateDots() {
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
+    function goTo(i) {
+        index = (i + slides.length) % slides.length;
+        slidesWrap.style.transform = `translateX(-${index * 100}%)`;
+        updateDots();
+    }
+    function nextSlide() { goTo(index + 1); }
+    function prevSlide() { goTo(index - 1); }
+    function startAuto() {
+        stopAuto();
+        interval = setInterval(nextSlide, delay);
+    }
+    function stopAuto() {
+        if (interval) { clearInterval(interval); interval = null; }
+    }
+    // controls
+    next.addEventListener('click', () => { nextSlide(); stopAuto(); });
+    prev.addEventListener('click', () => { prevSlide(); stopAuto(); });
+    // init
+    goTo(0);
+    startAuto();
+})();
+    </script>
+</body>
+</html>
 
-    prevBtn.addEventListener('click', () => {
-        current = (current - 1 + slides.length) % slides.length;
-        showSlide(current);
-    });
 
-    nextBtn.addEventListener('click', () => {
-        current = (current + 1) % slides.length;
-        showSlide(current);
-    });
-
-    showSlide(current);
-});
-</script>
 
