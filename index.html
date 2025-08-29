@@ -181,19 +181,21 @@
         }
         .news-imgbox-large {
             width: 100%;
-            aspect-ratio: 16/5;
-            min-height: 260px;
+            /* 移除aspect-ratio，自动适应图片原始比例 */
+            min-height: 0;
             max-height: 420px;
             background: #18191d;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border-radius: 0;
         }
         .news-imgbox-large img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            max-height: 420px;
+            object-fit: contain;
             object-position: center center;
             border-radius: 0;
             display: block;
