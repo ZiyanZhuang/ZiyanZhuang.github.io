@@ -14,14 +14,25 @@
             --text-color: #f5f5f7;
             --text-light: #b3b3b3;
             --border: #23242a;
-            --radius: 18px;
-            --shadow: 0 6px 32px rgba(0,0,0,0.18);
+            --radius: 8px; /* 修改: 减小圆角，让设计更硬朗 */
+            --shadow: 0 4px 12px rgba(0,0,0,0.25); /* 修改: 调整阴影 */
             --font-main: 'Inter', Arial, sans-serif;
             --font-size: 18px;
             --font-size-sm: 15px;
             --font-size-lg: 2.5rem;
-            --transition: all 0.18s cubic-bezier(.77,0,.18,1);
+            --transition: all 0.3s ease; /* 修改: 调整过渡效果 */
         }
+        
+        /* 修改: 添加浅色主题变量 */
+        [data-theme="light"] {
+            --primary: #b7965d;
+            --bg: #ffffff;
+            --card-bg: #f5f5f7;
+            --text-color: #101114;
+            --text-light: #555555;
+            --border: #e0e0e0;
+        }
+        
         html, body {
             background: var(--bg);
             color: var(--text-color);
@@ -33,13 +44,7 @@
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
-        body[data-theme="dark"] {
-            --bg: #101114;
-            --card-bg: #18191d;
-            --text-color: #f5f5f7;
-            --text-light: #b3b3b3;
-            --border: #23242a;
-        }
+        
         h1, h2, h3, h4 {
             font-family: var(--font-main);
             font-weight: 700;
@@ -83,13 +88,24 @@
             font-weight: 500;
             color: var(--text-light);
             padding: 0.3em 1.2em;
-            border-radius: 12px;
+            border-radius: var(--radius); /* 修改: 使用更小的圆角 */
             transition: background 0.15s, color 0.15s;
             letter-spacing: 0.02em;
+            position: relative; /* 添加: 为下划线效果做准备 */
         }
+        /* 修改: 添加下划线效果 */
         #navbar a.active, #navbar a:hover {
-            background: var(--card-bg);
+            background: transparent;
             color: var(--primary);
+        }
+        #navbar a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
         }
         #theme-toggle {
             background: none;
@@ -110,7 +126,7 @@
             min-width: 270px;
             max-width: 320px;
             background: var(--card-bg);
-            border-radius: var(--radius);
+            border-radius: var(--radius); /* 修改: 更锐利的边角 */
             box-shadow: var(--shadow);
             padding: 2.5em 2em 2em 2em;
             margin-top: 0;
@@ -118,6 +134,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            border: 1px solid var(--border); /* 添加: 边框 */
         }
         #avatar {
             width: 120px;
@@ -138,11 +155,12 @@
         main#content {
             flex: 1 1 0;
             background: var(--card-bg);
-            border-radius: var(--radius);
+            border-radius: var(--radius); /* 修改: 更锐利的边角 */
             box-shadow: var(--shadow);
             padding: 3.5em 3em 2.5em 3em;
             margin-top: 0;
             min-width: 0;
+            border: 1px solid var(--border); /* 添加: 边框 */
         }
         header h1 {
             font-size: var(--font-size-lg);
@@ -151,6 +169,13 @@
         }
         .content-section {
             margin-bottom: 3.5em;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .content-section.active {
+            opacity: 1;
+            transform: translateY(0);
         }
         .content-section:not(.active) { display: none; }
         ul { padding-left: 1.5em; }
@@ -166,10 +191,11 @@
             overflow: hidden;
             padding: 0;
             outline: none;
+            border: 1px solid var(--border); /* 添加: 边框 */
         }
         .news-slides-v2 {
             display: flex;
-            transition: transform 0.6s cubic-bezier(.77,0,.18,1);
+            transition: transform 0.5s ease; /* 修改: 更流畅的过渡 */
             will-change: transform;
         }
         .news-slide-v2 {
@@ -299,7 +325,7 @@
             max-width: 220px;
             min-width: 120px;
             object-fit: cover;
-            border-radius: 16px;
+            border-radius: var(--radius); /* 修改: 更锐利的边角 */
             box-shadow: 0 2px 12px rgba(0,0,0,0.18);
             background: #23242a;
             margin: 0 auto;
@@ -324,7 +350,7 @@
             width: 120px;
             height: 120px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: var(--radius); /* 修改: 更锐利的边角 */
             box-shadow: 0 2px 8px rgba(0,0,0,0.18);
             background: #23242a;
             margin: 0;
@@ -342,7 +368,7 @@
             width: 100%;
             max-width: 600px;
             aspect-ratio: 16/9;
-            border-radius: 18px;
+            border-radius: var(--radius); /* 修改: 更锐利的边角 */
             background: #23242a;
             box-shadow: 0 2px 12px rgba(0,0,0,0.18);
             margin-bottom: 0.5em;
@@ -358,7 +384,7 @@
         /* 优雅分割线 */
         .section-divider {
             border: none;
-            border-top: 1.5px solid #23242a;
+            border-top: 1.5px solid var(--border);
             margin: 2.5em 0 2em 0;
         }
         /* 滚动条美化 */
@@ -370,9 +396,33 @@
             background: #23242a;
             border-radius: 8px;
         }
+        
+        /* 修改: 添加新的经历条目样式 */
+        .experience-item {
+            margin-bottom: 1.5em;
+            padding-bottom: 1.5em;
+            border-bottom: 1px solid var(--border);
+        }
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .experience-item h4 {
+            margin-bottom: 0.3em;
+            color: var(--primary);
+        }
+        .experience-item .location-date {
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin-bottom: 0.5em;
+        }
+        .experience-item p {
+            margin-top: 0.5em;
+        }
     </style>
 </head>
-<body>
+<body data-theme="dark">
     <nav id="navbar">
         <ul>
             <li><a href="#" data-target="about" class="active">About</a></li>
@@ -501,11 +551,30 @@
                 </ul>
                 
                 <h3>Research & Professional Experience</h3>
-                <ul>
-                    <li><strong>Summer School</strong><br>July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)<br>Topic: Quantitative Biology</li>
-                    <li><strong>Internship</strong><br>July 2024 | Xinjiang University | Chemical Engineering Institute<br>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by carbon materials</li>
-                    <li><strong>Research Experience in Prof. Xiaoning Liu's Lab</strong><br>2023-Present | Xinjiang University | College of Life Science and Technology<br>Research Focus: Pest Control, Cytochrome P450, Insecticide Resistance.</li>
-                </ul>
+                <!-- 修改: 添加新的经历条目 -->
+                <div class="experience-item">
+                    <h4>Summer School</h4>
+                    <div class="location-date">August 2025 | Shanghai Jiao Tong University | Institute of Natural Sciences | Shanghai, China</div>
+                    <p>Topics: AI for Bioengineering</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h4>Summer School</h4>
+                    <div class="location-date">July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)</div>
+                    <p>Topic: Quantitative Biology</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h4>Internship</h4>
+                    <div class="location-date">July 2024 | Xinjiang University | Chemical Engineering Institute</div>
+                    <p>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by carbon materials</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h4>Research Experience in Prof. Xiaoning Liu's Lab</h4>
+                    <div class="location-date">2023-Present | Xinjiang University | College of Life Science and Technology</div>
+                    <p>Research Focus: Pest Control, Cytochrome P450, Insecticide Resistance.</p>
+                </div>
 
                 <h3>Projects & Software</h3>
                 <ul>
@@ -567,10 +636,7 @@
                     <li>Reading</li>
                 </ul>
                 <h3>Favorite Bands / Songs</h3>
-                <div class="photo-album">
-                    <img src="Ziyan1.jpg" alt="Ziyan's Photo">
-                    <img src="photo1.jpg" alt="Group Photo 1">
-                </div>
+                <!-- 删除: 个人照片 -->
             </section>
             <section id="photo" class="content-section">
                 <h2>Photo</h2>
