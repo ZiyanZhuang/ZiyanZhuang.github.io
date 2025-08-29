@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ziyan Zhuang's Personal Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         :root {
-            --primary: #0a7cff;
-            --bg: #f7f9fb;
-            --card-bg: #fff;
-            --text-color: #23272f;
-            --text-light: #6b7280;
-            --border: #e5e7eb;
+            --primary: #e5c07b; /* 金色 */
+            --bg: #101114;
+            --card-bg: #18191d;
+            --text-color: #f5f5f7;
+            --text-light: #b3b3b3;
+            --border: #23242a;
             --radius: 18px;
-            --shadow: 0 4px 24px rgba(0,0,0,0.07);
-            --font-main: 'Inter', 'Roboto', Arial, sans-serif;
-            --font-size: 17px;
+            --shadow: 0 6px 32px rgba(0,0,0,0.18);
+            --font-main: 'Inter', Arial, sans-serif;
+            --font-size: 18px;
             --font-size-sm: 15px;
-            --font-size-lg: 22px;
+            --font-size-lg: 2.5rem;
             --transition: all 0.18s cubic-bezier(.77,0,.18,1);
         }
         html, body {
@@ -35,11 +34,11 @@
             -webkit-font-smoothing: antialiased;
         }
         body[data-theme="dark"] {
-            --bg: #181a1b;
-            --card-bg: #23272f;
-            --text-color: #e5e7eb;
-            --text-light: #a1a1aa;
-            --border: #2d3238;
+            --bg: #101114;
+            --card-bg: #18191d;
+            --text-color: #f5f5f7;
+            --text-light: #b3b3b3;
+            --border: #23242a;
         }
         h1, h2, h3, h4 {
             font-family: var(--font-main);
@@ -47,10 +46,10 @@
             color: var(--text-color);
             margin-top: 0;
         }
-        h1 { font-size: 2.2em; margin-bottom: 0.3em; }
-        h2 { font-size: 1.5em; margin-bottom: 0.7em; }
-        h3 { font-size: 1.15em; margin-bottom: 0.7em; letter-spacing: 0.01em;}
-        h4 { font-size: 1em; margin-bottom: 0.5em; }
+        h1 { font-size: var(--font-size-lg); margin-bottom: 0.2em; letter-spacing: 0.01em;}
+        h2 { font-size: 2rem; margin-bottom: 0.7em; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.7em; letter-spacing: 0.01em;}
+        h4 { font-size: 1.1rem; margin-bottom: 0.5em; }
         p, li, ul {
             font-size: 1em;
             color: var(--text-color);
@@ -60,103 +59,109 @@
             text-decoration: none;
             transition: color 0.15s;
         }
-        a:hover { color: #005bbd; }
+        a:hover { color: #fffbe6; }
         /* Navbar */
         #navbar {
-            background: var(--card-bg);
-            box-shadow: var(--shadow);
-            border-radius: var(--radius);
-            margin: 18px auto 28px auto;
-            max-width: 900px;
-            padding: 0.5em 1.5em;
+            background: transparent;
+            margin: 0 auto 36px auto;
+            max-width: 1200px;
+            padding: 2.5em 0 0 0;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
+            border: none;
         }
         #navbar ul {
             display: flex;
-            gap: 1.5em;
+            gap: 2.5em;
             list-style: none;
             margin: 0;
             padding: 0;
         }
         #navbar a {
-            font-size: 1em;
+            font-size: 1.1em;
             font-weight: 500;
-            color: var(--text-color);
-            padding: 0.3em 0.7em;
-            border-radius: 8px;
-            transition: background 0.15s;
+            color: var(--text-light);
+            padding: 0.3em 1.2em;
+            border-radius: 12px;
+            transition: background 0.15s, color 0.15s;
+            letter-spacing: 0.02em;
         }
         #navbar a.active, #navbar a:hover {
-            background: #eaf3ff;
+            background: var(--card-bg);
             color: var(--primary);
         }
         #theme-toggle {
             background: none;
             border: none;
-            font-size: 1.3em;
+            font-size: 1.5em;
             cursor: pointer;
             color: var(--primary);
-            margin-left: 1em;
+            margin-left: 2em;
         }
         .page-layout {
             display: flex;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            gap: 2.5em;
-            padding: 0 1.5em;
+            gap: 3.5em;
+            padding: 0 2em 4em 2em;
         }
         #sidebar {
-            min-width: 220px;
-            max-width: 260px;
+            min-width: 270px;
+            max-width: 320px;
             background: var(--card-bg);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            padding: 2em 1.2em 1.2em 1.2em;
-            margin-top: 1.5em;
+            padding: 2.5em 2em 2em 2em;
+            margin-top: 0;
             align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #avatar {
-            width: 90px;
-            height: 90px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             display: block;
-            margin: 0 auto 1.2em auto;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 0 auto 1.5em auto;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.18);
             object-fit: cover;
+            border: 3px solid var(--primary);
         }
         .contact-info p, .contact-info a {
             font-size: var(--font-size-sm);
             color: var(--text-light);
-            margin: 0.3em 0;
+            margin: 0.4em 0;
+            text-align: center;
         }
         main#content {
             flex: 1 1 0;
             background: var(--card-bg);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            padding: 2.5em 2.2em 2em 2.2em;
-            margin-top: 1.5em;
+            padding: 3.5em 3em 2.5em 3em;
+            margin-top: 0;
             min-width: 0;
         }
         header h1 {
             font-size: var(--font-size-lg);
-            margin-bottom: 0.1em;
+            margin-bottom: 0.2em;
+            color: var(--primary);
         }
         .content-section {
-            margin-bottom: 2.5em;
+            margin-bottom: 3.5em;
         }
         .content-section:not(.active) { display: none; }
-        ul { padding-left: 1.2em; }
-        li { margin-bottom: 0.5em; }
-        /* News Carousel v2: OpenAI-style, image-dominant, smooth */
+        ul { padding-left: 1.5em; }
+        li { margin-bottom: 0.7em; }
+        /* News Carousel */
         .news-carousel-v2 {
             position: relative;
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto 2.5em auto;
             background: var(--card-bg);
-            border-radius: var(--radius);
+            border-radius: 0;
             box-shadow: var(--shadow);
             overflow: hidden;
             padding: 0;
@@ -176,10 +181,10 @@
         }
         .news-imgbox-large {
             width: 100%;
-            aspect-ratio: 16/6; /* 更宽，图片更大更全 */
-            min-height: 220px;
-            max-height: 340px;
-            background: #f7f7fa;
+            aspect-ratio: 16/5;
+            min-height: 260px;
+            max-height: 420px;
+            background: #18191d;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,34 +199,35 @@
             display: block;
         }
         .news-contentbox-compact {
-            padding: 0.7em 1.5em 1.2em 1.5em;
+            padding: 1.2em 2.5em 1.7em 2.5em;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             background: none;
         }
         .news-date {
-            font-size: 0.97em;
-            color: var(--text-light);
+            font-size: 1.05em;
+            color: var(--primary);
             margin-bottom: 0.1em;
             letter-spacing: 0.02em;
         }
         .news-title {
-            font-size: 1.08em;
-            font-weight: 600;
-            margin-bottom: 0.3em;
-            color: var(--text-color);
+            font-size: 1.25em;
+            font-weight: 700;
+            margin-bottom: 0.4em;
+            color: #fff;
             line-height: 1.3;
+            letter-spacing: 0.01em;
         }
         .news-desc {
-            font-size: 0.97em;
-            color: var(--text-color);
+            font-size: 1.05em;
+            color: var(--text-light);
             line-height: 1.5;
             margin-bottom: 0.2em;
         }
         .news-desc a {
             color: var(--primary);
-            text-decoration: none;
+            text-decoration: underline;
             font-weight: 500;
             margin-left: 0.2em;
         }
@@ -229,35 +235,35 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.92);
+            background: rgba(16,17,20,0.92);
             border: none;
-            width: 38px;
-            height: 38px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
             cursor: pointer;
-            font-size: 1.3em;
-            color: #444;
+            font-size: 1.5em;
+            color: var(--primary);
             z-index: 2;
             transition: background 0.2s;
         }
-        .news-nav-v2:hover { background: #eaf3ff; }
-        .news-prev-v2 { left: 10px; }
-        .news-next-v2 { right: 10px; }
+        .news-nav-v2:hover { background: #23242a; }
+        .news-prev-v2 { left: 18px; }
+        .news-next-v2 { right: 18px; }
         .news-dots-v2 {
             position: absolute;
             left: 50%;
-            bottom: 16px;
+            bottom: 22px;
             transform: translateX(-50%);
             display: flex;
-            gap: 8px;
+            gap: 12px;
             z-index: 2;
         }
         .news-dot-v2 {
-            width: 9px;
-            height: 9px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: #d0d6e0;
+            background: #23242a;
             border: none;
             cursor: pointer;
             transition: background 0.2s;
@@ -266,20 +272,19 @@
         .news-dot-v2.active {
             background: var(--primary);
         }
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
             .news-carousel-v2 { max-width: 99vw; }
-            .news-imgbox-large { aspect-ratio: 16/10; min-height: 120px; max-height: 180px; }
-            .news-contentbox-compact { padding: 0.7em 0.7em 1em 0.7em; }
-            .news-title { font-size: 1em; }
-            .news-desc { font-size: 0.95em; }
+            .news-imgbox-large { aspect-ratio: 16/9; min-height: 120px; max-height: 220px; }
+            .news-contentbox-compact { padding: 1em 1em 1.2em 1em; }
+            .news-title { font-size: 1.08em; }
+            .news-desc { font-size: 0.98em; }
         }
-
         /* --- Photo Section 优化 --- */
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 18px;
-            margin: 1.5em 0;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            margin: 2em 0;
         }
         .photo-item {
             display: flex;
@@ -289,27 +294,27 @@
         .photo-item img {
             width: 100%;
             aspect-ratio: 1/1;
-            max-width: 180px;
+            max-width: 220px;
             min-width: 120px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            background: #f7f7fa;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            background: #23242a;
             margin: 0 auto;
             display: block;
         }
         .caption {
-            font-size: 0.95em;
+            font-size: 1em;
             color: var(--text-light);
-            margin-top: 0.5em;
+            margin-top: 0.7em;
             text-align: center;
             max-width: 95%;
             word-break: break-word;
         }
         .photo-album {
             display: flex;
-            gap: 16px;
-            margin: 1em 0;
+            gap: 20px;
+            margin: 1.5em 0;
             flex-wrap: wrap;
             justify-content: flex-start;
         }
@@ -317,22 +322,51 @@
             width: 120px;
             height: 120px;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            background: #f7f7fa;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            background: #23242a;
             margin: 0;
             display: block;
         }
-        @media (max-width: 700px) {
-            .photo-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 10px;
-            }
-            .photo-item img {
-                max-width: 100px;
-                min-width: 80px;
-            }
-            .caption { font-size: 0.88em; }
+        .video-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 2em auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .video-container video {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 16/9;
+            border-radius: 18px;
+            background: #23242a;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            margin-bottom: 0.5em;
+        }
+        @media (max-width: 900px) {
+            .page-layout { flex-direction: column; gap: 1.5em; padding: 0 0.5em 2em 0.5em;}
+            #sidebar { max-width: 100%; min-width: 0; margin: 0 auto 2em auto; }
+            main#content { padding: 1.5em 0.5em 1em 0.5em; }
+            .photo-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px;}
+            .photo-item img { max-width: 100px; min-width: 80px; }
+            .video-container, .video-container video { max-width: 98vw; }
+        }
+        /* 优雅分割线 */
+        .section-divider {
+            border: none;
+            border-top: 1.5px solid #23242a;
+            margin: 2.5em 0 2em 0;
+        }
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #18191d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #23242a;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -372,73 +406,63 @@
             <header>
                 <h1>Ziyan Zhuang</h1>
             </header>
-
             <section id="about" class="content-section active">
                 <h2>About Me</h2>
                 <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and look forward to making meaningful contributions in my field.</p>
-                
+                <hr class="section-divider">
                 <h3>News</h3>
-                <!-- News Carousel: Large image, concise text, modern layout -->
-<div class="news-carousel-v2" id="newsCarousel" aria-roledescription="carousel" tabindex="0">
-    <div class="news-slides-v2">
-        <!-- Newest News -->
-        <article class="news-slide-v2">
-            <div class="news-imgbox news-imgbox-large">
-                <img src="new829.jpg" alt="Spinetoram Resistance Research">
-            </div>
-            <div class="news-contentbox news-contentbox-compact">
-                <div class="news-date">Aug 28, 2025</div>
-                <div class="news-title">Spinetoram resistance in Tuta absoluta</div>
-                <div class="news-desc">
-                    410-fold resistance after 20 generations. <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read</a>
+                <div class="news-carousel-v2" id="newsCarousel" aria-roledescription="carousel" tabindex="0">
+                    <div class="news-slides-v2">
+                        <article class="news-slide-v2">
+                            <div class="news-imgbox news-imgbox-large">
+                                <img src="new829.jpg" alt="Spinetoram Resistance Research">
+                            </div>
+                            <div class="news-contentbox news-contentbox-compact">
+                                <div class="news-date">Aug 28, 2025</div>
+                                <div class="news-title">Spinetoram resistance in <em>Tuta absoluta</em></div>
+                                <div class="news-desc">
+                                    Congratulations to Xie and team! 410-fold resistance after 20 generations. <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="news-slide-v2">
+                            <div class="news-imgbox news-imgbox-large">
+                                <img src="paperwall.jpg" alt="Paper Wall">
+                            </div>
+                            <div class="news-contentbox news-contentbox-compact">
+                                <div class="news-date">Mar 2025</div>
+                                <div class="news-title">CYP380C12 study accepted</div>
+                                <div class="news-desc">
+                                    <em>CYP380C12</em> in <em>Aphis gossypii</em> published. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <button class="news-nav-v2 news-prev-v2" aria-label="Previous slide">&#8592;</button>
+                    <button class="news-nav-v2 news-next-v2" aria-label="Next slide">&#8594;</button>
+                    <div class="news-dots-v2"></div>
                 </div>
-            </div>
-        </article>
-        <!-- Previous News -->
-        <article class="news-slide-v2">
-            <div class="news-imgbox news-imgbox-large">
-                <img src="paperwall.jpg" alt="Paper Wall">
-            </div>
-            <div class="news-contentbox news-contentbox-compact">
-                <div class="news-date">Mar 2025</div>
-                <div class="news-title">CYP380C12 study accepted</div>
-                <div class="news-desc">
-                    <em>CYP380C12</em> in <em>Aphis gossypii</em> published. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read</a>
-                </div>
-            </div>
-        </article>
-    </div>
-    <button class="news-nav-v2 news-prev-v2" aria-label="Previous slide">&#8592;</button>
-    <button class="news-nav-v2 news-next-v2" aria-label="Next slide">&#8594;</button>
-    <div class="news-dots-v2"></div>
-</div>
-
+                <hr class="section-divider">
                 <h3>Research Interests</h3>
                 <p>My research is driven by a fundamental curiosity about how we can move beyond traditional, empirical methods to design complex systems—be it a novel protein or a truly adaptive AI. My goal is to leverage computational methods to develop frameworks that are not only effective but also grounded in first principles, whether they are the laws of physics and chemistry or the evolutionary principles governing biological intelligence.</p>
-
                 <h4>Direction 1: MCMC and PINNs for De Novo Protein Design</h4>
                 <p>The first direction of my research focuses on developing predictive and robust methodologies for <strong>de novo protein design</strong> from a computational chemistry perspective. I believe that by integrating statistical mechanics and deep learning, we can overcome the limitations of traditional molecular dynamics and empirical design.</p>
-                
                 <p>I am particularly interested in two synergistic approaches:</p>
                 <ul>
                     <li><strong>Markov Chain Monte Carlo (MCMC) Framework:</strong> This approach efficiently samples the vast conformational space of proteins by defining the design space with physically and chemically meaningful moves. The acceptance of these moves will be guided by a scoring function that combines established force fields with statistical potentials derived from known protein structures.</li>
                     <li><strong>Physics-Informed Neural Networks (PINNs):</strong> While deep learning models like AlphaFold are powerful, they can sometimes produce physically unrealistic structures. My approach augments the neural network's loss function with terms that enforce fundamental physical constraints, ensuring generated protein structures are both plausible and physically stable.</li>
                 </ul>
-
                 <h4>Direction 2: An Evolving Agent Framework for Continuous Learning</h4>
                 <p>My second research direction is inspired by a critical observation: current Agent frameworks, despite their potential, are inherently limited by the static, "train-and-predict" paradigm of their underlying Large Language Models (LLMs).</p>
-                
                 <p>I propose to develop:</p>
                 <ul>
                     <li>A novel <strong>Agent architecture</strong> that integrates principles of biological intelligence, creating a dynamic system that continuously learns and adapts.</li>
                     <li>A cyclical learning mechanism, analogous to the human sleep-wake cycle, for daily information integration and consolidation.</li>
                     <li>An evolutionary selection mechanism to refine the architecture, mimicking natural selection to enhance the system's overall performance.</li>
                 </ul>
-
                 <h3>Research Vision</h3>
                 <p>My ultimate goal is to bridge the gap between computational design and biological systems, creating frameworks that can truly evolve and adapt. Whether designing novel proteins or developing intelligent systems, I aim to ground my work in fundamental principles while pushing the boundaries of what's possible.</p>
             </section>
-
             <section id="publications" class="content-section">
                 <h2>Publications</h2>
                 <ul>
@@ -460,7 +484,6 @@
                 </ul>
                 <p><sup>1</sup> Co-first author</p>
             </section>
-            
             <section id="cv-highlights" class="content-section">
                 <h2>CV Highlights</h2>
                 <h3>Education</h3>
@@ -524,15 +547,13 @@
                     </li>
                 </ul>
             </section>
-
             <section id="blog-posts" class="content-section">
                 <h2>Blog Posts</h2>
                 <p>Here you can find my latest blog posts.</p>
                 <ul>
-                         <li><a href="blog/essay1.html">我们还能深度思考吗？</a></li>   
+                    <li><a href="blog/essay1.html">我们还能深度思考吗？</a></li>   
                 </ul> 
             </section>
-
             <section id="hobbies" class="content-section">
                 <h2>Hobbies & Interests</h2>
                 <p>Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:</p>
@@ -544,21 +565,17 @@
                     <li>Reading</li>
                 </ul>
                 <h3>Favorite Bands / Songs</h3>
-                <ul>
                 <div class="photo-album">
                     <img src="Ziyan1.jpg" alt="Ziyan's Photo">
                     <img src="photo1.jpg" alt="Group Photo 1">
-                    </div>
+                </div>
             </section>
-            
             <section id="photo" class="content-section">
                 <h2>Photo</h2>
                 <div class="field-work">
                     <h3>Field Work in Northern Tianshan Mountains</h3>
                     <p>In June 2024, We participated in a field research expedition to the Northern Tianshan Mountains. During our wildlife monitoring program, we were fortunate enough to capture footage of the majestic Tianshan wapiti (Cervus elaphus songaricus) through our infrared cameras.</p>
-                    
                     <p>The Tianshan wapiti is a subspecies of red deer endemic to the Tianshan Mountain range in Xinjiang Uygur Autonomous Region, China. Listed as a Class II nationally protected species, its wild population has dwindled to fewer than 10,000 individuals, primarily distributed in the remote montane forests of the northern Tianshan Mountains.</p>
-
                     <div class="photo-grid">
                         <div class="photo-item">
                             <img src="Infrared Camera Monitoring of Wildlife.jpg" alt="Infrared-triggered Camera" loading="lazy">
@@ -569,7 +586,6 @@
                             <p class="caption">An observation of the Tianshan Wapiti in its natural habitat</p>
                         </div>
                     </div>
-                    
                     <div class="video-container">
                         <video controls>
                             <source src="Infrared Camera Monitoring of Wildlife.mp4" type="video/mp4">
@@ -579,31 +595,27 @@
                     </div>
                 </div>
             </section>
-            
             <footer>
-                <p>&copy; 2025 Ziyan Zhuang. All rights reserved.</p>
-                <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf</p>
-                </footer>
+                <hr class="section-divider">
+                <p style="color:var(--text-light);text-align:center;font-size:1em;">&copy; 2025 Ziyan Zhuang. All rights reserved.</p>
+                <p style="color:var(--primary);text-align:center;font-size:1em;">"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf</p>
+            </footer>
         </main>
     </div>
-    <script src="theme.js"></script> <script>
-    // Navigation switching
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('#navbar a');
         const contentSections = document.querySelectorAll('.content-section');
-
         function hideAllSections() {
             contentSections.forEach(section => section.classList.remove('active'));
             navLinks.forEach(link => link.classList.remove('active'));
         }
-
         function showSection(targetId, link) {
             hideAllSections();
             const targetSection = document.getElementById(targetId);
             if (targetSection) targetSection.classList.add('active');
             if (link) link.classList.add('active');
         }
-
         navLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -612,160 +624,83 @@
                 window.location.hash = targetId;
             });
         });
-
-        // Load section based on hash
         if (window.location.hash) {
             const initialTargetId = window.location.hash.substring(1);
-            const navLink = document.querySelector(`#navbar a[data-target="${initialTargetId}"]`); // More direct selector
-            if (navLink && document.getElementById(initialTargetId)) { // Check if target exists
-                 showSection(initialTargetId, navLink);
-            } else { // Fallback to default if hash is invalid
-                 showSection('about', document.querySelector('#navbar a[data-target="about"]'));
+            const navLink = document.querySelector(`#navbar a[data-target="${initialTargetId}"]`);
+            if (navLink && document.getElementById(initialTargetId)) {
+                showSection(initialTargetId, navLink);
+            } else {
+                showSection('about', document.querySelector('#navbar a[data-target="about"]'));
             }
-        } else { // Default to 'about' if no hash
+        } else {
             showSection('about', document.querySelector('#navbar a[data-target="about"]'));
         }
     });
-    </script>
-    <script>
-    // Theme toggle (assuming this is in theme.js, or place it here)
-    // If this code is in theme.js, ensure theme.js is loaded before this script or combine them.
-    // For this example, I'll put the refined theme logic here.
+    // Theme toggle
     const toggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
-
     function updateThemeIcon(theme) {
-        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀'; // Use moon icon
+        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀';
     }
-
     function applyTheme(theme) {
         document.body.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         updateThemeIcon(theme);
     }
-
     toggleBtn.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(newTheme);
     });
-
-    // Initialize theme on load
-    // Ensure this runs after the DOM is ready or at the end of the body
-    // document.addEventListener('DOMContentLoaded', () => { // Or simply ensure script is at end of body
-        let preferredTheme = localStorage.getItem('theme');
-        if (!preferredTheme) {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                preferredTheme = 'dark';
-            } else {
-                preferredTheme = 'light';
-            }
+    let preferredTheme = localStorage.getItem('theme');
+    if (!preferredTheme) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            preferredTheme = 'dark';
+        } else {
+            preferredTheme = 'light';
         }
-        applyTheme(preferredTheme);
-    // });
-    </script>
-    <script>
-    // ===== 新闻轮播脚本（自动播放，悬停暂停，左右切换） =====
+    }
+    applyTheme(preferredTheme);
+    // News Carousel v2
     (function() {
         const carousel = document.getElementById('newsCarousel');
         if (!carousel) return;
-
-        const slidesWrap = carousel.querySelector('.news-slides');
-        const slides = Array.from(carousel.querySelectorAll('.news-slide'));
-        const prev = carousel.querySelector('.news-prev');
-        const next = carousel.querySelector('.news-next');
-        const pauseBtn = document.getElementById('pauseBtn');
-
-        let index = 0;
-        let interval = null;
-        const delay = 5000; // 5s
-
+        const slidesWrap = carousel.querySelector('.news-slides-v2');
+        const slides = Array.from(carousel.querySelectorAll('.news-slide-v2'));
+        const prev = carousel.querySelector('.news-prev-v2');
+        const next = carousel.querySelector('.news-next-v2');
+        const dotsBox = carousel.querySelector('.news-dots-v2');
+        let index = 0, interval = null, delay = 6000;
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'news-dot-v2' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to slide ' + (i+1));
+            dot.addEventListener('click', () => { goTo(i); stopAuto(); });
+            dotsBox.appendChild(dot);
+        });
+        const dots = Array.from(dotsBox.children);
+        function updateDots() {
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }
         function goTo(i) {
             index = (i + slides.length) % slides.length;
             slidesWrap.style.transform = `translateX(-${index * 100}%)`;
+            updateDots();
         }
-
         function nextSlide() { goTo(index + 1); }
         function prevSlide() { goTo(index - 1); }
-
         function startAuto() {
             stopAuto();
             interval = setInterval(nextSlide, delay);
-            pauseBtn.textContent = 'Pause';
         }
         function stopAuto() {
-            if (interval) { clearInterval(interval); interval = null; pauseBtn.textContent = 'Play'; }
+            if (interval) { clearInterval(interval); interval = null; }
         }
-
-        // controls
         next.addEventListener('click', () => { nextSlide(); stopAuto(); });
         prev.addEventListener('click', () => { prevSlide(); stopAuto(); });
-
-        pauseBtn.addEventListener('click', () => {
-            if (interval) stopAuto(); else startAuto();
-        });
-
-        // pause on hover/focus for accessibility
-        carousel.addEventListener('mouseenter', stopAuto);
-        carousel.addEventListener('mouseleave', startAuto);
-        carousel.addEventListener('focusin', stopAuto);
-        carousel.addEventListener('focusout', startAuto);
-
-        // keyboard
-        carousel.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') { prevSlide(); stopAuto(); }
-            if (e.key === 'ArrowRight') { nextSlide(); stopAuto(); }
-        });
-        // init
         goTo(0);
         startAuto();
     })();
-    // ===== 结束 =====
-    </script>
-    <script>
-// News Carousel v2: OpenAI-style, smooth, dots, image-dominant
-(function() {
-    const carousel = document.getElementById('newsCarousel');
-    if (!carousel) return;
-    const slidesWrap = carousel.querySelector('.news-slides-v2');
-    const slides = Array.from(carousel.querySelectorAll('.news-slide-v2'));
-    const prev = carousel.querySelector('.news-prev-v2');
-    const next = carousel.querySelector('.news-next-v2');
-    const dotsBox = carousel.querySelector('.news-dots-v2');
-    let index = 0, interval = null, delay = 6000;
-    // Dots
-    slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'news-dot-v2' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to slide ' + (i+1));
-        dot.addEventListener('click', () => { goTo(i); stopAuto(); });
-        dotsBox.appendChild(dot);
-    });
-    const dots = Array.from(dotsBox.children);
-    function updateDots() {
-        dots.forEach((d, i) => d.classList.toggle('active', i === index));
-    }
-    function goTo(i) {
-        index = (i + slides.length) % slides.length;
-        slidesWrap.style.transform = `translateX(-${index * 100}%)`;
-        updateDots();
-    }
-    function nextSlide() { goTo(index + 1); }
-    function prevSlide() { goTo(index - 1); }
-    function startAuto() {
-        stopAuto();
-        interval = setInterval(nextSlide, delay);
-    }
-    function stopAuto() {
-        if (interval) { clearInterval(interval); interval = null; }
-    }
-    // controls
-    next.addEventListener('click', () => { nextSlide(); stopAuto(); });
-    prev.addEventListener('click', () => { prevSlide(); stopAuto(); });
-    // init
-    goTo(0);
-    startAuto();
-})();
     </script>
 </body>
 </html>
