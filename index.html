@@ -100,6 +100,84 @@
             margin: 0 auto;
             display: block;
         }
+
+        /* ===== 新增：新闻轮播样式 ===== */
+        .news-carousel {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 12px;
+        }
+        .news-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+        .news-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 8px 12px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .news-slide img {
+            width: 140px;
+            height: 96px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        .news-meta {
+            flex: 1;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .news-meta a { color: var(--link-color); text-decoration: underline; }
+        .news-controls {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 8px;
+            display: flex;
+            gap: 8px;
+        }
+        .news-btn {
+            background: rgba(0,0,0,0.06);
+            border: none;
+            padding: 6px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .news-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .news-prev { left: 10px; }
+        .news-next { right: 10px; }
+
+        @media (max-width:600px) {
+            .news-slide { flex-direction: column; align-items: stretch; }
+            .news-slide img { width: 100%; height: auto; }
+        }
+        /* ===== 结束 ===== */
     </style>
 </head>
 <body>
@@ -144,9 +222,39 @@
                 <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and look forward to making meaningful contributions in my field.</p>
                 
                 <h3>News</h3>
-                <div class="news-item">
-                    <img src="paperwall.jpg" alt="Paper Wall" class="news-image">
-                    <p><strong>March 2025:</strong> Our paper titled "Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover (Hemiptera: Aphididae): in silico and RNAi analyses" has been accepted for publication in the <em>Journal of Economic Entomology</em>!</p>
+
+                <!-- 替换原有静态 news-item 为轮播 -->
+                <div class="news-carousel" id="newsCarousel" aria-roledescription="carousel">
+                    <div class="news-slides">
+                        <!-- 新增新闻（使用 new829.jpg） -->
+                        <article class="news-slide" aria-roledescription="slide">
+                            <img src="new829.jpg" alt="Spinetoram paper">
+                            <div class="news-meta">
+                                <strong>Aug 28, 2025 — Pesticide Biochemistry and Physiology</strong>
+                                <p style="margin:.4em 0;">
+                                Congratulations to senior colleague Xie! The paper “Spinetoram resistance in Tuta absoluta: selection, inheritance, biochemical mechanism and fitness cost” is now online (In Press, 106659). After 20 generations of selection, resistance to spinetoram increased ≈410.9-fold. The resistance is polygenic, autosomal, and partially recessive (h² = 0.36). Elevated activities of P450s, GSTs, and CarEs constitute the principal metabolic resistance mechanism. The resistant strain incurs fitness costs including prolonged larval development and reduced adult longevity.
+                                DOI: <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">10.1016/j.pestbp.2025.106659</a>
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- 原有新闻作为第二张幻灯片 -->
+                        <article class="news-slide" aria-roledescription="slide">
+                            <img src="paperwall.jpg" alt="Paper Wall">
+                            <div class="news-meta">
+                                <strong>Mar 2025</strong>
+                                <p style="margin:.4em 0;">论文《Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover…》已被 <em>Journal of Economic Entomology</em> 接收。</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button class="news-nav news-prev" aria-label="Previous slide">&#8592;</button>
+                    <button class="news-nav news-next" aria-label="Next slide">&#8594;</button>
+
+                    <div class="news-controls" aria-hidden="true">
+                        <button class="news-btn" id="pauseBtn">Pause</button>
+                        <button class="news-btn" id="readAllBtn" onclick="location.href='#publications'">更多 →</button>
+                    </div>
                 </div>
 
                 <h3>Research Interests</h3>
@@ -397,5 +505,87 @@
         applyTheme(preferredTheme);
     // });
     </script>
+    <script>
+    // ===== 新闻轮播脚本（自动播放，悬停暂停，左右切换） =====
+    (function() {
+        const carousel = document.getElementById('newsCarousel');
+        if (!carousel) return;
+
+        const slidesWrap = carousel.querySelector('.news-slides');
+        const slides = Array.from(carousel.querySelectorAll('.news-slide'));
+        const prev = carousel.querySelector('.news-prev');
+        const next = carousel.querySelector('.news-next');
+        const pauseBtn = document.getElementById('pauseBtn');
+
+        let index = 0;
+        let interval = null;
+        const delay = 5000; // 5s
+
+        function goTo(i) {
+            index = (i + slides.length) % slides.length;
+            slidesWrap.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() { goTo(index + 1); }
+        function prevSlide() { goTo(index - 1); }
+
+        function startAuto() {
+            stopAuto();
+            interval = setInterval(nextSlide, delay);
+            pauseBtn.textContent = 'Pause';
+        }
+        function stopAuto() {
+            if (interval) { clearInterval(interval); interval = null; pauseBtn.textContent = 'Play'; }
+        }
+
+        // controls
+        next.addEventListener('click', () => { nextSlide(); stopAuto(); });
+        prev.addEventListener('click', () => { prevSlide(); stopAuto(); });
+
+        pauseBtn.addEventListener('click', () => {
+            if (interval) stopAuto(); else startAuto();
+        });
+
+        // pause on hover/focus for accessibility
+        carousel.addEventListener('mouseenter', stopAuto);
+        carousel.addEventListener('mouseleave', startAuto);
+        carousel.addEventListener('focusin', stopAuto);
+        carousel.addEventListener('focusout', startAuto);
+
+        // keyboard
+        carousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') { prevSlide(); stopAuto(); }
+            if (e.key === 'ArrowRight') { nextSlide(); stopAuto(); }
+        });
+        // init
+        goTo(0);
+        startAuto();
+    })();
+    // ===== 结束 =====
+    </script>
     </body>
-</html>
+</html><script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.news-slide');
+    const prevBtn = document.querySelector('.news-prev');
+    const nextBtn = document.querySelector('.news-next');
+    let current = 0;
+
+    function showSlide(idx) {
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === idx));
+    }
+
+    prevBtn.addEventListener('click', () => {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    });
+
+    showSlide(current);
+});
+</script>
+
