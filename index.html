@@ -170,52 +170,52 @@
         .news-slide-v2 {
             min-width: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: stretch;
             background: none;
         }
-        .news-imgbox {
-            flex: 1.2 1 0;
+        .news-imgbox-large {
+            width: 100%;
+            aspect-ratio: 16/7;
+            min-height: 180px;
+            max-height: 320px;
+            background: #f7f7fa;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #f7f7fa;
-            min-height: 180px;
-            max-height: 260px;
             overflow: hidden;
         }
-        .news-imgbox img {
+        .news-imgbox-large img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 0;
             display: block;
         }
-        .news-contentbox {
-            flex: 1 1 0;
-            padding: 2.2em 2em 2em 2em;
+        .news-contentbox-compact {
+            padding: 1.1em 1.5em 1.5em 1.5em;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             background: none;
         }
         .news-date {
-            font-size: 1em;
+            font-size: 0.98em;
             color: var(--text-light);
-            margin-bottom: 0.3em;
+            margin-bottom: 0.2em;
             letter-spacing: 0.02em;
         }
         .news-title {
-            font-size: 1.18em;
+            font-size: 1.08em;
             font-weight: 600;
-            margin-bottom: 0.7em;
+            margin-bottom: 0.5em;
             color: var(--text-color);
             line-height: 1.3;
         }
         .news-desc {
-            font-size: 1em;
+            font-size: 0.98em;
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.5;
         }
         .news-desc a {
             color: var(--primary);
@@ -274,9 +274,10 @@
             html { font-size: 15px; }
             #navbar { flex-direction: column; gap: 0.5em; padding: 0.7em 0.7em; }
             .news-carousel-v2 { max-width: 98vw; }
-            .news-slide-v2 { flex-direction: column; }
-            .news-imgbox { min-height: 160px; max-height: 200px; }
-            .news-contentbox { padding: 1.2em 1em 1.5em 1em; }
+            .news-imgbox-large { aspect-ratio: 16/10; min-height: 120px; max-height: 180px; }
+            .news-contentbox-compact { padding: 0.8em 0.7em 1em 0.7em; }
+            .news-title { font-size: 1em; }
+            .news-desc { font-size: 0.95em; }
         }
         @media (max-width: 500px) {
             html { font-size: 14px; }
@@ -293,6 +294,23 @@
             margin: 2.5em 0 0 0;
             padding: 1.2em 0 0 0;
         }
+        .photo-album {
+    display: flex;
+    gap: 16px;
+    margin: 1em 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.photo-album img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #f7f7fa;
+    margin: 0;
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -337,34 +355,34 @@
                 <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and look forward to making meaningful contributions in my field.</p>
                 
                 <h3>News</h3>
-                <!-- News Carousel: OpenAI-style, image-dominant, smooth layout -->
+                <!-- News Carousel: Large image, concise text, modern layout -->
 <div class="news-carousel-v2" id="newsCarousel" aria-roledescription="carousel" tabindex="0">
     <div class="news-slides-v2">
         <!-- Newest News -->
         <article class="news-slide-v2">
-            <div class="news-imgbox">
+            <div class="news-imgbox news-imgbox-large">
                 <img src="new829.jpg" alt="Spinetoram Resistance Research">
             </div>
-            <div class="news-contentbox">
+            <div class="news-contentbox news-contentbox-compact">
                 <div class="news-date">Aug 28, 2025</div>
-                <div class="news-title">Breakthrough: Spinetoram Resistance Mechanisms in Tuta absoluta</div>
+                <div class="news-title">Spinetoram Resistance in Tuta absoluta Published</div>
                 <div class="news-desc">
-                    Congratulations to Xie and team! Our latest paper in <em>Pesticide Biochemistry and Physiology</em> reveals a 410-fold increase in spinetoram resistance after 20 generations. The resistance is polygenic, autosomal, and partially recessive (h²=0.36), driven by elevated P450s, GSTs, and CarEs. Notably, resistance comes with fitness costs—longer larval stages and shorter adult lifespan.<br>
-                    <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read the paper &rarr;</a>
+                    New paper in <em>Pesticide Biochemistry and Physiology</em>! Xie, et al. reveal a 410-fold resistance after 20 generations, with key metabolic mechanisms and fitness costs.<br>
+                    <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read &rarr;</a>
                 </div>
             </div>
         </article>
         <!-- Previous News -->
         <article class="news-slide-v2">
-            <div class="news-imgbox">
+            <div class="news-imgbox news-imgbox-large">
                 <img src="paperwall.jpg" alt="Paper Wall">
             </div>
-            <div class="news-contentbox">
+            <div class="news-contentbox news-contentbox-compact">
                 <div class="news-date">Mar 2025</div>
-                <div class="news-title">CYP380C12 Function in Cotton Aphid Published</div>
+                <div class="news-title">CYP380C12 Study Accepted</div>
                 <div class="news-desc">
-                    Our study on <em>CYP380C12</em> in <em>Aphis gossypii</em> is accepted by <em>Journal of Economic Entomology</em>!<br>
-                    <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read more &rarr;</a>
+                    Our <em>CYP380C12</em> work in <em>Aphis gossypii</em> is accepted by <em>Journal of Economic Entomology</em>.<br>
+                    <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read &rarr;</a>
                 </div>
             </div>
         </article>
@@ -730,6 +748,4 @@
     </script>
 </body>
 </html>
-
-
 
