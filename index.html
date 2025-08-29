@@ -153,7 +153,7 @@
         /* News Carousel v2: OpenAI-style, image-dominant, smooth */
         .news-carousel-v2 {
             position: relative;
-            max-width: 680px;
+            max-width: 700px;
             margin: 0 auto 2.5em auto;
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -176,9 +176,9 @@
         }
         .news-imgbox-large {
             width: 100%;
-            aspect-ratio: 16/7;
-            min-height: 180px;
-            max-height: 320px;
+            aspect-ratio: 16/6; /* 更宽，图片更大更全 */
+            min-height: 220px;
+            max-height: 340px;
             background: #f7f7fa;
             display: flex;
             align-items: center;
@@ -189,33 +189,35 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
             border-radius: 0;
             display: block;
         }
         .news-contentbox-compact {
-            padding: 1.1em 1.5em 1.5em 1.5em;
+            padding: 0.7em 1.5em 1.2em 1.5em;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             background: none;
         }
         .news-date {
-            font-size: 0.98em;
+            font-size: 0.97em;
             color: var(--text-light);
-            margin-bottom: 0.2em;
+            margin-bottom: 0.1em;
             letter-spacing: 0.02em;
         }
         .news-title {
             font-size: 1.08em;
             font-weight: 600;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.3em;
             color: var(--text-color);
             line-height: 1.3;
         }
         .news-desc {
-            font-size: 0.98em;
+            font-size: 0.97em;
             color: var(--text-color);
             line-height: 1.5;
+            margin-bottom: 0.2em;
         }
         .news-desc a {
             color: var(--primary);
@@ -264,53 +266,74 @@
         .news-dot-v2.active {
             background: var(--primary);
         }
-        /* Responsive */
-        @media (max-width: 1100px) {
-            .page-layout { flex-direction: column; gap: 0; }
-            #sidebar { max-width: 100%; margin-bottom: 1.5em; }
-            main#content { padding: 1.5em 1em 1em 1em; }
-        }
         @media (max-width: 700px) {
-            html { font-size: 15px; }
-            #navbar { flex-direction: column; gap: 0.5em; padding: 0.7em 0.7em; }
-            .news-carousel-v2 { max-width: 98vw; }
+            .news-carousel-v2 { max-width: 99vw; }
             .news-imgbox-large { aspect-ratio: 16/10; min-height: 120px; max-height: 180px; }
-            .news-contentbox-compact { padding: 0.8em 0.7em 1em 0.7em; }
+            .news-contentbox-compact { padding: 0.7em 0.7em 1em 0.7em; }
             .news-title { font-size: 1em; }
             .news-desc { font-size: 0.95em; }
         }
-        @media (max-width: 500px) {
-            html { font-size: 14px; }
-            #sidebar, main#content { padding: 1em 0.5em; }
+
+        /* --- Photo Section 优化 --- */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 18px;
+            margin: 1.5em 0;
         }
-        /* Misc */
-        .photo-grid { gap: 1.2em; }
-        .photo-item img { border-radius: 10px; }
-        .video-container video { border-radius: 10px; }
-        footer {
-            text-align: center;
+        .photo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .photo-item img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            max-width: 180px;
+            min-width: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: #f7f7fa;
+            margin: 0 auto;
+            display: block;
+        }
+        .caption {
+            font-size: 0.95em;
             color: var(--text-light);
-            font-size: var(--font-size-sm);
-            margin: 2.5em 0 0 0;
-            padding: 1.2em 0 0 0;
+            margin-top: 0.5em;
+            text-align: center;
+            max-width: 95%;
+            word-break: break-word;
         }
         .photo-album {
-    display: flex;
-    gap: 16px;
-    margin: 1em 0;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-.photo-album img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    background: #f7f7fa;
-    margin: 0;
-    display: block;
-}
+            display: flex;
+            gap: 16px;
+            margin: 1em 0;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .photo-album img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: #f7f7fa;
+            margin: 0;
+            display: block;
+        }
+        @media (max-width: 700px) {
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 10px;
+            }
+            .photo-item img {
+                max-width: 100px;
+                min-width: 80px;
+            }
+            .caption { font-size: 0.88em; }
+        }
     </style>
 </head>
 <body>
@@ -365,10 +388,9 @@
             </div>
             <div class="news-contentbox news-contentbox-compact">
                 <div class="news-date">Aug 28, 2025</div>
-                <div class="news-title">Spinetoram Resistance in Tuta absoluta Published</div>
+                <div class="news-title">Spinetoram resistance in Tuta absoluta</div>
                 <div class="news-desc">
-                    New paper in <em>Pesticide Biochemistry and Physiology</em>! Xie, et al. reveal a 410-fold resistance after 20 generations, with key metabolic mechanisms and fitness costs.<br>
-                    <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read &rarr;</a>
+                    410-fold resistance after 20 generations. <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read</a>
                 </div>
             </div>
         </article>
@@ -379,10 +401,9 @@
             </div>
             <div class="news-contentbox news-contentbox-compact">
                 <div class="news-date">Mar 2025</div>
-                <div class="news-title">CYP380C12 Study Accepted</div>
+                <div class="news-title">CYP380C12 study accepted</div>
                 <div class="news-desc">
-                    Our <em>CYP380C12</em> work in <em>Aphis gossypii</em> is accepted by <em>Journal of Economic Entomology</em>.<br>
-                    <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read &rarr;</a>
+                    <em>CYP380C12</em> in <em>Aphis gossypii</em> published. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read</a>
                 </div>
             </div>
         </article>
