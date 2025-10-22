@@ -2,25 +2,46 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Ziyan Zhuang's Personal Page - Life Science Undergraduate at Xinjiang University">
+    <meta name="theme-color" content="#101114">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <title>Ziyan Zhuang's Personal Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- 预加载关键图片 -->
+    <link rel="preload" as="image" href="Figures/ProXplorer.jpg">
+    <link rel="preload" as="image" href="Figures/DAUModel.jpg">
+    <link rel="preload" as="image" href="Ziyan1.jpg">
     <style>
         :root {
-            --primary: #e5c07b; /* 金色 */
+            --primary: #e5c07b;
+            --primary-light: #f0d399;
             --bg: #101114;
             --card-bg: #18191d;
             --text-color: #f5f5f7;
             --text-light: #b3b3b3;
             --border: #23242a;
-            --radius: 8px; /* 修改: 减小圆角，让设计更硬朗 */
-            --shadow: 0 4px 12px rgba(0,0,0,0.25); /* 修改: 调整阴影 */
-            --font-main: 'Inter', Arial, sans-serif;
-            --font-size: 18px;
-            --font-size-sm: 15px;
-            --font-size-lg: 2.5rem;
-            --transition: all 0.3s ease; /* 修改: 调整过渡效果 */
+            --radius: 8px;
+            --shadow: 0 4px 16px rgba(0,0,0,0.2);
+            --shadow-hover: 0 6px 24px rgba(0,0,0,0.25);
+            --font-main: 'Calisto MT', 'Times New Roman', serif;
+            --font-size-xs: 0.875rem;  /* 14px */
+            --font-size-sm: 1rem;      /* 16px */
+            --font-size: 1.125rem;     /* 18px */
+            --font-size-md: 1.25rem;   /* 20px */
+            --font-size-lg: 2.5rem;    /* 40px */
+            --line-height: 1.7;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            --primary-emphasis: #f0d399; /* 强调色 */
+            --text-emphasis: #ffffff;    /* 文字强调色 */
+            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1200px;
         }
         
         /* 修改: 添加浅色主题变量 */
@@ -33,16 +54,23 @@
             --border: #e0e0e0;
         }
         
-        html, body {
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
             background: var(--bg);
             color: var(--text-color);
             font-family: var(--font-main);
             font-size: var(--font-size);
-            line-height: 1.7;
+            line-height: var(--line-height);
             margin: 0;
             padding: 0;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
         
         h1, h2, h3, h4 {
@@ -50,11 +78,32 @@
             font-weight: 700;
             color: var(--text-color);
             margin-top: 0;
+            line-height: 1.3;
         }
-        h1 { font-size: var(--font-size-lg); margin-bottom: 0.2em; letter-spacing: 0.01em;}
-        h2 { font-size: 2rem; margin-bottom: 0.7em; }
-        h3 { font-size: 1.25rem; margin-bottom: 0.7em; letter-spacing: 0.01em;}
-        h4 { font-size: 1.1rem; margin-bottom: 0.5em; }
+        
+        h1 { 
+            font-size: var(--font-size-lg); 
+            margin-bottom: 0.3em; 
+            letter-spacing: -0.02em;
+        }
+        
+        h2 { 
+            font-size: var(--font-size-md); 
+            margin-bottom: 1em;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 { 
+            font-size: var(--font-size); 
+            margin-bottom: 0.8em;
+            letter-spacing: -0.01em;
+        }
+        
+        h4 { 
+            font-size: var(--font-size-sm);
+            margin-bottom: 0.6em;
+            letter-spacing: 0;
+        }
         p, li, ul {
             font-size: 1em;
             color: var(--text-color);
@@ -168,16 +217,39 @@
             color: var(--primary);
         }
         .content-section {
-            margin-bottom: 3.5em;
+            margin-bottom: 4em;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.4s var(--transition), transform 0.4s var(--transition);
+            will-change: opacity, transform;
         }
+        
         .content-section.active {
             opacity: 1;
             transform: translateY(0);
         }
-        .content-section:not(.active) { display: none; }
+        
+        .content-section:not(.active) { 
+            display: none;
+        }
+        
+        /* 添加卡片悬停效果 */
+        .project-card {
+            transition: transform var(--transition), box-shadow var(--transition);
+            will-change: transform, box-shadow;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* 优化图片加载 */
+        img {
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
         ul { padding-left: 1.5em; }
         li { margin-bottom: 0.7em; }
         /* News Carousel */
@@ -373,13 +445,105 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.18);
             margin-bottom: 0.5em;
         }
+        /* 响应式布局优化 */
+        @media (max-width: 1024px) {
+            :root {
+                --font-size: 1rem;
+                --font-size-md: 1.2rem;
+                --font-size-lg: 2rem;
+            }
+            
+            .page-layout {
+                padding: 0 1.5em 2em;
+            }
+        }
+        
         @media (max-width: 900px) {
-            .page-layout { flex-direction: column; gap: 1.5em; padding: 0 0.5em 2em 0.5em;}
-            #sidebar { max-width: 100%; min-width: 0; margin: 0 auto 2em auto; }
-            main#content { padding: 1.5em 0.5em 1em 0.5em; }
-            .photo-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px;}
-            .photo-item img { max-width: 100px; min-width: 80px; }
-            .video-container, .video-container video { max-width: 98vw; }
+            .page-layout {
+                flex-direction: column;
+                gap: 1.5em;
+                padding: 0 1em 2em;
+            }
+            
+            #navbar {
+                padding: 1.5em 0;
+                margin-bottom: 1.5em;
+            }
+            
+            #navbar ul {
+                gap: 1em;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            #sidebar {
+                max-width: 100%;
+                min-width: 0;
+                margin: 0 auto 1.5em;
+                padding: 2em 1.5em;
+            }
+            
+            main#content {
+                padding: 2em 1.5em;
+            }
+            
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 15px;
+            }
+            
+            .photo-item img {
+                max-width: 100%;
+                min-width: 120px;
+            }
+            
+            .video-container,
+            .video-container video {
+                max-width: 100%;
+            }
+            
+            .project-card {
+                margin-bottom: 1.5em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            :root {
+                --font-size: 0.9375rem;
+                --font-size-md: 1.1rem;
+                --font-size-lg: 1.75rem;
+            }
+            
+            .page-layout {
+                padding: 0 0.75em 1.5em;
+            }
+            
+            #navbar ul {
+                gap: 0.5em;
+            }
+            
+            #navbar a {
+                padding: 0.25em 0.75em;
+                font-size: 0.9375rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+            }
+        }
+        
+        /* 优化图片加载和性能 */
+        img {
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            -webkit-font-smoothing: subpixel-antialiased;
+            transition: opacity 0.2s ease;
+            opacity: 0;
+        }
+        
+        img.loaded {
+            opacity: 1;
         }
         /* 优雅分割线 */
         .section-divider {
@@ -720,18 +884,68 @@
         </main>
     </div>
     <script>
+    // 图片加载优化
+    function loadImage(img) {
+        const src = img.getAttribute('src');
+        if (!src) return;
+        
+        return new Promise((resolve, reject) => {
+            img.onload = () => {
+                img.classList.add('loaded');
+                resolve(img);
+            };
+            img.onerror = reject;
+            img.src = src;
+        });
+    }
+    
+    // 使用 Intersection Observer 优化图片加载
+    function setupLazyLoading() {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                    loadImage(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px'
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('#navbar a');
-        const contentSections = document.querySelectorAll('.content-section');
+        // 预加载关键图片
+        const criticalImages = document.querySelectorAll('img:not([data-src])');
+        Promise.all(Array.from(criticalImages).map(loadImage))
+            .then(() => setupLazyLoading());
+        // 缓存DOM元素
+        const navLinks = Array.from(document.querySelectorAll('#navbar a'));
+        const contentSections = Array.from(document.querySelectorAll('.content-section'));
+        const sectionsMap = new Map(contentSections.map(section => [section.id, section]));
+        
+        // 使用requestAnimationFrame优化动画性能
         function hideAllSections() {
-            contentSections.forEach(section => section.classList.remove('active'));
-            navLinks.forEach(link => link.classList.remove('active'));
+            requestAnimationFrame(() => {
+                contentSections.forEach(section => section.classList.remove('active'));
+                navLinks.forEach(link => link.classList.remove('active'));
+            });
         }
+        
         function showSection(targetId, link) {
             hideAllSections();
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) targetSection.classList.add('active');
-            if (link) link.classList.add('active');
+            requestAnimationFrame(() => {
+                const targetSection = sectionsMap.get(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    if (link) link.classList.add('active');
+                }
+            });
         }
         navLinks.forEach(link => {
             link.addEventListener('click', function(event) {
@@ -821,4 +1035,6 @@
     </script>
 </body>
 </html>
+
+
 
