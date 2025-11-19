@@ -1,1086 +1,799 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Ziyan Zhuang's Personal Page - Life Science Undergraduate at Xinjiang University">
-    <meta name="theme-color" content="#101114">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <title>Ziyan Zhuang's Personal Page</title>
+    <meta name="theme-color" content="#0a0a0c">
+    <title>Ziyan Zhuang | Researcher & Developer</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
-    <!-- 预加载关键图片 -->
-    <link rel="preload" as="image" href="Figures/ProXplorer.jpg">
-    <link rel="preload" as="image" href="Figures/DAUModel.jpg">
-    <link rel="preload" as="image" href="Ziyan1.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     <style>
+        /* --- 核心变量定义 --- */
         :root {
-            --primary: #e5c07b;
-            --primary-light: #f0d399;
-            --bg: #101114;
-            --bg-rgb: 16, 17, 20;
-            --card-bg: #18191d;
-            --text-color: #f5f5f7;
-            --text-light: #b3b3b3;
-            --border: #23242a;
-            --radius: 8px;
-            --shadow: 0 4px 16px rgba(0,0,0,0.2);
-            --shadow-hover: 0 6px 24px rgba(0,0,0,0.25);
-            --font-main: 'Calisto MT', 'Times New Roman', serif;
-            --font-size-xs: 0.875rem;  /* 14px */
-            --font-size-sm: 1rem;      /* 16px */
-            --font-size: 1.125rem;     /* 18px */
-            --font-size-md: 1.25rem;   /* 20px */
-            --font-size-lg: 2.5rem;    /* 40px */
-            --line-height: 1.7;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-bold: 700;
-            --primary-emphasis: #f0d399; /* 强调色 */
-            --text-emphasis: #ffffff;    /* 文字强调色 */
-            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --max-width: 1200px;
+            /* 调色板：Gemini 风格 - 深邃、高对比、蓝紫色微光 */
+            --bg-core: #050507;
+            --bg-card: rgba(20, 20, 25, 0.6);
+            --bg-card-hover: rgba(30, 30, 35, 0.8);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            
+            --primary: #e0c285; /* 保留原本的金色作为强调色 */
+            --accent-glow: rgba(64, 123, 255, 0.15); /* 科技蓝光晕 */
+            
+            --text-main: #ececf1;
+            --text-muted: #8e8ea0;
+            --text-dim: #565660;
+
+            /* 字体栈 */
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* 布局数值 */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --max-width: 1100px;
+            
+            /* 动效 */
+            --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+            --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        
-        /* 修改: 添加浅色主题变量 */
+
         [data-theme="light"] {
-            --primary: #b7965d;
-            --bg: #ffffff;
-            --card-bg: #f5f5f7;
-            --text-color: #101114;
-            --text-light: #555555;
-            --border: #e0e0e0;
+            --bg-core: #f7f7f8;
+            --bg-card: rgba(255, 255, 255, 0.6);
+            --bg-card-hover: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(0, 0, 0, 0.06);
+            --border-hover: rgba(0, 0, 0, 0.15);
+            --primary: #b08d55;
+            --text-main: #1a1a1e;
+            --text-muted: #6e6e73;
+            --accent-glow: rgba(0, 0, 0, 0.03);
         }
-        
+
+        /* --- 全局重置与基础样式 --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         html {
-            font-size: 16px;
             scroll-behavior: smooth;
+            font-size: 16px;
         }
-        
+
         body {
-            background: var(--bg);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            font-size: var(--font-size);
-            line-height: var(--line-height);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
+            background-color: var(--bg-core);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none; /* 隐藏默认鼠标，使用自定义光标 */
         }
-        
-        h1, h2, h3, h4 {
-            font-family: var(--font-main);
-            font-weight: 700;
-            color: var(--text-color);
-            margin-top: 0;
-            line-height: 1.3;
+
+        /* 移动端恢复默认鼠标，避免性能问题 */
+        @media (hover: none) {
+            body { cursor: auto; }
         }
-        
-        h1 { 
-            font-size: var(--font-size-lg); 
-            margin-bottom: 0.3em; 
-            letter-spacing: -0.02em;
-        }
-        
-        h2 { 
-            font-size: var(--font-size-md); 
-            margin-bottom: 1em;
-            letter-spacing: -0.01em;
-        }
-        
-        h3 { 
-            font-size: var(--font-size); 
-            margin-bottom: 0.8em;
-            letter-spacing: -0.01em;
-        }
-        
-        h4 { 
-            font-size: var(--font-size-sm);
-            margin-bottom: 0.6em;
-            letter-spacing: 0;
-        }
-        p, li, ul {
-            font-size: 1em;
-            color: var(--text-color);
-        }
+
+        /* 链接样式 */
         a {
-            color: var(--primary);
+            color: var(--text-main);
             text-decoration: none;
-            transition: color 0.15s;
+            border-bottom: 1px solid rgba(224, 194, 133, 0.3);
+            transition: border-color 0.3s, color 0.3s;
         }
-        a:hover { color: #fffbe6; }
-        /* Navbar */
-        #navbar {
-            background: transparent;
-            margin: 0 auto 36px auto;
-            max-width: 1200px;
-            padding: 2.5em 0 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            border: none;
-        }
-        #navbar ul {
-            display: flex;
-            gap: 2.5em;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        #navbar a {
-            font-size: 1.1em;
-            font-weight: 500;
-            color: var(--text-light);
-            padding: 0.3em 1.2em;
-            border-radius: var(--radius); /* 修改: 使用更小的圆角 */
-            transition: background 0.15s, color 0.15s;
-            letter-spacing: 0.02em;
-            position: relative; /* 添加: 为下划线效果做准备 */
-        }
-        /* 修改: 添加下划线效果 */
-        #navbar a.active, #navbar a:hover {
-            background: transparent;
+        a:hover {
             color: var(--primary);
+            border-bottom-color: var(--primary);
         }
-        #navbar a.active::after {
+
+        /* --- 自定义光标 (The Halo) --- */
+        #cursor-blob {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+            mix-blend-mode: screen; /* 更好的光效叠加 */
+            transition: opacity 0.5s ease;
+            will-change: transform;
+        }
+        
+        #cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: var(--text-main);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference; /* 确保在任何背景下可见 */
+            transition: width 0.2s, height 0.2s;
+        }
+
+        @media (hover: none) {
+            #cursor-blob, #cursor-dot { display: none; }
+        }
+
+        /* --- 排版系统 --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+        h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; }
+        h2 { font-size: 1.75rem; margin-bottom: 1.5rem; position: relative; padding-left: 1rem; }
+        h2::before {
             content: '';
             position: absolute;
-            bottom: -5px;
             left: 0;
-            width: 100%;
-            height: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 1em;
             background: var(--primary);
         }
-        #theme-toggle {
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: var(--primary);
-            margin-left: 2em;
-        }
-        .page-layout {
-            display: flex;
-            max-width: 1200px;
+        h3 { font-family: var(--font-sans); font-weight: 600; font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem; }
+        p { margin-bottom: 1.5rem; color: var(--text-muted); font-weight: 300; }
+        .small-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* --- 布局容器 --- */
+        .container {
+            max-width: var(--max-width);
             margin: 0 auto;
-            gap: 3.5em;
-            padding: 0 2em 4em 2em;
-        }
-        #sidebar {
-            min-width: 270px;
-            max-width: 320px;
-            background: var(--card-bg);
-            border-radius: var(--radius); /* 修改: 更锐利的边角 */
-            box-shadow: var(--shadow);
-            padding: 2.5em 2em 2em 2em;
-            margin-top: 0;
-            align-self: flex-start;
+            padding: 0 2rem;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid var(--border); /* 添加: 边框 */
+            flex-direction: row; /* 桌面端左右布局 */
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
         }
-        #avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto 1.5em auto;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-            object-fit: cover;
-            border: 3px solid var(--primary);
-        }
-        .contact-info p, .contact-info a {
-            font-size: var(--font-size-sm);
-            color: var(--text-light);
-            margin: 0.4em 0;
-            text-align: center;
-        }
-        main#content {
-            flex: 1 1 0;
-            background: var(--card-bg);
-            border-radius: var(--radius); /* 修改: 更锐利的边角 */
-            box-shadow: var(--shadow);
-            padding: 3.5em 3em 2.5em 3em;
-            margin-top: 0;
-            min-width: 0;
-            border: 1px solid var(--border); /* 添加: 边框 */
-        }
-        header h1 {
-            font-size: var(--font-size-lg);
-            margin-bottom: 0.2em;
-            color: var(--primary);
-        }
-        .content-section {
-            margin-bottom: 4em;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.4s var(--transition), transform 0.4s var(--transition);
-            will-change: opacity, transform;
+
+        /* --- 侧边栏 (Sidebar) --- */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 4rem;
+            height: fit-content;
+            padding-top: 4rem;
         }
         
-        .content-section.active {
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            transition: transform 0.5s var(--ease-out);
+        }
+        .avatar-container:hover .avatar {
+            transform: scale(1.05);
+        }
+
+        .profile-info h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .contact-list { list-style: none; margin-top: 2rem; }
+        .contact-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .contact-list a { 
+            font-family: var(--font-mono); 
+            font-size: 0.85rem; 
+            color: var(--text-muted); 
+            border: none;
+        }
+        .contact-list a:hover { color: var(--text-main); }
+
+        /* --- 导航栏 (Navbar) - 极简浮动式 --- */
+        nav.glass-nav {
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            background: rgba(10, 10, 12, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 100px; /* 药丸形状 */
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between; /* 改为 Space between 以容纳主题切换 */
+            align-items: center;
+            max-width: fit-content;
+            margin: 0 auto 3rem auto; /* 居中 */
+            box-shadow: 0 4px 24px -4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+            background: rgba(255,255,255,0.05);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+
+        /* --- 主内容区 (Main) --- */
+        main {
+            flex-grow: 1;
+            padding-top: 4rem;
+            min-width: 0; /* 防止flex子元素溢出 */
+        }
+
+        .section {
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+        }
+        .section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .content-section:not(.active) { 
-            display: none;
-        }
-        
-        /* 添加卡片悬停效果 */
-        .project-card {
-            transition: transform var(--transition), box-shadow var(--transition);
-            will-change: transform, box-shadow;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        /* 优化图片加载 */
-        img {
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: subpixel-antialiased;
-        }
-        ul { padding-left: 1.5em; }
-        li { margin-bottom: 0.7em; }
-        /* News Carousel */
-        .news-carousel-v2 {
+
+        /* --- 卡片通用样式 (Glassmorphism) --- */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            transition: all 0.3s var(--ease-out);
             position: relative;
-            max-width: 900px;
-            margin: 0 auto 2.5em auto;
-            background: var(--card-bg);
-            border-radius: 0;
-            box-shadow: var(--shadow);
             overflow: hidden;
-            padding: 0;
-            outline: none;
-            border: 1px solid var(--border); /* 添加: 边框 */
         }
-        .news-slides-v2 {
-            display: flex;
-            transition: transform 0.5s ease; /* 修改: 更流畅的过渡 */
-            will-change: transform;
+        .card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            background: var(--bg-card-hover);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
         }
-        .news-slide-v2 {
-            min-width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            background: none;
+
+        /* --- 列表与时间线 --- */
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
-        .news-imgbox-large {
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-align: right;
+            padding-top: 0.2rem;
+        }
+        .timeline-content h4 {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--text-main);
+        }
+        .timeline-content .org {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* --- Publications --- */
+        .pub-list {
+            list-style: none;
+        }
+        .pub-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--border-color);
+        }
+        .pub-item:hover {
+            border-left-color: var(--primary);
+        }
+        .pub-title {
+            font-weight: 500;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .pub-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Grid Layouts (Projects/Photos) --- */
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .project-img {
             width: 100%;
-            /* 移除aspect-ratio，自动适应图片原始比例 */
-            min-height: 0;
-            max-height: 420px;
-            background: #18191d;
+            height: 160px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+            background-color: #151518;
+        }
+
+        /* --- News Carousel (Refined) --- */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s var(--ease-out);
+        }
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.7); /* 让文字更清晰 */
+        }
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        .carousel-controls {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+        .carousel-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            transition: background 0.2s;
+        }
+        .carousel-btn:hover { background: rgba(255,255,255,0.3); }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            padding-bottom: 2rem;
+        }
+
+        /* --- Theme Toggle --- */
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            border-radius: 0;
+            margin-left: 1rem;
         }
-        .news-imgbox-large img {
-            width: 100%;
-            height: auto;
-            max-height: 420px;
-            object-fit: contain;
-            object-position: center center;
-            border-radius: 0;
-            display: block;
-        }
-        .news-contentbox-compact {
-            padding: 1.2em 2.5em 1.7em 2.5em;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            background: none;
-        }
-        .news-date {
-            font-size: 1.05em;
+        #theme-toggle:hover {
+            background: rgba(255,255,255,0.1);
             color: var(--primary);
-            margin-bottom: 0.1em;
-            letter-spacing: 0.02em;
         }
-        .news-title {
-            font-size: 1.25em;
-            font-weight: 700;
-            margin-bottom: 0.4em;
-            color: #fff;
-            line-height: 1.3;
-            letter-spacing: 0.01em;
-        }
-        .news-desc {
-            font-size: 1.05em;
-            color: var(--text-light);
-            line-height: 1.5;
-            margin-bottom: 0.2em;
-        }
-        .news-desc a {
-            color: var(--primary);
-            text-decoration: underline;
-            font-weight: 500;
-            margin-left: 0.2em;
-        }
-        .news-nav-v2 {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(16,17,20,0.92);
-            border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-            cursor: pointer;
-            font-size: 1.5em;
-            color: var(--primary);
-            z-index: 2;
-            transition: background 0.2s;
-        }
-        .news-nav-v2:hover { background: #23242a; }
-        .news-prev-v2 { left: 18px; }
-        .news-next-v2 { right: 18px; }
-        .news-dots-v2 {
-            position: absolute;
-            left: 50%;
-            bottom: 22px;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 2;
-        }
-        .news-dot-v2 {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #23242a;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-            padding: 0;
-        }
-        .news-dot-v2.active {
-            background: var(--primary);
-        }
+
+        /* --- 响应式适配 (Mobile) --- */
         @media (max-width: 900px) {
-            .news-carousel-v2 { max-width: 99vw; }
-            .news-imgbox-large { aspect-ratio: 16/9; min-height: 120px; max-height: 220px; }
-            .news-contentbox-compact { padding: 1em 1em 1.2em 1em; }
-            .news-title { font-size: 1.08em; }
-            .news-desc { font-size: 0.98em; }
-        }
-        /* --- Photo Section 优化 --- */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 24px;
-            margin: 2em 0;
-        }
-        .photo-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .photo-item img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            max-width: 220px;
-            min-width: 120px;
-            object-fit: cover;
-            border-radius: var(--radius); /* 修改: 更锐利的边角 */
-            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-            background: #23242a;
-            margin: 0 auto;
-            display: block;
-        }
-        .caption {
-            font-size: 1em;
-            color: var(--text-light);
-            margin-top: 0.7em;
-            text-align: center;
-            max-width: 95%;
-            word-break: break-word;
-        }
-        .photo-album {
-            display: flex;
-            gap: 20px;
-            margin: 1.5em 0;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-        .photo-album img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: var(--radius); /* 修改: 更锐利的边角 */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-            background: #23242a;
-            margin: 0;
-            display: block;
-        }
-        .video-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 2em auto 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .video-container video {
-            width: 100%;
-            max-width: 600px;
-            aspect-ratio: 16/9;
-            border-radius: var(--radius); /* 修改: 更锐利的边角 */
-            background: #23242a;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-            margin-bottom: 0.5em;
-        }
-        /* 响应式布局优化 */
-        @media (max-width: 1024px) {
-            :root {
-                --font-size: 1rem;
-                --font-size-md: 1.2rem;
-                --font-size-lg: 2rem;
-            }
-            
-            .page-layout {
-                padding: 0 1.5em 2em;
-            }
-        }
-        
-        @media (max-width: 900px) {
-            .page-layout {
+            .container {
                 flex-direction: column;
-                gap: 1.5em;
-                padding: 0 1em 2em;
+                padding: 0 1.5rem;
+                gap: 2rem;
             }
+            .sidebar {
+                position: relative;
+                top: 0;
+                width: 100%;
+                padding-top: 1rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-list li { justify-content: center; }
             
-            #navbar {
-                padding: 1.5em 0;
-                margin-bottom: 1.5em;
+            nav.glass-nav {
+                width: 90%; /* 移动端宽度 */
+                overflow-x: auto; /* 允许横向滚动 */
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
             }
+            nav ul { gap: 1rem; }
+            nav a { white-space: nowrap; }
             
-            #navbar ul {
-                gap: 1em;
-                flex-wrap: wrap;
-                justify-content: center;
+            .timeline-item {
+                grid-template-columns: 1fr; /* 堆叠布局 */
+                gap: 0.5rem;
             }
+            .timeline-date {
+                text-align: left;
+                font-size: 0.8rem;
+                opacity: 0.7;
+            }
+            main { padding-top: 1rem; }
             
-            #sidebar {
-                max-width: 100%;
-                min-width: 0;
-                margin: 0 auto 1.5em;
-                padding: 2em 1.5em;
-            }
-            
-            main#content {
-                padding: 2em 1.5em;
-            }
-            
-            .photo-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 15px;
-            }
-            
-            .photo-item img {
-                max-width: 100%;
-                min-width: 120px;
-            }
-            
-            .video-container,
-            .video-container video {
-                max-width: 100%;
-            }
-            
-            .project-card {
-                margin-bottom: 1.5em;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            :root {
-                --font-size: 0.9375rem;
-                --font-size-md: 1.1rem;
-                --font-size-lg: 1.75rem;
-            }
-            
-            .page-layout {
-                padding: 0 0.75em 1.5em;
-            }
-            
-            #navbar ul {
-                gap: 0.5em;
-            }
-            
-            #navbar a {
-                padding: 0.25em 0.75em;
-                font-size: 0.9375rem;
-            }
-            
-            .photo-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 10px;
-            }
-        }
-        
-        /* 优化图片加载和性能 */
-        img {
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: subpixel-antialiased;
-            transition: opacity 0.2s ease;
-            opacity: 0;
-        }
-        
-        img.loaded {
-            opacity: 1;
-        }
-        /* 优雅分割线 */
-        .section-divider {
-            border: none;
-            border-top: 1.5px solid var(--border);
-            margin: 2.5em 0 2em 0;
-        }
-        /* 滚动条美化 */
-        ::-webkit-scrollbar {
-            width: 8px;
-            background: #18191d;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #23242a;
-            border-radius: 8px;
-        }
-        
-        /* 修改: 添加新的经历条目样式 */
-        .experience-item {
-            margin-bottom: 1.5em;
-            padding-bottom: 1.5em;
-            border-bottom: 1px solid var(--border);
-        }
-        .experience-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .experience-item h4 {
-            margin-bottom: 0.3em;
-            color: var(--primary);
-        }
-        .experience-item .location-date {
-            font-size: 0.95em;
-            color: var(--text-light);
-            margin-bottom: 0.5em;
-        }
-        .experience-item p {
-            margin-top: 0.5em;
+            h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body data-theme="dark">
-    <nav id="navbar">
-        <ul>
-            <li><a href="#" data-target="about" class="active">About</a></li>
-            <li><a href="#" data-target="publications">Publications</a></li>
-            <li><a href="#" data-target="cv-highlights">CV Highlights</a></li>
-            <li><a href="#" data-target="projects">Projects</a></li>
-            <li><a href="#" data-target="blog-posts">Blog</a></li>
-            <li><a href="#" data-target="hobbies">Hobbies</a></li>
-            <li><a href="#" data-target="photo">Photo</a></li>
-        </ul>
-        <button id="theme-toggle" aria-label="Toggle theme">
-            <span id="theme-icon">☀</span>
-        </button>
-    </nav>
-    <div class="page-layout">
-        <aside id="sidebar">
-            <img src="Ziyan1.jpg" alt="Ziyan's Avatar" id="avatar">
-            <div class="contact-info">
-                <p>Undergraduate | Life Science</p>
-                <p>Xinjiang University (2022-2026)</p>
-                <p>Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a></p>
-                <p>ORCID: <a href="https://orcid.org/0009-0007-3915-1614" target="_blank" rel="noopener">0009-0007-3915-1614</a></p>
-                <p>
-                    <a href="https://github.com/ZiyanZhuang" target="_blank" rel="noopener" style="text-decoration:none; display: inline-flex; align-items: center;">
-                        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:middle; margin-right: 5px;">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </p>
+
+    <div id="cursor-blob"></div>
+    <div id="cursor-dot"></div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="avatar-container">
+                <img src="Ziyan1.jpg" alt="Ziyan Zhuang" class="avatar">
+            </div>
+            <div class="profile-info">
+                <h1>Ziyan Zhuang</h1>
+                <p class="small-meta">Life Science Undergraduate</p>
+                <p style="margin-bottom: 1rem; font-size: 0.95rem;">Xinjiang University (2022-2026)</p>
+                
+                <ul class="contact-list">
+                    <li>
+                        <span style="opacity:0.5">✉</span> 
+                        <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a>
+                    </li>
+                    <li>
+                        <span style="opacity:0.5">ID</span>
+                        <a href="https://orcid.org/0009-0007-3915-1614" target="_blank">ORCID: ...1614</a>
+                    </li>
+                    <li>
+                        <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor" style="opacity:0.7"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                        <a href="https://github.com/ZiyanZhuang" target="_blank">GitHub</a>
+                    </li>
+                </ul>
             </div>
         </aside>
-        <main id="content">
-            <header>
-                <h1>Ziyan Zhuang</h1>
-            </header>
-            <section id="about" class="content-section active">
+
+        <main>
+            <nav class="glass-nav">
+                <ul>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#photo">Life</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Switch Theme">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+            </nav>
+
+            <section id="about" class="section visible">
                 <h2>About Me</h2>
-                <p>Hello! My name is Ziyan Zhuang, and I am currently an undergraduate student at the College of Life Science and Technology, Xinjiang University. I am passionate about biological sciences and look forward to making meaningful contributions in my field.</p>
-                <hr class="section-divider">
-                <h3>News</h3>
-                <div class="news-carousel-v2" id="newsCarousel" aria-roledescription="carousel" tabindex="0">
-                    <div class="news-slides-v2">
-                        <!-- Removed Xie 2025 news slide as requested -->
-                        <article class="news-slide-v2">
-                            <div class="news-imgbox news-imgbox-large">
-                                <img src="paperwall.jpg" alt="Paper Wall">
+                <p>Hello! I am <strong>Ziyan Zhuang</strong>. My work lies at the intersection of biological sciences and computational design. I am driven by a fundamental curiosity: how can we move beyond empirical methods to design complex systems—be it a novel protein or an adaptive AI—using first principles?</p>
+                
+                <div class="carousel-container card" style="margin: 2.5rem 0;">
+                    <div class="carousel-track" id="track">
+                        <div class="carousel-slide">
+                            <img src="paperwall.jpg" alt="Research Paper">
+                            <div class="carousel-caption">
+                                <div class="small-meta" style="color:var(--primary)">Mar 2025</div>
+                                <h4 style="color:white; margin-bottom:0.5rem">CYP380C12 study accepted</h4>
+                                <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin:0;">Published in <em>Journal of Economic Entomology</em></p>
                             </div>
-                            <div class="news-contentbox news-contentbox-compact">
-                                <div class="news-date">Mar 2025</div>
-                                <div class="news-title">CYP380C12 study accepted</div>
-                                <div class="news-desc">
-                                    <em>CYP380C12</em> in <em>Aphis gossypii</em> published. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">Read</a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <button class="news-nav-v2 news-prev-v2" aria-label="Previous slide">&#8592;</button>
-                    <button class="news-nav-v2 news-next-v2" aria-label="Next slide">&#8594;</button>
-                    <div class="news-dots-v2"></div>
+                        </div>
+                        </div>
                 </div>
-                <hr class="section-divider">
-                <h3>Research Interests</h3>
-                <p>My research is driven by a fundamental curiosity about how we can move beyond traditional, empirical methods to design complex systems—be it a novel protein or a truly adaptive AI. My goal is to leverage computational methods to develop frameworks that are not only effective but also grounded in first principles, whether they are the laws of physics and chemistry or the evolutionary principles governing biological intelligence.</p>
-                <h4>Direction 1: MCMC and PINNs for De Novo Protein Design</h4>
-                <p>The first direction of my research focuses on developing predictive and robust methodologies for <strong>de novo protein design</strong> from a computational chemistry perspective. I believe that by integrating statistical mechanics and deep learning, we can overcome the limitations of traditional molecular dynamics and empirical design.</p>
-                <p>I am particularly interested in two synergistic approaches:</p>
-                <ul>
-                    <li><strong>Markov Chain Monte Carlo (MCMC) Framework:</strong> This approach efficiently samples the vast conformational space of proteins by defining the design space with physically and chemically meaningful moves. The acceptance of these moves will be guided by a scoring function that combines established force fields with statistical potentials derived from known protein structures.</li>
-                    <li><strong>Physics-Informed Neural Networks (PINNs):</strong> While deep learning models like AlphaFold are powerful, they can sometimes produce physically unrealistic structures. My approach augments the neural network's loss function with terms that enforce fundamental physical constraints, ensuring generated protein structures are both plausible and physically stable.</li>
-                </ul>
-                <h4>Direction 2: An Evolving Agent Framework for Continuous Learning</h4>
-                <p>My second research direction is inspired by a critical observation: current Agent frameworks, despite their potential, are inherently limited by the static, "train-and-predict" paradigm of their underlying Large Language Models (LLMs).</p>
-                <p>I propose to develop:</p>
-                <ul>
-                    <li>A novel <strong>Agent architecture</strong> that integrates principles of biological intelligence, creating a dynamic system that continuously learns and adapts.</li>
-                    <li>A cyclical learning mechanism, analogous to the human sleep-wake cycle, for daily information integration and consolidation.</li>
-                    <li>An evolutionary selection mechanism to refine the architecture, mimicking natural selection to enhance the system's overall performance.</li>
-                </ul>
+
                 <h3>Research Vision</h3>
-                <p>My ultimate goal is to bridge the gap between computational design and biological systems, creating frameworks that can truly evolve and adapt. Whether designing novel proteins or developing intelligent systems, I aim to ground my work in fundamental principles while pushing the boundaries of what's possible.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="card">
+                        <h4>Protein Design</h4>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Combining <strong>MCMC</strong> and <strong>PINNs</strong> to overcome limitations of traditional molecular dynamics. Integrating statistical mechanics with deep learning constraints.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Evolving Agents</h4>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Developing an Agent architecture that mimics biological intelligence, featuring cyclical learning (sleep-wake cycles) and evolutionary selection mechanisms.</p>
+                    </div>
+                </div>
             </section>
-            <section id="publications" class="content-section">
+
+            <section id="publications" class="section">
                 <h2>Publications</h2>
-                <ul>
-                    <li class="publication-item">
-                        5) Xie JG<sup>1</sup>, Turak R<sup>1</sup>, Liu N, <strong>Zhuang ZY</strong>, Liu XN, Song Y. 2025. Spinetoram resistance in <em>Tuta absoluta</em>: selection, inheritance, biochemical mechanism and fitness cost. <em>Pesticide Biochemistry and Physiology</em>. <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank" rel="noopener">Read the paper &rarr;</a> JCR Q1
+                <ul class="pub-list">
+                    <li class="pub-item">
+                        <span class="pub-title">Spinetoram resistance in <i>Tuta absoluta</i>: selection, inheritance, biochemical mechanism and fitness cost.</span>
+                        <div class="pub-meta">
+                            Xie JG, Turak R, Liu N, <strong>Zhuang ZY</strong>, et al. (2025) <br>
+                            <em>Pesticide Biochemistry and Physiology</em> | <a href="https://doi.org/10.1016/j.pestbp.2025.106659" target="_blank">DOI</a> | JCR Q1
+                        </div>
                     </li>
-                    <li class="publication-item">
-                        4) Zhang LJ<sup>1</sup>, <strong>Zhuang ZY<sup>1</sup></strong>, Xie JG<sup>1</sup>, Kong WT, Li TT, Wang SF, Liu XN. 2025. Molecular insights on the function of <em>CYP380C12</em> in <em>Aphis gossypii</em> Glover (Hemiptera: Aphididae): in silico and RNAi analyses. <em>Journal of Economic Entomology</em>. <a href="https://doi.org/10.1093/jee/toaf067" target="_blank" rel="noopener">https://doi.org/10.1093/jee/toaf067</a> JCR Q1 
+                    <li class="pub-item">
+                        <span class="pub-title">Molecular insights on the function of <i>CYP380C12</i> in <i>Aphis gossypii</i> Glover.</span>
+                        <div class="pub-meta">
+                            Zhang LJ, <strong>Zhuang ZY</strong> (Co-first), et al. (2025) <br>
+                            <em>Journal of Economic Entomology</em> | <a href="https://doi.org/10.1093/jee/toaf067" target="_blank">DOI</a> | JCR Q1
+                        </div>
                     </li>
-                    <li class="publication-item">
-                        3) Li Y<sup>1</sup>, Kong WT<sup>1</sup>, Li TT<sup>1</sup>, Zhang LJ, <strong>Zhuang ZY</strong>, Liu N, Liu XN. 2025. Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation. <em>Journal of Agricultural and Food Chemistry</em>. <a href="https://doi.org/10.1021/acs.jafc.4c12035" target="_blank" rel="noopener">https://doi.org/10.1021/acs.jafc.4c12035</a> JCR Q1
+                    <li class="pub-item">
+                        <span class="pub-title">Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation.</span>
+                        <div class="pub-meta">
+                            Li Y, Kong WT, Li TT, Zhang LJ, <strong>Zhuang ZY</strong>, et al. (2025) <br>
+                            <em>Journal of Agricultural and Food Chemistry</em> | <a href="https://doi.org/10.1021/acs.jafc.4c12035" target="_blank">DOI</a> | JCR Q1
+                        </div>
                     </li>
-                    <li class="publication-item">
-                        2) Xie JG<sup>1</sup>, Wang SY<sup>1</sup>, <strong>Zhuang ZY</strong>, Wang XH, Lin MH, Liu XN. 2025. Exploring the role of <em>CYP6AB328</em> in spinetoram resistance and growth and development of <em>Phthorimaea absoluta</em>. <em>Pesticide Biochemistry and Physiology</em>. <a href="https://doi.org/10.1016/j.pestbp.2025.106316" target="_blank" rel="noopener">https://doi.org/10.1016/j.pestbp.2025.106316</a> JCR Q1
-                    </li>
-                    <li class="publication-item">
-                        1) Xie JG<sup>1</sup>, Ali A<sup>1</sup>, Li Y, <strong>Zhuang ZY</strong>, Liu XN. 2024. Functional Investigation of <em>CYP304F1</em> in <em>Tuta absoluta</em> (Lepidopteran: Gelechiidae) by RNA Interference. <em>Journal of Economic Entomology</em>. <a href="https://doi.org/10.1093/jee/toae283" target="_blank" rel="noopener">https://doi.org/10.1093/jee/toae283</a> JCR Q1
-                    </li>
-                </ul>
-                <p><sup>1</sup> Co-first author</p>
+                    </ul>
             </section>
-            <section id="cv-highlights" class="content-section">
+
+            <section id="cv" class="section">
                 <h2>CV Highlights</h2>
+                
                 <h3>Education</h3>
-                <ul>
-                    <li><strong>B. Sc Biological Science | Xinjiang University</strong><br>2022-2026<br>Achieved good grades in university mathematics and physics courses, and performed well in core subjects.</li>
-                    <li><strong>Joint Minor in Climate Change and Carbon Neutrality | Tongji University & Xinjiang University</strong><br>2023-2024 | Received completion certificate | This program broadened my academic vision.</li>
-                </ul>
-                
-                <h3>Honors and Awards</h3>
-                <ul>
-                    <li>August 2024: Second Prize (1/5) | In China Undergraduate Life Sciences Contest (CULSC)</li>
-                    <li>August 2024: Outstanding Newcomer Award | In The Chinese Society of Biochemistry and Molecular Biology (Branched of Agricultural)</li>
-                </ul>
-                
-                <h3>Research & Professional Experience</h3>
-                <!-- 修改: 添加新的经历条目 -->
-                <div class="experience-item">
-                    <h4>Summer School</h4>
-                    <div class="location-date">August 2025 | Shanghai Jiao Tong University | Institute of Natural Sciences | Shanghai, China</div>
-                    <p>Topics: AI for Bioengineering</p>
-                </div>
-                
-                <div class="experience-item">
-                    <h4>Summer School</h4>
-                    <div class="location-date">July 2024 | Peking University | Center for Life Science (CLS) | Center for Quantitative Biology (CQB)</div>
-                    <p>Topic: Quantitative Biology</p>
-                </div>
-                
-                <div class="experience-item">
-                    <h4>Internship</h4>
-                    <div class="location-date">July 2024 - Oct 2024 | Xinjiang University | Chemical Engineering Institute</div>
-                    <p>Topic: Biomass pyrogenation; Microwave-assisted pyrolysis of CH4 catalyzed by carbon materials</p>
-                </div>
-                
-                <div class="experience-item">
-                    <h4>Research Experience in Prof. Xiaoning Liu's Lab</h4>
-                    <div class="location-date">Dec 2023 - Oct 2025 | Xinjiang University | College of Life Science and Technology</div>
-                    <p>Research Focus: Pest Control, Cytochrome P450, Insecticide Resistance.</p>
-                </div>
-
-                <h3>Projects & Software</h3>
-                <ul>
-                    <li>
-                        <a href="https://github.com/ZiyanZhuang/BOGDA" target="_blank" rel="noopener">BOGDA</a> - A Deep Learning Framework for Pest Resistance Prediction
-                    </li>
-                    <li>
-                        <a href="https://github.com/ZiyanZhuang/ProXplorer" target="_blank" rel="noopener">ProXplorer</a> - A Protein Sequence Analysis Toolbox
-                    </li>
-                    <li>
-                        <a href="https://github.com/ZiyanZhuang/DAU-Model" target="_blank" rel="noopener">DAU-Model</a> - A Diffusion-Adsorption-Uptake Model  to facilitate the efficient application of quantitative values obtained from wet experiments
-                    </li>
-                </ul>
-
-                <h3>Skills</h3>
-                <ul>
-                    <li>
-                        <strong>Dry Lab Skills</strong><br>
-                        Proficient in computational techniques for molecular biology and bioinformatics. Expertise includes:
-                        <ul>
-                            <li>Molecular Docking: Utilizing tools such as Vina, ADFR, and LeDock to investigate ligand-protein interactions and characterize binding conformations of agrochemicals and proteins.</li>
-                            <li>Molecular Dynamics (MD) Simulations: Experienced in all-atom MD simulations using GROMACS and AMBER for analyzing conformational dynamics.</li>
-                            <li>Integrated Bioinformatics & Structural Modeling: Developing computational pipelines for analyzing gene expression (RNA-Seq), evolutionary analysis, AI-based structural modeling (AlphaFold, Protenix), traditional modeling (I-TASSER, Swiss-model), and structural analysis (Pymol, Discovery Studio, ChimeraX, Jmol, VMD, Mol*, Mole 2). Functional annotation using InterPro, UniProt, etc.</li>
-                            <li>Data Science & Quantitative Analysis & AI for Science: Building mathematical models, processing experimental datasets with statistical validation, statistical analysis (hypothesis testing, regression modeling), advanced visualization (Python, MATLAB, R, Prism), and data wrangling. Developed BOGDA, a Deep Learning Framework for Pest Resistance Prediction.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Wet Lab Skills</strong><br>
-                        Mastery of fundamental molecular biology and biochemistry experimental techniques:
-                        <ul>
-                            <li>Functional Characterization of Genes: Via gene cloning, expression, and functional analysis using RNAi. Includes techniques such as nucleic acid extraction, PCR, reverse transcription, electrophoresis, and dsRNA synthesis.</li>
-                            <li>Protein Analysis: Including protein extraction and SDS-PAGE.</li>
-                            <li>Bioassays: Performing insect toxicity testing (LC50).</li>
-                            <li>Microbiology: Microbiome isolation (culture-dependent), 16S rRNA gene amplification and sequencing.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Microscopy & Chemistry Skills</strong><br>
-                        Experienced in microscopy and basic chemistry experimental techniques:
-                        <ul>
-                            <li>Microscopy: Operation of LSCM for observing cellular structures, skilled in cell fixation, fluorescent labeling (indirect immunofluorescence), and imaging techniques (ImageJ Fiji).</li>
-                            <li>Chemistry: Participation in methane microwave pyrolysis experiments, including gas sampling and operation of GC-MS instrumentation.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-            <section id="projects" class="content-section">
-                <h2>Side Projects</h2>
-                <p>Here are some of my personal projects that I've been working on:</p>
-                
-                <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 2em 0;">
-                    <!-- ProXplorer Project -->
-                    <div class="project-card" style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
-                        <img src="Figures/ProXplorer.jpg" alt="ProXplorer Interface" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div style="padding: 1.5em;">
-                            <h3 style="color: var(--primary); margin: 0 0 0.5em 0;">ProXplorer</h3>
-                            <p style="color: var(--text-light); margin: 0 0 1em 0;">A Protein Sequence Analysis Toolbox with integrated visualization and analysis capabilities.</p>
-                            <a href="https://github.com/ZiyanZhuang/ProXplorer" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; display: inline-flex; align-items: center;">
-                                View Project &rarr;
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- DAU-Model Project -->
-                    <div class="project-card" style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
-                        <img src="Figures/DAUModel.jpg" alt="DAU-Model Visualization" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div style="padding: 1.5em;">
-                            <h3 style="color: var(--primary); margin: 0 0 0.5em 0;">DAU-Model</h3>
-                            <p style="color: var(--text-light); margin: 0 0 1em 0;">A Diffusion-Adsorption-Uptake Model for quantitative analysis of experimental data in biological systems.</p>
-                            <a href="https://github.com/ZiyanZhuang/DAU-Model" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; display: inline-flex; align-items: center;">
-                                View Project &rarr;
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- BOGDA Project -->
-                    <div class="project-card" style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
-                        <img src="Figures/BOGDA.jpg" alt="BOGDA Framework" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div style="padding: 1.5em;">
-                            <h3 style="color: var(--primary); margin: 0 0 0.5em 0;">BOGDA</h3>
-                            <p style="color: var(--text-light); margin: 0 0 1em 0;">A Deep Learning Framework for Pest Resistance Prediction, incorporating biological and chemical features.</p>
-                            <a href="https://github.com/ZiyanZhuang/BOGDA" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; display: inline-flex; align-items: center;">
-                                View Project &rarr;
-                            </a>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2026</div>
+                    <div class="timeline-content">
+                        <h4>B.Sc. Biological Science</h4>
+                        <span class="org">Xinjiang University</span>
+                        <p style="font-size: 0.9rem">Focus on core mathematics, physics, and life sciences.</p>
                     </div>
                 </div>
-            </section>
-            <section id="blog-posts" class="content-section">
-                <h2>Blog Posts</h2>
-                <p>Here you can find my latest blog posts.</p>
-                 <ul>
-                    <li><a href="blog/essay2.html">人饵训机</a></li>   
-                </ul> 
-                <ul>
-                    <li><a href="blog/essay1.html">我们还能深度思考吗？</a></li>   
-                </ul> 
-            </section>
-            <section id="hobbies" class="content-section">
-                <h2>Hobbies & Interests</h2>
-                <p>Outside of academics and research, I enjoy relaxing and enriching myself through various hobbies:</p>
-                <ul>
-                    <li>Programming interesting projects</li>
-                    <li>Rock climbing</li>
-                    <li>Fishing</li>
-                    <li>Rock music, Jazz Hip Hop, Country music</li>
-                    <li>Reading</li>
-                </ul>
-                <h3>Favorite Bands / Songs</h3>
-                <!-- 删除: 个人照片 -->
-            </section>
-            <section id="photo" class="content-section">
-                <h2>Photo</h2>
-                <div class="academic-activities">
-                    <h3>Academic Activities</h3>
-                    <p>Key moments from my academic journey and research experiences:</p>
-                    
-                    <div class="activity-item">
-                        <h4>AI for Bioengineering Summer School | Shanghai Jiao Tong University</h4>
-                        <p class="activity-date">August 2025</p>
-                        <img src="Figures/SJTU.jpg" alt="Poster Presentation at SJTU Summer School" loading="lazy" class="academic-photo">
-                    </div>
-                    
-                    <hr class="section-divider">
-                    
-                    <div class="activity-item">
-                        <h4>Quantitative Biology Summer School | Peking University</h4>
-                        <p class="activity-date">July 2024</p>
-                        <img src="Figures/PKU.jpg" alt="Zebrafish Facility at PKU" loading="lazy" class="academic-photo">
-                        
-                    </div>
-                    
-                    <hr class="section-divider">
-                    
-                    <div class="activity-item">
-                        <h4>Biomass Research Internship | Chemical Engineering Institute</h4>
-                        <p class="activity-date">July 2024</p>
-                        <img src="Figures/Pyrolysis catalysts with different particle sizes.jpg" alt="Catalysts for Methane Pyrolysis" loading="lazy" class="academic-photo">
-
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>Joint Minor: Climate Change & Carbon Neutrality</h4>
+                        <span class="org">Tongji University & Xinjiang University</span>
                     </div>
                 </div>
 
-                <style>
-                    .activity-item {
-                        margin-bottom: 2.5em;
-                    }
-                    .activity-item h4 {
-                        color: var(--primary);
-                        margin-bottom: 0.3em;
-                    }
-                    .activity-date {
-                        color: var(--text-light);
-                        font-size: 0.9em;
-                        margin-bottom: 1em;
-                    }
-                    .activity-description {
-                        line-height: 1.6;
-                        margin-top: 1em;
-                    }
-                    .academic-photo {
-                        width: 100%;
-                        max-width: 300px;
-                        margin: 1em auto;
-                        display: block;
-                        border-radius: var(--radius);
-                        box-shadow: var(--shadow);
-                    }
-                </style>
-                
-                <hr class="section-divider">
-                
-                <div class="field-work">
-                    <h3>Field Work in Northern Tianshan Mountains</h3>
-                    <p>In June 2024, We participated in a field research expedition to the Northern Tianshan Mountains. During our wildlife monitoring program, we were fortunate enough to capture footage of the majestic Tianshan wapiti (Cervus elaphus songaricus) through our infrared cameras.</p>
-                    <p>The Tianshan wapiti is a subspecies of red deer endemic to the Tianshan Mountain range in Xinjiang Uygur Autonomous Region, China. Listed as a Class II nationally protected species, its wild population has dwindled to fewer than 10,000 individuals, primarily distributed in the remote montane forests of the northern Tianshan Mountains.</p>
-                    <div class="photo-grid">
-                        <div class="photo-item">
-                            <img src="Infrared Camera Monitoring of Wildlife.jpg" alt="Infrared-triggered Camera" loading="lazy">
-                            <p class="caption">Infrared-triggered Camera</p>
-                        </div>
-                        <div class="photo-item">
-                            <img src="Infrared Camera Monitoring of Wildlife1.jpg" alt="Another View of Tianshan Wapiti" loading="lazy">
-                            <p class="caption">An observation of the Tianshan Wapiti in its natural habitat</p>
-                        </div>
+                <h3>Experience</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2025</div>
+                    <div class="timeline-content">
+                        <h4>Summer School: AI for Bioengineering</h4>
+                        <span class="org">Shanghai Jiao Tong University</span>
                     </div>
-                    <div class="video-container">
-                        <video controls>
-                            <source src="Infrared Camera Monitoring of Wildlife.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="caption">Video footage of Tianshan Wapiti from our monitoring program</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2024</div>
+                    <div class="timeline-content">
+                        <h4>Summer School: Quantitative Biology</h4>
+                        <span class="org">Peking University (CLS/CQB)</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Dec 2023 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Research Assistant</h4>
+                        <span class="org">Prof. Xiaoning Liu's Lab</span>
+                        <p style="font-size: 0.9rem">Focus: Pest Control, Cytochrome P450, Insecticide Resistance.</p>
                     </div>
                 </div>
             </section>
+
+            <section id="projects" class="section">
+                <h2>Projects</h2>
+                <div class="grid-gallery">
+                    <div class="card">
+                        <img src="Figures/ProXplorer.jpg" alt="ProXplorer" class="project-img" loading="lazy">
+                        <h3>ProXplorer</h3>
+                        <p style="font-size: 0.9rem">Protein Sequence Analysis Toolbox with integrated visualization.</p>
+                        <a href="https://github.com/ZiyanZhuang/ProXplorer" target="_blank" class="small-meta">View Code &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <img src="Figures/DAUModel.jpg" alt="DAU Model" class="project-img" loading="lazy">
+                        <h3>DAU-Model</h3>
+                        <p style="font-size: 0.9rem">Diffusion-Adsorption-Uptake Model for quantitative analysis.</p>
+                        <a href="https://github.com/ZiyanZhuang/DAU-Model" target="_blank" class="small-meta">View Code &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <img src="Figures/BOGDA.jpg" alt="BOGDA" class="project-img" loading="lazy">
+                        <h3>BOGDA</h3>
+                        <p style="font-size: 0.9rem">Deep Learning Framework for Pest Resistance Prediction.</p>
+                        <a href="https://github.com/ZiyanZhuang/BOGDA" target="_blank" class="small-meta">View Code &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="photo" class="section">
+                <h2>Gallery</h2>
+                <p>Academic activities and field research in the Tianshan Mountains.</p>
+                
+                <div class="grid-gallery" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+                    <div class="card" style="padding:0.5rem; border:none;">
+                        <img src="Figures/SJTU.jpg" alt="SJTU" style="width:100%; border-radius:4px;" loading="lazy">
+                        <p class="small-meta" style="text-align:center; margin-top:0.5rem;">SJTU Summer School</p>
+                    </div>
+                    <div class="card" style="padding:0.5rem; border:none;">
+                        <img src="Figures/PKU.jpg" alt="PKU" style="width:100%; border-radius:4px;" loading="lazy">
+                        <p class="small-meta" style="text-align:center; margin-top:0.5rem;">PKU Facility</p>
+                    </div>
+                     <div class="card" style="padding:0.5rem; border:none;">
+                        <img src="Infrared Camera Monitoring of Wildlife.jpg" alt="Tianshan" style="width:100%; border-radius:4px;" loading="lazy">
+                        <p class="small-meta" style="text-align:center; margin-top:0.5rem;">Tianshan Field Work</p>
+                    </div>
+                </div>
+            </section>
+
             <footer>
-                <hr class="section-divider">
-                <p style="color:var(--text-light);text-align:center;font-size:1em;">&copy; 2025 Ziyan Zhuang. All rights reserved.</p>
-                <p style="color:var(--primary);text-align:center;font-size:1em;">"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf</p>
+                <p>"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf</p>
+                <p style="margin-top: 0.5rem;">&copy; 2025 Ziyan Zhuang</p>
             </footer>
         </main>
     </div>
+
     <script>
-    // 图片加载优化
-    function loadImage(img) {
-        const src = img.getAttribute('src');
-        if (!src) return;
+        // --- 1. Cursor Effect Logic ---
+        const blob = document.getElementById("cursor-blob");
+        const dot = document.getElementById("cursor-dot");
         
-        return new Promise((resolve, reject) => {
-            img.onload = () => {
-                img.classList.add('loaded');
-                resolve(img);
-            };
-            img.onerror = reject;
-            img.src = src;
+        // Smooth following logic
+        let mouseX = 0, mouseY = 0;
+        let blobX = 0, blobY = 0;
+        let dotX = 0, dotY = 0;
+
+        document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
-    }
-    
-    // 使用 Intersection Observer 优化图片加载
-    function setupLazyLoading() {
-        const images = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries) => {
+
+        function animateCursor() {
+            // Blob moves slower (lag effect)
+            blobX += (mouseX - blobX) * 0.1;
+            blobY += (mouseY - blobY) * 0.1;
+            
+            // Dot moves faster
+            dotX += (mouseX - dotX) * 0.5;
+            dotY += (mouseY - dotY) * 0.5;
+
+            blob.style.transform = `translate(${blobX}px, ${blobY}px) translate(-50%, -50%)`;
+            dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Interactive elements hover effect for cursor
+        const interactiveEls = document.querySelectorAll('a, button, .card');
+        interactiveEls.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                dot.style.transform = `translate(${dotX}px, ${dotY}px) scale(2.5)`;
+                dot.style.background = "var(--primary)";
+                dot.style.mixBlendMode = "normal";
+            });
+            el.addEventListener('mouseleave', () => {
+                dot.style.transform = `translate(${dotX}px, ${dotY}px) scale(1)`;
+                dot.style.background = "var(--text-main)";
+                dot.style.mixBlendMode = "difference";
+            });
+        });
+
+        // --- 2. Intersection Observer for Scroll Animations ---
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.glass-nav a');
+        
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
-                    loadImage(img);
+                    entry.target.classList.add('visible');
+                    
+                    // Update Nav
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if(link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
-        }, {
-            rootMargin: '50px 0px'
-        });
-        
-        images.forEach(img => imageObserver.observe(img));
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        // 预加载关键图片
-        const criticalImages = document.querySelectorAll('img:not([data-src])');
-        Promise.all(Array.from(criticalImages).map(loadImage))
-            .then(() => setupLazyLoading());
-        // 缓存DOM元素
-        const navLinks = Array.from(document.querySelectorAll('#navbar a'));
-        const contentSections = Array.from(document.querySelectorAll('.content-section'));
-        const sectionsMap = new Map(contentSections.map(section => [section.id, section]));
-        
-        // 使用requestAnimationFrame优化动画性能
-        function hideAllSections() {
-            requestAnimationFrame(() => {
-                contentSections.forEach(section => section.classList.remove('active'));
-                navLinks.forEach(link => link.classList.remove('active'));
-            });
-        }
-        
-        function showSection(targetId, link) {
-            hideAllSections();
-            requestAnimationFrame(() => {
-                const targetSection = sectionsMap.get(targetId);
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // --- 3. Smooth Scroll for Anchor Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
                 if (targetSection) {
-                    targetSection.classList.add('active');
-                    if (link) link.classList.add('active');
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100, // Offset for sticky nav
+                        behavior: 'smooth'
+                    });
                 }
             });
-        }
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.dataset.target;
-                showSection(targetId, this);
-                window.location.hash = targetId;
-            });
         });
-        if (window.location.hash) {
-            const initialTargetId = window.location.hash.substring(1);
-            const navLink = document.querySelector(`#navbar a[data-target="${initialTargetId}"]`);
-            if (navLink && document.getElementById(initialTargetId)) {
-                showSection(initialTargetId, navLink);
-            } else {
-                showSection('about', document.querySelector('#navbar a[data-target="about"]'));
-            }
-        } else {
-            showSection('about', document.querySelector('#navbar a[data-target="about"]'));
+
+        // --- 4. Theme Toggle ---
+        const themeBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check local storage or system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.setAttribute('data-theme', savedTheme);
         }
-    });
-    // Theme toggle
-    const toggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    function updateThemeIcon(theme) {
-        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀';
-    }
-    function applyTheme(theme) {
-        document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        updateThemeIcon(theme);
-    }
-    toggleBtn.addEventListener('click', () => {
-        const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(newTheme);
-    });
-    let preferredTheme = localStorage.getItem('theme');
-    if (!preferredTheme) {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            preferredTheme = 'dark';
-        } else {
-            preferredTheme = 'light';
-        }
-    }
-    applyTheme(preferredTheme);
-    // News Carousel v2
-    (function() {
-        const carousel = document.getElementById('newsCarousel');
-        if (!carousel) return;
-        const slidesWrap = carousel.querySelector('.news-slides-v2');
-        const slides = Array.from(carousel.querySelectorAll('.news-slide-v2'));
-        const prev = carousel.querySelector('.news-prev-v2');
-        const next = carousel.querySelector('.news-next-v2');
-        const dotsBox = carousel.querySelector('.news-dots-v2');
-        let index = 0, interval = null, delay = 6000;
-        slides.forEach((_, i) => {
-            const dot = document.createElement('button');
-            dot.className = 'news-dot-v2' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Go to slide ' + (i+1));
-            dot.addEventListener('click', () => { goTo(i); stopAuto(); });
-            dotsBox.appendChild(dot);
+
+        themeBtn.addEventListener('click', () => {
+            const current = body.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
         });
-        const dots = Array.from(dotsBox.children);
-        function updateDots() {
-            dots.forEach((d, i) => d.classList.toggle('active', i === index));
-        }
-        function goTo(i) {
-            index = (i + slides.length) % slides.length;
-            slidesWrap.style.transform = `translateX(-${index * 100}%)`;
-            updateDots();
-        }
-        function nextSlide() { goTo(index + 1); }
-        function prevSlide() { goTo(index - 1); }
-        function startAuto() {
-            stopAuto();
-            interval = setInterval(nextSlide, delay);
-        }
-        function stopAuto() {
-            if (interval) { clearInterval(interval); interval = null; }
-        }
-        next.addEventListener('click', () => { nextSlide(); stopAuto(); });
-        prev.addEventListener('click', () => { prevSlide(); stopAuto(); });
-        goTo(0);
-        startAuto();
-    })();
+
+        // --- 5. Lazy Load Images (Native) ---
+        // Most modern browsers support loading="lazy" which is used in HTML. 
+        // No complex JS needed here unless supporting very old browsers.
     </script>
 </body>
 </html>
-
