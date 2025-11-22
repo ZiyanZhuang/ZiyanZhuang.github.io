@@ -272,6 +272,46 @@
         .card-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; } 
         .card-content { padding: 1.2rem; }
 
+        /* 视频容器样式 */
+        .video-container { position: relative; }
+        .video-thumbnail {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .video-thumbnail:hover {
+            transform: scale(1.02);
+            opacity: 1;
+        }
+        .video-play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(224, 194, 133, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(224, 194, 133, 0.4);
+        }
+        .video-container:hover .video-play-overlay {
+            opacity: 1;
+        }
+        .play-icon {
+            color: var(--bg-core);
+            margin-left: 3px; /* 调整播放图标位置 */
+        }
+        
+        /* 视频播放状态 */
+        .video-playing .video-play-overlay {
+            display: none;
+        }
+
         /* --- 6. 底部：致密线条球体 (Wireframe Globe) --- */
         footer {
             margin-top: 6rem;
@@ -515,6 +555,36 @@
                             <div style="font-weight:500;">PKU Quantitative Biology</div>
                         </div>
                     </div>
+                    
+                    <div class="card">
+                        <div class="card-img-container video-container">
+                            <video src="Infrared_Camera_Monitoring_Wildlife.mp4" 
+                                   class="card-img video-thumbnail" 
+                                   muted 
+                                   loop 
+                                   poster="Infrared_Camera_Monitoring_Wildlife1.jpg">
+                            </video>
+                            <div class="video-play-overlay">
+                                <svg class="play-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5,3 19,12 5,21"></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <span style="font-size:0.8rem; color:var(--text-dim);">FIELD RESEARCH</span>
+                            <div style="font-weight:500;">Wildlife Monitoring Project</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card zoomable-container">
+                        <div class="card-img-container">
+                            <img src="Infrared_Camera_Monitoring_Wildlife1.jpg" alt="Infrared Camera Equipment" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <span style="font-size:0.8rem; color:var(--text-dim);">FIELD EQUIPMENT</span>
+                            <div style="font-weight:500;">Infrared Camera Setup</div>
+                        </div>
+                    </div>
                         
                     </div>
                 </div>
@@ -587,6 +657,50 @@
             img.addEventListener('click', () => {
                 lightboxImg.src = img.src;
                 lightbox.classList.add('active');
+            });
+        });
+        
+        // 视频播放功能
+        document.querySelectorAll('.video-thumbnail').forEach(video => {
+            const container = video.closest('.card');
+            
+            video.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (video.paused) {
+                    // 暂停所有其他视频
+                    document.querySelectorAll('.video-thumbnail').forEach(v => {
+                        if (v !== video) {
+                            v.pause();
+                            v.closest('.card').classList.remove('video-playing');
+                        }
+                    });
+                    
+                    video.play();
+                    container.classList.add('video-playing');
+                } else {
+                    video.pause();
+                    container.classList.remove('video-playing');
+                }
+            });
+            
+            // 鼠标悬停时显示播放按钮
+            const overlay = container.querySelector('.video-play-overlay');
+            container.addEventListener('mouseenter', () => {
+                if (video.paused) {
+                    overlay.style.opacity = '1';
+                }
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                if (video.paused) {
+                    overlay.style.opacity = '0';
+                }
+            });
+            
+            // 视频结束时重置
+            video.addEventListener('ended', () => {
+                container.classList.remove('video-playing');
+                video.currentTime = 0;
             });
         });
         
