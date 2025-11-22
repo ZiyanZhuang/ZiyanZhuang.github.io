@@ -22,9 +22,9 @@
             --border-color: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(224, 194, 133, 0.5);
             
-            --primary: #e0c285; /* 炼金金 */
+            --primary: #e0c285;
+            /* 炼金金 */
             --primary-dim: rgba(224, 194, 133, 0.15);
-            
             --text-main: #f0f0f2;
             --text-muted: #909096;
             --text-dim: #555560;
@@ -57,7 +57,8 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.7;
             overflow-x: hidden;
-            cursor: none; /* 隐藏默认鼠标 */
+            cursor: none;
+            /* 隐藏默认鼠标 */
         }
 
         a { color: inherit; text-decoration: none; transition: color 0.2s; }
@@ -77,7 +78,8 @@
         
         /* 定义星形 SVG */
         .cursor-star {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             fill: var(--primary);
             animation: spin-slow 10s linear infinite;
         }
@@ -128,7 +130,8 @@
             margin: 0 auto 2rem auto;
         }
         .avatar-wrapper::after { /* 旋转的双环装饰 */
-            content: ''; position: absolute; inset: -6px;
+            content: '';
+            position: absolute; inset: -6px;
             border: 1px solid var(--primary);
             border-radius: 50%;
             border-left-color: transparent;
@@ -137,7 +140,8 @@
             animation: spin-slow 8s linear infinite;
         }
         .avatar { 
-            width: 100%; height: 100%; 
+            width: 100%;
+            height: 100%; 
             border-radius: 50%; 
             object-fit: cover; 
             border: 2px solid var(--bg-core);
@@ -151,14 +155,15 @@
         .contact-row { margin-bottom: 1.2rem; display: flex; flex-direction: column; }
         .contact-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.3rem; letter-spacing: 0.05em; }
         .contact-link { 
-            font-family: 'JetBrains Mono', monospace; 
+            font-family: 'JetBrains Mono', monospace;
             word-break: break-all; 
             transition: color 0.2s;
             position: relative;
             display: inline-block;
         }
         .contact-link::after {
-            content: ''; position: absolute; bottom: -2px; left: 0; width: 0%; height: 1px;
+            content: '';
+            position: absolute; bottom: -2px; left: 0; width: 0%; height: 1px;
             background: var(--primary); transition: width 0.3s;
         }
         .contact-link:hover { color: var(--primary); }
@@ -169,7 +174,8 @@
 
         /* 导航栏 */
         .nav-container {
-            position: sticky; top: 2rem; z-index: 50;
+            position: sticky;
+            top: 2rem; z-index: 50;
             display: flex; justify-content: center; margin-bottom: 4rem;
         }
         .nav-pill {
@@ -193,10 +199,13 @@
 
         /* 4. 主题切换按钮优化 (高对比度) */
         #theme-btn {
-            background: none; border: none; cursor: none; /* 使用自定义光标 */
-            padding: 0.5rem; margin-left: 0.5rem;
+            background: none;
+            border: none; cursor: none; /* 使用自定义光标 */
+            padding: 0.5rem;
+            margin-left: 0.5rem;
             color: var(--text-main); /* 强制继承当前主题文字颜色 */
-            opacity: 0.7; transition: opacity 0.3s;
+            opacity: 0.7;
+            transition: opacity 0.3s;
         }
         #theme-btn:hover { opacity: 1; }
         #theme-btn svg { stroke: currentColor; } /* 确保 SVG 线条颜色跟随 */
@@ -209,7 +218,8 @@
 
         /* 5. 图片显示优化：全貌展示 (Object-fit: contain) */
         .poster-card {
-            background: #000; /* 黑色背景衬托海报 */
+            background: #000;
+            /* 黑色背景衬托海报 */
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             overflow: hidden;
@@ -231,7 +241,8 @@
         }
         .poster-card:hover .poster-img { transform: scale(1.02); }
         .poster-card::after { /* 放大镜提示 */
-            content: '✛'; font-size: 2rem; color: white;
+            content: '✛';
+            font-size: 2rem; color: white;
             position: absolute; opacity: 0; transition: opacity 0.3s;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
@@ -250,7 +261,8 @@
         .pub-list { list-style: none; counter-reset: pub-counter; }
         .pub-item { position: relative; padding-left: 2.5rem; margin-bottom: 1.5rem; }
         .pub-item::before { 
-            counter-increment: pub-counter; content: counter(pub-counter, decimal-leading-zero);
+            counter-increment: pub-counter;
+            content: counter(pub-counter, decimal-leading-zero);
             position: absolute; left: 0; top: 0;
             font-family: 'JetBrains Mono'; color: var(--primary); font-size: 0.85rem; opacity: 0.7;
         }
@@ -266,7 +278,8 @@
         }
         .card:hover { border-color: var(--primary); transform: translateY(-4px); }
         .card-img-container {
-            width: 100%; height: 180px; background: #111;
+            width: 100%;
+            height: 180px; background: #111;
             display: flex; justify-content: center; align-items: center;
         }
         .card-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; } 
@@ -341,7 +354,8 @@
 
         .quote-container { position: relative; z-index: 1; }
         .french-quote {
-            font-family: 'Dancing Script', cursive; /* 艺术手写体 */
+            font-family: 'Dancing Script', cursive;
+            /* 艺术手写体 */
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 1rem;
@@ -351,7 +365,8 @@
 
         /* Lightbox */
         #lightbox {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000;
+            position: fixed;
+            inset: 0; background: rgba(0,0,0,0.95); z-index: 10000;
             display: none; justify-content: center; align-items: center;
             cursor: auto;
         }
@@ -425,12 +440,13 @@
 
             <section id="about">
                 <h2>Introduction</h2>
-                <p>My research explores the intersection of <strong>biological sciences</strong> and <strong>computational design</strong>. I aim to leverage mathematical principles to decode complex biological systems, from protein dynamics to pest resistance evolution.</p>
+                <p>My research explores the intersection of <strong>biological sciences</strong> and <strong>computational design</strong>.
+                I aim to leverage mathematical principles to decode complex biological systems, from protein dynamics to pest resistance evolution.</p>
                 
                 <div class="poster-card zoomable-container">
                     <img src="paperwall.jpg" alt="Research Highlight" class="poster-img">
                 </div>
-                
+         
                 <div class="grid">
                     <div class="card">
                         <div class="card-content">
@@ -524,21 +540,20 @@
             <section id="gallery">
                 <h2>Gallery</h2>
                 <div class="grid">
-                    <div class="card zoomable-container">
+                     <div class="card zoomable-container">
                         <div class="card-img-container">
                             <img src="Infrared Camera Monitoring of Wildlife.jpg" alt="Field Work" class="card-img">
                         </div>
-                    <div class="card-content">
+                        <div class="card-content">
                             <span style="font-size:0.8rem; color:var(--text-dim);">FIELD WORK</span>
                             <div style="font-weight:500;">Tianshan Mountains</div>
                         </div>
-                         </div>
+                    </div>
                     
                     <div class="card zoomable-container">
                         <div class="card-img-container">
                             <img src="Figures/SJTU.jpg" alt="SJTU" class="card-img">
                         </div>
-                      
                         <div class="card-content">
                             <span style="font-size:0.8rem; color:var(--text-dim);">ACADEMIC</span>
                             <div style="font-weight:500;">SJTU AI Bioengineering</div>
@@ -549,7 +564,6 @@
                         <div class="card-img-container">
                             <img src="Figures/PKU.jpg" alt="PKU" class="card-img">
                         </div>
-                      
                         <div class="card-content">
                             <span style="font-size:0.8rem; color:var(--text-dim);">ACADEMIC</span>
                             <div style="font-weight:500;">PKU Quantitative Biology</div>
@@ -562,7 +576,7 @@
                                    class="card-img video-thumbnail" 
                                    muted 
                                    loop 
-                                   poster="Infrared Camera Monitoring of Wildlife.mp4">
+                                   poster="Infrared Camera Monitoring of Wildlife.jpg">
                             </video>
                             <div class="video-play-overlay">
                                 <svg class="play-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -578,14 +592,12 @@
                     
                     <div class="card zoomable-container">
                         <div class="card-img-container">
-                            <img src="Infrared Camera Monitoring of Wildlife11.jpg" alt="Infrared Camera Equipment" class="card-img">
+                             <img src="Infrared Camera Monitoring of Wildlife1.jpg" alt="Infrared Camera Equipment" class="card-img">
                         </div>
                         <div class="card-content">
                             <span style="font-size:0.8rem; color:var(--text-dim);">FIELD EQUIPMENT</span>
                             <div style="font-weight:500;">Infrared Camera Setup</div>
                         </div>
-                    </div>
-                        
                     </div>
                 </div>
             </section>
@@ -595,7 +607,7 @@
                 
                 <div class="quote-container">
                     <div class="french-quote">"Il me rappelle que ce qu'on a fait est si petit, oui, mais si grand." - Gandalf</div>
-                    <div style="font-size:0.9rem; color:var(--primary);"</div>
+                    <div style="font-size:0.9rem; color:var(--primary);"></div>
                 </div>
                 
                 <div class="copyright">
@@ -627,7 +639,6 @@
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
             // Check hover targets for scaling effect
             const target = e.target;
             if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('.card') || target.closest('.poster-card')) {
@@ -653,13 +664,14 @@
         const lightboxImg = document.getElementById('lightbox-img');
         const closeBox = document.getElementById('lightbox-close');
         
-        document.querySelectorAll('.poster-img, .card-img').forEach(img => {
+        // 已修复：添加 :not(video) 排除视频标签，防止点击视频弹出灯箱
+        document.querySelectorAll('.poster-img, .card-img:not(video)').forEach(img => {
             img.addEventListener('click', () => {
                 lightboxImg.src = img.src;
                 lightbox.classList.add('active');
             });
         });
-        
+
         // 视频播放功能
         document.querySelectorAll('.video-thumbnail').forEach(video => {
             const container = video.closest('.card');
@@ -690,13 +702,11 @@
                     overlay.style.opacity = '1';
                 }
             });
-            
             container.addEventListener('mouseleave', () => {
                 if (video.paused) {
                     overlay.style.opacity = '0';
                 }
             });
-            
             // 视频结束时重置
             video.addEventListener('ended', () => {
                 container.classList.remove('video-playing');
@@ -708,7 +718,7 @@
         lightbox.addEventListener('click', (e) => {
             if(e.target === lightbox) lightbox.classList.remove('active');
         });
-        
+
         // 4. Scroll Spy
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-item');
