@@ -311,6 +311,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: 0 4px 20px rgba(224, 194, 133, 0.4);
+            z-index: 5;
         }
         .video-container:hover .video-play-overlay {
             opacity: 1;
@@ -540,7 +541,7 @@
             <section id="gallery">
                 <h2>Gallery</h2>
                 <div class="grid">
-                     <div class="card zoomable-container">
+                    <div class="card zoomable-container">
                         <div class="card-img-container">
                             <img src="Infrared Camera Monitoring of Wildlife.jpg" alt="Field Work" class="card-img">
                         </div>
@@ -576,7 +577,7 @@
                                    class="card-img video-thumbnail" 
                                    muted 
                                    loop 
-                                   poster="Infrared Camera Monitoring of Wildlife.jpg">
+                                   preload="metadata">
                             </video>
                             <div class="video-play-overlay">
                                 <svg class="play-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -672,44 +673,64 @@
             });
         });
 
-        // 视频播放功能
-        document.querySelectorAll('.video-thumbnail').forEach(video => {
-            const container = video.closest('.card');
-            
-            video.addEventListener('click', (e) => {
-                e.stopPropagation();
+        // 4. 视频播放修复逻辑 (Video Play Logic Fixed)
+        // 查找所有视频容器，而不是直接查找 video 标签
+        document.querySelectorAll('.video-container').forEach(container => {
+            const video = container.querySelector('video');
+            const overlay = container.querySelector('.video-play-overlay');
+
+            // 封装一个播放切换函数
+            function togglePlay() {
                 if (video.paused) {
                     // 暂停所有其他视频
-                    document.querySelectorAll('.video-thumbnail').forEach(v => {
+                    document.querySelectorAll('video').forEach(v => {
                         if (v !== video) {
                             v.pause();
-                            v.closest('.card').classList.remove('video-playing');
+                            v.closest('.card')?.classList.remove('video-playing');
                         }
                     });
                     
                     video.play();
-                    container.classList.add('video-playing');
+                    // 这里要找到最外层的 .card 添加 class，或者如果 CSS 是基于 .card 的话
+                    // 原有 CSS 是 .video-playing .video-play-overlay { display: none; }
+                    // 所以只要 container (即 .video-container) 或者父级 card 有这个类即可。
+                    // 原代码给 container (closest card) 加类，这里我们也保持一致，给 .card 加。
+                    container.closest('.card').classList.add('video-playing');
                 } else {
                     video.pause();
-                    container.classList.remove('video-playing');
+                    container.closest('.card').classList.remove('video-playing');
                 }
+            }
+
+            // 点击视频本身
+            video.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
             });
-            
-            // 鼠标悬停时显示播放按钮
-            const overlay = container.querySelector('.video-play-overlay');
+
+            // 点击播放按钮遮罩层 (这是修复的关键，原代码缺失部分)
+            if (overlay) {
+                overlay.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    togglePlay();
+                });
+            }
+
+            // 鼠标悬停控制 (保持原有逻辑)
             container.addEventListener('mouseenter', () => {
-                if (video.paused) {
+                if (video.paused && overlay) {
                     overlay.style.opacity = '1';
                 }
             });
             container.addEventListener('mouseleave', () => {
-                if (video.paused) {
+                if (video.paused && overlay) {
                     overlay.style.opacity = '0';
                 }
             });
+
             // 视频结束时重置
             video.addEventListener('ended', () => {
-                container.classList.remove('video-playing');
+                container.closest('.card').classList.remove('video-playing');
                 video.currentTime = 0;
             });
         });
@@ -719,7 +740,7 @@
             if(e.target === lightbox) lightbox.classList.remove('active');
         });
 
-        // 4. Scroll Spy
+        // 5. Scroll Spy
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-item');
         const observer = new IntersectionObserver((entries) => {
