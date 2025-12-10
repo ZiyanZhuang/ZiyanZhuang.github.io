@@ -8,7 +8,7 @@
     <meta name="author" content="Ziyan Zhuang">
     <meta name="description" content="Personal Homepage of Ziyan Zhuang - Life Science Researcher">
 
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400 ,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
         /* --- Basic Styles --- */
@@ -123,7 +123,7 @@
             display: flex;
             align-items: flex-start; /* Align to top */
         }
-        .paper-img img, .paper-img video {
+        .paper-img img {
             width: 100%;
             border-radius: 10px;
             border: 1px solid #eee;
@@ -171,40 +171,6 @@
                 x.style.display = "none";
             }
         }
-
-        // 新增：视频自动2倍速播放控制
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取视频元素
-            const wildlifeVideo = document.getElementById('wildlifeVideo');
-            
-            if (wildlifeVideo) {
-                // 设置默认和当前播放速度为2倍
-                wildlifeVideo.defaultPlaybackRate = 2.0;
-                wildlifeVideo.playbackRate = 2.0;
-
-                // 可选：在视频播放时确保速度保持2倍
-                wildlifeVideo.addEventListener('play', function() {
-                    this.playbackRate = 2.0;
-                });
-
-                // 可选：添加播放速度指示器
-                const speedIndicator = document.createElement('div');
-                speedIndicator.style.position = 'absolute';
-                speedIndicator.style.bottom = '10px';
-                speedIndicator.style.right = '10px';
-                speedIndicator.style.backgroundColor = 'rgba(0,0,0,0.7)';
-                speedIndicator.style.color = 'white';
-                speedIndicator.style.padding = '4px 8px';
-                speedIndicator.style.borderRadius = '4px';
-                speedIndicator.style.fontSize = '14px';
-                speedIndicator.textContent = '2.0x';
-                
-                // 将指示器添加到视频容器
-                const videoContainer = wildlifeVideo.parentElement;
-                videoContainer.style.position = 'relative';
-                videoContainer.appendChild(speedIndicator);
-            }
-        });
     </script>
 </head>
 
@@ -217,25 +183,28 @@
     <div class="profile-table">
         <div class="profile-bio">
             <p>
-                I am an undergraduate researcher in <strong>Biological Science</strong> at <a href="https://www.xju.edu.cn/">Xinjiang University</a>. 
+                I am an undergraduate researcher in <strong>Biological Science</strong> at <a href="https://www.xju.edu.cn/ ">Xinjiang University</a>. 
                 My research explores the intersection of <strong>Life Sciences</strong> and <strong>Computational Design (AI for Science)</strong>.
             </p>
             <p>
-                I aim to leverage mathematical principles and Deep Learning to decode complex biological systems, from <strong>protein dynamics</strong> to <strong>pest resistance evolution</strong>.
+                I aim to leverage mathematical principles and Deep Learning to decode complex biological systems.
                 My academic journey includes enriching experiences at <strong>Shanghai Jiao Tong University</strong> and <strong>Peking University</strong> through summer programs.
             </p>
             <p>
-                <strong>Research Interest:</strong> Synthetic Biology, Protein Language Models, AI Agents for Science, and Pest Resistance Mechanisms.
+                <strong>Research Interest:</strong> Synthetic Biology, Protein Language Models, and AI Agents for Science.
+            </p>
+            <p>
+                I am actively seeking academic collaborations, particularly in <strong>AI for Science</strong>, <strong>Computer Science (CS)</strong>, and <strong>Quantum Mechanics (QM)</strong>. Please feel free to contact me via email.
             </p>
             <p>
                 Email: <a href="mailto:Zhuangziyan0623@outlook.com">Zhuangziyan0623@outlook.com</a> <br>
-                Location: Urumqi, China
+                Location: Urumqi, China (To Jun, 2026)
             </p>
             <p style="text-align: center; margin-top: 20px;">
                 <a href="mailto:Zhuangziyan0623@outlook.com">Email</a> &nbsp;/&nbsp;
                 <a href="ZhuangCV122.1.pdf">CV</a> &nbsp;/&nbsp;
-                <a href="https://github.com/ZiyanZhuang">Github</a> &nbsp;/&nbsp;
-                <a href="https://orcid.org/0009-0007-3915-1614">ORCID</a>
+                <a href="https://github.com/ZiyanZhuang ">Github</a> &nbsp;/&nbsp;
+                <a href="https://orcid.org/0009-0007-3915-1614 ">ORCID</a>
             </p>
         </div>
         
@@ -252,7 +221,8 @@
         <li>[08/2024] Received <strong>Second Prize</strong> at China Undergraduate Life Sciences Contest (National, Ranked 1/5 finalists).</li>
         <li>[08/2024] Received <strong>Outstanding Newcomer Award</strong> from The Chinese Society of Biochemistry and Molecular Biology.</li>
         <li>[07/2024] Attended Summer School at <strong>Peking University</strong> (Quantitative Biology), Center for Life Science (CLS).</li>
-        <li>[2024] Project Leader for National Training Program of Innovation (CNY 20,000 Grant).</li>
+        <li>[2023–2024] Project Leader for National Training Program of Innovation (CNY 20,000 Grant).</li>
+        <li>[2023–2024] <strong>Joint Minor</strong>: <a href="https://sese.tongji.edu.cn/info/1236/8519.htm" target="_blank"><em>Climate Change and Carbon Neutrality</em></a>, College of Environmental Science and Engineering, Tongji University &amp; Xinjiang University.</li>
         <li>[06/2024] Participated in field research (Wildlife Monitoring) in the Northern Tianshan Mountains.</li>
     </ul>
 
@@ -263,42 +233,31 @@
     
     <div class="paper-item">
         <div class="paper-img">
-            <img src="paperwall.jpg" alt="CYP380C12 Graphical Abstract">
+             <div style="width:100%; height:80px; background:#f9f9f9; border:1px solid #eee; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#999; font-size:12px;">No Image</div>
         </div>
         <div class="paper-text">
-            <heading>Molecular insights on the function of <i>CYP380C12</i> in <i>Aphis gossypii</i> Glover: in silico and RNAi analyses</heading>
+            <heading>Spinetoram resistance in <i>Tuta absoluta</i>: selection, inheritance, biochemical mechanism and fitness cost</heading>
+            <br>
+            Xie JG, Rukiya T, Liu N, <strong>Zhuang ZY</strong>, Liu XN*, Song Y*.
+            <br>
+            <em>Pesticide Biochemistry and Physiology</em>, 2025 <span class="tag">JCR Q1</span>
+            <br>
+            <a href="https://doi.org/10.1016/j.pestbp.2025.106659 ">Paper</a>
+        </div>
+    </div>
+
+    <div class="paper-item">
+        <div class="paper-img">
+             <img src="paperwall.jpg" alt="CYP380C12 Graphical Abstract">
+        </div>
+        <div class="paper-text">
+            <heading>Molecular insights on the function of <i>CYP380C12</i> in <i>Aphis gossypii</i> Glover (Hemiptera: Aphididae): in silico and RNAi analyses</heading>
             <br>
             Zhang LJ, <strong>Zhuang ZY</strong> (Co-first), Xie JG, Kong WT, Li TT, Wang SF, Liu XN*.
             <br>
             <em>Journal of Economic Entomology</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
-            <a href="javascript:toggleBlock('paper_cyp380_abs')">abstract</a> | 
-            <a href="https://doi.org/10.1093/jee/toy067">paper</a>
-            
-            <div id="paper_cyp380_abs" class="hidden-block">
-                <p>
-                This study combines in silico molecular docking and RNA interference (RNAi) analyses to elucidate the function of the <i>CYP380C12</i> gene in cotton aphids. We integrated structural insights and functional verification to reveal its potential role in metabolic resistance.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="paper-item">
-        <div class="paper-img"></div>
-        <div class="paper-text">
-            <heading>Spinetoram resistance in <i>Tuta absoluta</i>: selection, inheritance, and biochemical basis of fitness cost</heading>
-            <br>
-            Xie JG, Turak R, Liu N, <strong>Zhuang ZY</strong>, Liu XN*, Song Y*.
-            <br>
-            <em>Pesticide Biochemistry and Physiology</em>, 2025 <span class="tag">JCR Q1</span>
-            <br>
-            <a href="javascript:toggleBlock('paper_spinetoram_abs')">abstract</a>
-            
-            <div id="paper_spinetoram_abs" class="hidden-block">
-                <p>
-                Investigated the biochemical mechanisms underlying Spinetoram resistance in <i>Tuta absoluta</i>, focusing on inheritance patterns and fitness costs to inform better pest management strategies.
-                </p>
-            </div>
+            <a href="https://doi.org/10.1093/jee/toaf067 ">Paper</a>
         </div>
     </div>
 
@@ -307,11 +266,13 @@
             <div style="width:100%; height:80px; background:#f9f9f9; border:1px solid #eee; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#999; font-size:12px;">No Image</div>
         </div>
         <div class="paper-text">
-            <heading>Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution</heading>
+            <heading>Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation</heading>
             <br>
-            Li Y, Kong WT, Li TT, Zhang LJ, <strong>Zhuang ZY</strong>, Liu N, Liu XN*.
+            Li Y, Kong WT, Li TT, Zhang LJ, <strong>Zhuang ZY</strong>, Liu N*, Liu XN*.
             <br>
             <em>Journal of Agricultural and Food Chemistry</em>, 2025 <span class="tag">JCR Q1</span>
+            <br>
+             <a href="https://doi.org/10.1021/acs.jafc.4c12035 ">Paper</a>
         </div>
     </div>
 
@@ -325,6 +286,23 @@
             Xie JG, Wang SY, <strong>Zhuang ZY</strong>, Wang XH, Lin MH, Liu XN*.
             <br>
             <em>Pesticide Biochemistry and Physiology</em>, 2025 <span class="tag">JCR Q1</span>
+            <br>
+            <a href="https://doi.org/10.1016/j.pestbp.2025.106316 ">Paper</a>
+        </div>
+    </div>
+
+    <div class="paper-item">
+        <div class="paper-img">
+            <div style="width:100%; height:80px; background:#f9f9f9; border:1px solid #eee; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#999; font-size:12px;">No Image</div>
+        </div>
+        <div class="paper-text">
+            <heading>Functional Investigation of <i>CYP304F1</i> in <i>Tuta absoluta</i> (Lepidopteran: Gelechiidae) by RNA Interference</heading>
+            <br>
+            Xie JG, Ali A, Li Y, <strong>Zhuang ZY</strong>, Liu XN*.
+            <br>
+            <em>Journal of Economic Entomology</em>, 2024 <span class="tag">JCR Q1</span>
+            <br>
+            <a href="https://doi.org/10.1093/jee/toae283 ">Paper</a>
         </div>
     </div>
 
@@ -341,7 +319,7 @@
             <br>
             <strong>Ziyan Zhuang</strong>
             <br>
-            <a href="https://github.com/ZiyanZhuang/ProXplorer">GitHub</a>
+            <a href="https://github.com/ZiyanZhuang/ProXplorer ">GitHub</a>
             <br>
             <p style="margin-top:10px;">
             A MATLAB-based toolbox developed for comprehensive protein sequence analysis. Key features include Smith-Waterman alignment, motif discovery, and neighbor-joining phylogenetic analysis. It provides integrated visualization to streamline the workflow from raw sequence to structural insights.
@@ -356,9 +334,9 @@
         <div class="paper-text">
             <heading>Morphogen-DAU-Model</heading>
             <br>
-            <strong>Ziyan Zhuang</strong>
+            <strong>Ziyan Zhuang, Zifan Zhao</strong>
             <br>
-            <a href="https://github.com/ZiyanZhuang/DAU-Model">GitHub</a>
+            <a href="https://github.com/ZiyanZhuang/DAU-Model ">GitHub</a>
             <br>
             <p style="margin-top:10px;">
             A mathematical model focusing on Diffusion-Adsorption-Uptake (DAU) mechanisms. This project facilitates the efficient application of predictive values obtained from wet lab experiments to control morphogen distribution patterns.
@@ -373,9 +351,9 @@
         <div class="paper-text">
             <heading>BOGDA: Pest Resistance Evolution Models</heading>
             <br>
-            <strong>Ziyan Zhuang</strong>
+            <strong>Ziyan Zhuang, Qi-ao Sheng, et al.</strong>
             <br>
-            <a href="https://github.com/ZiyanZhuang/BOGDA">GitHub</a>
+            <a href="https://github.com/ZiyanZhuang/BOGDA ">GitHub</a>
             <br>
             <p style="margin-top:10px;">
             A Deep Learning framework utilizing Temporal Convolutional Networks (TCN) and Attention mechanisms to predict pest resistance evolution, bridging mathematical models with biological pest control strategies.
@@ -387,14 +365,9 @@
 
     <sectionheading>Field Practice & Academic Programs</sectionheading>
 
-    <!-- Wildlife Field Practice (with MP4) -->
     <div class="paper-item">
         <div class="paper-img">
-            <!-- 为视频添加id以便JavaScript控制 -->
-            <video id="wildlifeVideo" controls alt="Wildlife Monitoring Footage from Field Practice">
-                <source src="Infrared Camera Monitoring of Wildlife.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <img src="Infrared_Camera_Monitoring_of_Wildlife.gif" alt="Wildlife Monitoring Footage from Field Practice (GIF)" style="width:100%; border-radius:10px; border:1px solid #eee;">
         </div>
         <div class="paper-text">
             <heading>Wildlife Monitoring Field Practice (Northern Tianshan Mountains)</heading>
@@ -402,12 +375,11 @@
             <strong>June 2024</strong>
             <br>
             <p style="margin-top:10px;">
-            Participated in field research in the Northern Tianshan Mountains, using infrared camera technology to record and analyze the behavior and distribution of local wild animals. The video above shows representative footage captured during the internship.
+            Participated in field research in the Northern Tianshan Mountains, using infrared camera technology to record and analyze the behavior and distribution of local wild animals. The visual above shows representative footage captured during the internship.
             </p>
         </div>
     </div>
 
-    <!-- SJTU Summer School -->
     <div class="paper-item">
         <div class="paper-img">
             <img src="Figures/SJTU.jpg" alt="Shanghai Jiao Tong University Summer School">
@@ -423,7 +395,6 @@
         </div>
     </div>
 
-    <!-- Peking University Summer School -->
     <div class="paper-item">
         <div class="paper-img">
             <img src="Figures/PKU.jpg" alt="Peking University Summer School">
