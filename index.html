@@ -8,10 +8,10 @@
     <meta name="author" content="Ziyan Zhuang">
     <meta name="description" content="Personal Homepage of Ziyan Zhuang - Life Science Researcher">
 
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400 ,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
-        /* --- Basic Styles --- */
+        /* --- 基础样式 --- */
         body {
             font-family: 'Titillium Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 400;
@@ -22,23 +22,20 @@
             background-color: #fff;
         }
         
-        /* Container Control */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Link Styles */
         a {
-            color: #1772d0; /* Signature academic blue */
+            color: #1772d0; 
             text-decoration: none;
         }
         a:hover {
-            color: #f09228; /* Hover orange */
+            color: #f09228;
         }
 
-        /* Heading Styles */
         heading {
             font-family: 'Titillium Web', sans-serif;
             font-size: 17px;
@@ -65,7 +62,6 @@
             margin-top: 5px;
         }
 
-        /* Divider */
         hr {
             border: 0;
             height: 1px;
@@ -73,17 +69,14 @@
             margin: 30px 0;
         }
 
-        /* Lists & Text */
         p { margin-bottom: 15px; line-height: 1.6; text-align: justify;}
         ul { margin: 0; padding-left: 20px; }
         li { margin-bottom: 8px; }
         
-        /* Auxiliary Styles */
         .gray { color: #666; font-size: 14px; }
         strong { font-weight: 600; }
-        .highlight { color: #d9534f; font-weight: 600; } /* Highlight color (e.g., awards) */
+        .highlight { color: #d9534f; font-weight: 600; }
 
-        /* Profile Table Layout (Modern replacement for traditional table) */
         .profile-table {
             display: flex;
             flex-wrap: wrap;
@@ -98,14 +91,14 @@
         .profile-pic img {
             width: 100%;
             max-width: 240px;
-            border-radius: 15px; /* Rounded rectangle style */
+            border-radius: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .profile-bio {
             flex: 7;
         }
 
-        /* Paper List Styles */
+        /* --- 论文列表样式修改 --- */
         .paper-item {
             display: flex;
             flex-wrap: wrap;
@@ -118,10 +111,10 @@
             border-bottom: none;
         }
         .paper-img {
-            flex: 0 0 25%; /* Left thumbnail width */
+            flex: 0 0 25%;
             min-width: 200px;
             display: flex;
-            align-items: flex-start; /* Align to top */
+            align-items: flex-start;
         }
         .paper-img img {
             width: 100%;
@@ -129,9 +122,35 @@
             border: 1px solid #eee;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+
+        /* 关键：为 Logo 容器提供定位参考点 */
         .paper-text {
             flex: 1;
+            position: relative; 
+            padding-bottom: 35px; /* 底部留白防止文字遮挡 Logo */
         }
+
+        /* 出版社 Logo 容器样式 */
+        .publisher-logos {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .publisher-logos img {
+            height: 28px; /* 统一 Logo 高度 */
+            width: auto;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .publisher-logos img:hover {
+            opacity: 1;
+        }
+
         .tag {
             font-size: 12px;
             padding: 2px 6px;
@@ -142,7 +161,6 @@
             font-weight: 600;
         }
         
-        /* Hidden Blocks (Abstract/Bibtex) */
         .hidden-block {
             display: none;
             font-size: 14px;
@@ -153,12 +171,12 @@
             border-left: 3px solid #1772d0;
         }
         
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .profile-table { flex-direction: column-reverse; gap: 20px;}
             .profile-pic { margin: 0 auto; }
             .paper-item { flex-direction: column; }
             .paper-img { width: 100%; max-width: 100%; margin: 0 auto;}
+            .publisher-logos img { height: 22px; } /* 移动端缩小 Logo */
         }
     </style>
 
@@ -245,6 +263,9 @@
             <em>Pesticide Biochemistry and Physiology</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
             <a href="https://doi.org/10.1016/j.pestbp.2025.106659 ">Paper</a>
+            <div class="publisher-logos">
+                <img src="E.svg" alt="Elsevier">
+            </div>
         </div>
     </div>
 
@@ -260,6 +281,10 @@
             <em>Journal of Economic Entomology</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
             <a href="https://doi.org/10.1093/jee/toaf067 ">Paper</a>
+            <div class="publisher-logos">
+                <img src="ESA.svg" alt="ESA">
+                <img src="OXF.svg" alt="Oxford">
+            </div>
         </div>
     </div>
 
@@ -275,6 +300,9 @@
             <em>Journal of Agricultural and Food Chemistry</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
              <a href="https://doi.org/10.1021/acs.jafc.4c12035 ">Paper</a>
+            <div class="publisher-logos">
+                <img src="ACS.png" alt="ACS">
+            </div>
         </div>
     </div>
 
@@ -290,6 +318,9 @@
             <em>Pesticide Biochemistry and Physiology</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
             <a href="https://doi.org/10.1016/j.pestbp.2025.106316 ">Paper</a>
+            <div class="publisher-logos">
+                <img src="E.svg" alt="Elsevier">
+            </div>
         </div>
     </div>
 
@@ -305,6 +336,10 @@
             <em>Journal of Economic Entomology</em>, 2024 <span class="tag">JCR Q1</span>
             <br>
             <a href="https://doi.org/10.1093/jee/toae283 ">Paper</a>
+            <div class="publisher-logos">
+                <img src="ESA.svg" alt="ESA">
+                <img src="OXF.svg" alt="Oxford">
+            </div>
         </div>
     </div>
 
