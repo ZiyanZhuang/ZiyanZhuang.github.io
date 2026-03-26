@@ -25,7 +25,7 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px 20px;
         }
 
         a {
@@ -49,7 +49,7 @@
             font-weight: 400;
             display: block;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         
         sectionheading {
@@ -58,7 +58,7 @@
             font-weight: 600;
             width: 100%;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             margin-top: 5px;
         }
 
@@ -66,12 +66,12 @@
             border: 0;
             height: 1px;
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-            margin: 30px 0;
+            margin: 12px 0;
         }
 
-        p { margin-bottom: 15px; line-height: 1.6; text-align: justify;}
+        p { margin-bottom: 6px; line-height: 1.5; text-align: justify;}
         ul { margin: 0; padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        li { margin-bottom: 2px; }
         
         .gray { color: #666; font-size: 14px; }
         strong { font-weight: 600; }
@@ -80,7 +80,7 @@
         .profile-table {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 20px;
             align-items: flex-start;
         }
         .profile-pic {
@@ -90,7 +90,7 @@
         }
         .profile-pic img {
             width: 100%;
-            max-width: 240px;
+            max-width: 220px;
             border-radius: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -102,17 +102,17 @@
         .paper-item {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
             border-bottom: 1px dashed #eee;
         }
         .paper-item:last-child {
             border-bottom: none;
         }
         .paper-img {
-            flex: 0 0 25%;
-            min-width: 200px;
+            flex: 0 0 22%;
+            min-width: 180px;
             display: flex;
             align-items: flex-start;
         }
@@ -127,7 +127,7 @@
         .paper-text {
             flex: 1;
             position: relative; 
-            padding-bottom: 35px; /* 底部留白防止文字遮挡 Logo */
+            padding-bottom: 25px; /* 底部留白防止文字遮挡 Logo */
         }
 
         /* 出版社 Logo 容器样式 */
@@ -136,12 +136,12 @@
             right: 0;
             bottom: 0;
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
         .publisher-logos img {
-            height: 28px; /* 统一 Logo 高度 */
+            height: 22px; /* 统一 Logo 高度 */
             width: auto;
             opacity: 0.85;
             transition: opacity 0.3s ease;
@@ -152,8 +152,8 @@
         }
 
         .tag {
-            font-size: 12px;
-            padding: 2px 6px;
+            font-size: 11px;
+            padding: 1px 5px;
             border-radius: 4px;
             background: #f0f0f0;
             color: #555;
@@ -164,19 +164,19 @@
         .hidden-block {
             display: none;
             font-size: 14px;
-            margin-top: 10px;
-            padding: 10px;
+            margin-top: 5px;
+            padding: 8px;
             background: #f9f9f9;
             border-radius: 5px;
             border-left: 3px solid #1772d0;
         }
         
         @media (max-width: 768px) {
-            .profile-table { flex-direction: column-reverse; gap: 20px;}
+            .profile-table { flex-direction: column-reverse; gap: 15px;}
             .profile-pic { margin: 0 auto; }
-            .paper-item { flex-direction: column; }
+            .paper-item { flex-direction: column; gap: 8px; margin-bottom: 10px; padding-bottom: 8px;}
             .paper-img { width: 100%; max-width: 100%; margin: 0 auto;}
-            .publisher-logos img { height: 22px; } /* 移动端缩小 Logo */
+            .publisher-logos img { height: 18px; } /* 移动端缩小 Logo */
         }
     </style>
 
