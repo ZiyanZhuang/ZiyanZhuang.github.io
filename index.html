@@ -77,6 +77,19 @@
             transform: scale(1.6);
         }
 
+        /* =========================================
+           新增：侧边栏滚动跟随的“激活”状态样式
+           ========================================= */
+        .side-nav a.active {
+            color: #1772d0;
+            transform: translateX(-5px);
+        }
+
+        .side-nav a.active::after {
+            background: #1772d0;
+            transform: scale(1.6);
+        }
+
         @media (max-width: 1150px) {
             .side-nav { display: none; }
         }
@@ -179,14 +192,12 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* 关键：为 Logo 容器提供定位参考点 */
         .paper-text {
             flex: 1;
             position: relative; 
-            padding-bottom: 25px; /* 底部留白防止文字遮挡 Logo */
+            padding-bottom: 25px;
         }
 
-        /* 出版社 Logo 容器样式 */
         .publisher-logos {
             position: absolute;
             right: 0;
@@ -197,7 +208,7 @@
         }
 
         .publisher-logos img {
-            height: 22px; /* 统一 Logo 高度 */
+            height: 22px; 
             width: auto;
             opacity: 0.85;
             transition: opacity 0.3s ease;
@@ -232,27 +243,18 @@
             .profile-pic { margin: 0 auto; }
             .paper-item { flex-direction: column; gap: 8px; margin-bottom: 10px; padding-bottom: 8px;}
             .paper-img { width: 100%; max-width: 100%; margin: 0 auto;}
-            .publisher-logos img { height: 18px; } /* 移动端缩小 Logo */
+            .publisher-logos img { height: 18px; } 
         }
     </style>
 
-    <script>
-        function toggleBlock(id) {
-            var x = document.getElementById(id);
-            if (x.style.display === "none" || x.style.display === "") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-    </script>
 </head>
 
 <body>
 
 <!-- 侧边快捷导航 -->
 <nav class="side-nav">
-    <a href="#top">TOP</a>
+    <!-- 默认将 TOP 设为激活状态 -->
+    <a href="#top" class="active">TOP</a>
     <a href="#news">NEWS</a>
     <a href="#publications">PUBLICATIONS</a>
     <a href="#projects">PROJECTS</a>
@@ -551,8 +553,6 @@
         </div>
     </div>
 
-
-
     <hr>
     
     <table width="100%" align="center" border="0" cellpadding="0" cellspacing="20">
@@ -570,6 +570,52 @@
     </div>
 
 </div>
+
+<!-- =========================================
+     新增：JavaScript 滚动监听功能
+     ========================================= -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 定义我们要监听的版块 ID
+        const sectionIds = ['top', 'news', 'publications', 'projects', 'practice'];
+        const sections = sectionIds.map(id => document.getElementById(id));
+        const navLinks = document.querySelectorAll('.side-nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                if (section) {
+                    // 获取当前版块距离页面顶部的距离
+                    const sectionTop = section.offsetTop;
+                    
+                    // 当页面滚动高度超过该版块顶部减去一个偏移量（如150px），就认定进入了该版块
+                    if (window.scrollY >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                }
+            });
+
+            // 遍历侧边栏链接，移除所有 active，给匹配的当前版块添加 active
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    });
+
+    // 现有的 toggleBlock 函数保留
+    function toggleBlock(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
