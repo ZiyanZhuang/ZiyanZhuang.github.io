@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ziyan Zhuang | I love biology — more is different.</title>
-    
+
     <meta name="author" content="Ziyan Zhuang">
-    <meta name="description" content="Personal Homepage of Ziyan Zhuang - Life Science Researcher">
+    <meta name="description" content="Personal Homepage of Ziyan Zhuang — Life Science Researcher. Synthetic Biology, Protein Language Models, AI for Science.">
+    <meta name="keywords" content="Ziyan Zhuang, Synthetic Biology, Protein Language Models, AI for Science, Bioinformatics, Computational Biology">
 
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ziyan Zhuang | Life Science Researcher">
+    <meta property="og:description" content="Personal Homepage of Ziyan Zhuang — exploring the intersection of Life Sciences and Computational Design.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ziyanzhuang.github.io">
+    <meta property="og:image" content="https://ziyanzhuang.github.io/Ziyan1.jpg">
 
-    <style type="text/css">
-        /* --- 基础样式 --- */
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ziyan Zhuang | Life Science Researcher">
+    <meta name="twitter:description" content="Personal Homepage of Ziyan Zhuang — Synthetic Biology, Protein Language Models, AI for Science.">
+    <meta name="twitter:image" content="https://ziyanzhuang.github.io/Ziyan1.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+
+    <!-- Font preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;400i;600i&display=swap" rel="stylesheet">
+
+    <style>
         html {
             scroll-behavior: smooth;
         }
@@ -25,7 +44,7 @@
             color: #333;
             background-color: #fff;
         }
-        
+
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -57,7 +76,6 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* 导航点提示 */
         .side-nav a::after {
             content: '';
             width: 7px;
@@ -77,9 +95,6 @@
             transform: scale(1.6);
         }
 
-        /* =========================================
-           新增：侧边栏滚动跟随的“激活”状态样式
-           ========================================= */
         .side-nav a.active {
             color: #1772d0;
             transform: translateX(-5px);
@@ -95,21 +110,14 @@
         }
 
         a {
-            color: #1772d0; 
+            color: #1772d0;
             text-decoration: none;
         }
         a:hover {
             color: #f09228;
         }
 
-        heading {
-            font-family: 'Titillium Web', sans-serif;
-            font-size: 17px;
-            font-weight: 600;
-            color: #000;
-        }
-        
-        pageheading {
+        h1 {
             font-family: 'Titillium Web', sans-serif;
             font-size: 38px;
             font-weight: 400;
@@ -117,8 +125,8 @@
             text-align: center;
             margin-bottom: 10px;
         }
-        
-        sectionheading {
+
+        h2 {
             font-family: 'Titillium Web', sans-serif;
             font-size: 20px;
             font-weight: 600;
@@ -131,6 +139,13 @@
             color: #1772d0;
         }
 
+        h3 {
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+        }
+
         hr {
             border: 0;
             height: 1px;
@@ -138,10 +153,10 @@
             margin: 25px 0;
         }
 
-        p { margin-bottom: 6px; line-height: 1.5; text-align: justify;}
+        p { margin-bottom: 6px; line-height: 1.5; text-align: justify; }
         ul { margin: 0; padding-left: 20px; }
         li { margin-bottom: 2px; }
-        
+
         .gray { color: #666; font-size: 14px; }
         strong { font-weight: 600; }
         .highlight { color: #d9534f; font-weight: 600; }
@@ -158,8 +173,8 @@
             text-align: center;
         }
         .profile-pic img {
-            width: 100%;
-            max-width: 220px;
+            width: 220px;
+            height: auto;
             border-radius: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -167,7 +182,7 @@
             flex: 7;
         }
 
-        /* --- 论文列表样式修改 --- */
+        /* --- 论文 & 项目列表 --- */
         .paper-item {
             display: flex;
             flex-wrap: wrap;
@@ -185,16 +200,30 @@
             display: flex;
             align-items: flex-start;
         }
-        .paper-img img {
+        .paper-img img,
+        .paper-img video {
             width: 100%;
+            height: auto;
             border-radius: 10px;
             border: 1px solid #eee;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+        .paper-img .placeholder {
+            width: 100%;
+            height: 80px;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+        }
 
         .paper-text {
             flex: 1;
-            position: relative; 
+            position: relative;
             padding-bottom: 25px;
         }
 
@@ -208,7 +237,7 @@
         }
 
         .publisher-logos img {
-            height: 22px; 
+            height: 22px;
             width: auto;
             opacity: 0.85;
             transition: opacity 0.3s ease;
@@ -227,7 +256,7 @@
             margin-left: 5px;
             font-weight: 600;
         }
-        
+
         .hidden-block {
             display: none;
             font-size: 14px;
@@ -237,23 +266,36 @@
             border-radius: 5px;
             border-left: 3px solid #1772d0;
         }
-        
+
+        .site-footer {
+            text-align: right;
+            color: #666;
+            font-size: 14px;
+            padding: 20px;
+        }
+
+        .clustrmaps-wrap {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
         @media (max-width: 768px) {
-            .profile-table { flex-direction: column-reverse; gap: 15px;}
+            .profile-table { flex-direction: column-reverse; gap: 15px; }
             .profile-pic { margin: 0 auto; }
-            .paper-item { flex-direction: column; gap: 8px; margin-bottom: 10px; padding-bottom: 8px;}
-            .paper-img { width: 100%; max-width: 100%; margin: 0 auto;}
-            .publisher-logos img { height: 18px; } 
+            .profile-pic img { width: 180px; }
+            .paper-item { flex-direction: column; gap: 8px; margin-bottom: 10px; padding-bottom: 8px; }
+            .paper-img { width: 100%; max-width: 100%; margin: 0 auto; }
+            .publisher-logos img { height: 18px; }
+            p { text-align: left; }
+            h1 { font-size: 28px; }
+            .side-nav { display: none; }
         }
     </style>
-
 </head>
 
 <body>
 
-<!-- 侧边快捷导航 -->
-<nav class="side-nav">
-    <!-- 默认将 TOP 设为激活状态 -->
+<nav class="side-nav" aria-label="Page sections">
     <a href="#top" class="active">TOP</a>
     <a href="#news">NEWS</a>
     <a href="#publications">PUBLICATIONS</a>
@@ -263,12 +305,12 @@
 
 <div class="container" id="top">
 
-    <pageheading>Ziyan Zhuang</pageheading>
-    
+    <h1>Ziyan Zhuang</h1>
+
     <div class="profile-table">
         <div class="profile-bio">
             <p>
-                I received my B.S. in <strong>Biological Science</strong> from <a href="https://www.xju.edu.cn/ ">Xinjiang University</a>, graduating in the top 1% by overall GPA.
+                I received my B.S. in <strong>Biological Science</strong> from <a href="https://www.xju.edu.cn/">Xinjiang University</a>, graduating in the top 1% by overall GPA.
                 My research explores the intersection of <strong>Life Sciences</strong> and <strong>Computational Design (AI for Science)</strong>.
             </p>
             <p>
@@ -289,138 +331,138 @@
             <p style="text-align: center; margin-top: 20px;">
                 <a href="mailto:Zhuangziyan0623@outlook.com">Email</a> &nbsp;/&nbsp;
                 <a href="ZhuangCV122.1.pdf">CV</a> &nbsp;/&nbsp;
-                <a href="https://github.com/ZiyanZhuang ">Github</a> &nbsp;/&nbsp;
-                <a href="https://orcid.org/0009-0007-3915-1614 ">ORCID</a> &nbsp;/&nbsp;
-                <a href="https://scholar.google.com/citations?user=LmKFftoAAAAJ&hl=en&oi=ao ">Google Scholar</a>
+                <a href="https://github.com/ZiyanZhuang">Github</a> &nbsp;/&nbsp;
+                <a href="https://orcid.org/0009-0007-3915-1614">ORCID</a> &nbsp;/&nbsp;
+                <a href="https://scholar.google.com/citations?user=LmKFftoAAAAJ&hl=en&oi=ao">Google Scholar</a>
             </p>
         </div>
-        
+
         <div class="profile-pic">
-            <img src="Ziyan1.jpg" alt="Ziyan Zhuang">
+            <img src="Ziyan1.jpg" alt="Ziyan Zhuang" width="220" height="293" loading="lazy">
         </div>
     </div>
 
     <hr>
 
-    <sectionheading id="news">News & Honors</sectionheading>
+    <h2 id="news">News &amp; Honors</h2>
     <ul>
         <li>[12/2025] Was awarded the title of <strong>"Xinjiang University 'SanHao' Student"</strong>. Thanks XJU!</li>
         <li>[12/2025] <strong>Gratitude to China's Modern Scientists Scholarship</strong>. Selected from 20,000+ undergraduates in Xinjiang University (Top 0.05%, 10 awardees); CNY 20,000. Thanks XJU!</li>
-        <li>[08/2025] Attended Summer School at <strong>Shanghai Jiao Tong University</strong> (AI for Bioengineering), Institute of Natural Sciences. Thanks SJTU! </li>
+        <li>[08/2025] Attended Summer School at <strong>Shanghai Jiao Tong University</strong> (AI for Bioengineering), Institute of Natural Sciences. Thanks SJTU!</li>
         <li>[08/2024] Received <strong>Second Prize</strong> at China Undergraduate Life Sciences Contest (National, TEAM LEADER).</li>
         <li>[08/2024] Received <strong>Outstanding Newcomer Award</strong> from The Chinese Society of Biochemistry and Molecular Biology.</li>
-        <li>[07/2024] Attended Summer School at <strong>Peking University</strong> (Quantitative Biology), Center for Life Science (CLS). Thanks ♥ PKU </li>
+        <li>[07/2024] Attended Summer School at <strong>Peking University</strong> (Quantitative Biology), Center for Life Science (CLS). Thanks &#9829; PKU</li>
         <li>[2023–2024] Project Leader for National Training Program of Innovation (CNY 20,000 Grant). Thanks XJU!</li>
-        <li>[2023–2024] <strong>Joint Minor</strong>: <a href="https://sese.tongji.edu.cn/info/1236/8519.htm" target="_blank"><em>Climate Change and Carbon Neutrality</em></a>, College of Environmental Science and Engineering, Tongji University &amp; Xinjiang University. Thanks TJU&XJU!</li>
-        <li>[06/2024] Participated in field research (Wildlife Monitoring) in the Northern Tianshan Mountains. Thank you Dr. Zhong. </li>
+        <li>[2023–2024] <strong>Joint Minor</strong>: <a href="https://sese.tongji.edu.cn/info/1236/8519.htm" target="_blank" rel="noopener"><em>Climate Change and Carbon Neutrality</em></a>, College of Environmental Science and Engineering, Tongji University &amp; Xinjiang University. Thanks TJU&amp;XJU!</li>
+        <li>[06/2024] Participated in field research (Wildlife Monitoring) in the Northern Tianshan Mountains. Thank you Dr. Zhong.</li>
     </ul>
 
     <hr>
 
-    <sectionheading id="publications">Selected Publications</sectionheading>
+    <h2 id="publications">Selected Publications</h2>
     <p class="gray">* denotes corresponding author.</p>
-    
+
     <div class="paper-item">
         <div class="paper-img">
-             <div style="width:100%; height:80px; background:#f9f9f9; border:1px solid #eee; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#999; font-size:12px;">No Image</div>
+             <div class="placeholder">No Image</div>
         </div>
         <div class="paper-text">
-            <heading>Spinetoram resistance in <i>Tuta absoluta</i>: selection, inheritance, biochemical mechanism and fitness cost</heading>
+            <h3>Spinetoram resistance in <i>Tuta absoluta</i>: selection, inheritance, biochemical mechanism and fitness cost</h3>
             <br>
             Xie JG, Rukiya T, Liu N, <strong>Zhuang ZY</strong>, Liu XN*, Song Y*.
             <br>
             <em>Pesticide Biochemistry and Physiology</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
-            <a href="https://doi.org/10.1016/j.pestbp.2025.106659 ">Paper</a>
+            <a href="https://doi.org/10.1016/j.pestbp.2025.106659">Paper</a>
             <div class="publisher-logos">
-                <img src="E.svg" alt="Elsevier" style="height: 40px; width: auto; display: inline-block;">
+                <img src="E.svg" alt="Elsevier" width="40" height="40" loading="lazy" style="height: 40px; width: auto;">
             </div>
         </div>
     </div>
 
     <div class="paper-item">
         <div class="paper-img">
-             <img src="paperwall.jpg" alt="CYP380C12 Graphical Abstract">
+             <img src="paperwall.jpg" alt="CYP380C12 Graphical Abstract" width="600" height="400" loading="lazy">
         </div>
         <div class="paper-text">
-            <heading>Molecular insights on the function of <i>CYP380C12</i> in <i>Aphis gossypii</i> Glover (Hemiptera: Aphididae): in silico and RNAi analyses</heading>
+            <h3>Molecular insights on the function of <i>CYP380C12</i> in <i>Aphis gossypii</i> Glover (Hemiptera: Aphididae): in silico and RNAi analyses</h3>
             <br>
             Zhang LJ, <strong>Zhuang ZY</strong> (Co-first), Xie JG, Kong WT, Li TT, Wang SF, Liu XN*.
             <br>
             <em>Journal of Economic Entomology</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
-            <a href="https://doi.org/10.1093/jee/toaf067 ">Paper</a>
+            <a href="https://doi.org/10.1093/jee/toaf067">Paper</a>
             <div class="publisher-logos">
-                <img src="ESA.svg" alt="ESA">
-                <img src="OXF.svg" alt="Oxford">
+                <img src="ESA.svg" alt="ESA" width="22" height="22" loading="lazy">
+                <img src="OXF.svg" alt="Oxford" width="22" height="22" loading="lazy">
             </div>
         </div>
     </div>
 
     <div class="paper-item">
         <div class="paper-img">
-            <img src="JAFC_cover.jpg" alt="Paper Cover of JAFC" style="width: 160px; height: auto;">
+            <img src="JAFC_cover.jpg" alt="Paper Cover of Journal of Agricultural and Food Chemistry" width="160" height="213" loading="lazy" style="width: 160px; height: auto;">
         </div>
         <div class="paper-text">
-            <heading>Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation</heading>
+            <h3>Functional analysis of lactase phlorizin hydrolase in insect-plant coevolution based on deglycosylation</h3>
             <br>
             Li Y, Kong WT, Li TT, Zhang LJ, <strong>Zhuang ZY</strong>, Liu N*, Liu XN*.
             <br>
             <em>Journal of Agricultural and Food Chemistry</em>, <strong>Cover Paper</strong>, 2025 <span class="tag">JCR Q1</span>
             <br>
-             <a href="https://doi.org/10.1021/acs.jafc.4c12035 ">Paper</a>
+             <a href="https://doi.org/10.1021/acs.jafc.4c12035">Paper</a>
             <div class="publisher-logos">
-                <img src="ACS.png" alt="ACS">
+                <img src="ACS.png" alt="ACS" width="22" height="22" loading="lazy">
             </div>
         </div>
     </div>
 
     <div class="paper-item">
         <div class="paper-img">
-            <div style="width:100%; height:80px; background:#f9f9f9; border:1px solid #eee; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#999; font-size:12px;">No Image</div>
+            <div class="placeholder">No Image</div>
         </div>
         <div class="paper-text">
-            <heading>Exploring the role of <i>CYP6AB328</i> in spinetoram resistance and growth and development of <i>Phthorimaea absoluta</i></heading>
+            <h3>Exploring the role of <i>CYP6AB328</i> in spinetoram resistance and growth and development of <i>Phthorimaea absoluta</i></h3>
             <br>
             Xie JG, Wang SY, <strong>Zhuang ZY</strong>, Wang XH, Lin MH, Liu XN*.
             <br>
             <em>Pesticide Biochemistry and Physiology</em>, 2025 <span class="tag">JCR Q1</span>
             <br>
-            <a href="https://doi.org/10.1016/j.pestbp.2025.106316 ">Paper</a>
+            <a href="https://doi.org/10.1016/j.pestbp.2025.106316">Paper</a>
             <div class="publisher-logos">
-                <img src="E.svg" alt="Elsevier" style="height: 40px; width: auto; display: inline-block;">
+                <img src="E.svg" alt="Elsevier" width="40" height="40" loading="lazy" style="height: 40px; width: auto;">
             </div>
         </div>
     </div>
 
     <div class="paper-item">
         <div class="paper-img">
-            <div style="width:100%; height:80px; background:#f9f9f9; border:1px solid #eee; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#999; font-size:12px;">No Image</div>
+            <div class="placeholder">No Image</div>
         </div>
         <div class="paper-text">
-            <heading>Functional Investigation of <i>CYP304F1</i> in <i>Tuta absoluta</i> (Lepidopteran: Gelechiidae) by RNA Interference</heading>
+            <h3>Functional Investigation of <i>CYP304F1</i> in <i>Tuta absoluta</i> (Lepidopteran: Gelechiidae) by RNA Interference</h3>
             <br>
             Xie JG, Ali A, Li Y, <strong>Zhuang ZY</strong>, Liu XN*.
             <br>
             <em>Journal of Economic Entomology</em>, 2024 <span class="tag">JCR Q1</span>
             <br>
-            <a href="https://doi.org/10.1093/jee/toae283 ">Paper</a>
+            <a href="https://doi.org/10.1093/jee/toae283">Paper</a>
             <div class="publisher-logos">
-                <img src="ESA.svg" alt="ESA">
-                <img src="OXF.svg" alt="Oxford">
+                <img src="ESA.svg" alt="ESA" width="22" height="22" loading="lazy">
+                <img src="OXF.svg" alt="Oxford" width="22" height="22" loading="lazy">
             </div>
         </div>
     </div>
 
     <hr>
 
-    <sectionheading id="projects">Projects & Software</sectionheading>
+    <h2 id="projects">Projects &amp; Software</h2>
     <div class="paper-item">
         <div class="paper-img">
-            <img src="Figures/cypforge_logo.svg" alt="CYPForge logo">
+            <img src="Figures/cypforge_logo.svg" alt="CYPForge logo" width="280" height="140" loading="lazy">
         </div>
         <div class="paper-text">
-            <heading>CYPForge: Automated Cytochrome P450 Simulation Preparation</heading>
+            <h3>CYPForge: Automated Cytochrome P450 Simulation Preparation</h3>
             <br>
             <strong>Ziyan Zhuang</strong>
             <br>
@@ -439,7 +481,7 @@
         </div>
     </div>
     <div class="paper-text">
-        <heading>AutoGraphRAG: Automated Multimodal Knowledge Graph Construction Pipeline</heading>
+        <h3>AutoGraphRAG: Automated Multimodal Knowledge Graph Construction Pipeline</h3>
         <br>
         <strong>Ziyan Zhuang</strong>
         <br>
@@ -451,17 +493,17 @@
             </p>
         </div>
     </div>
-    
+
     <div class="paper-item">
         <div class="paper-img">
-            <img src="Figures/ProXplorer.jpg" alt="ProXplorer GUI">
+            <img src="Figures/ProXplorer.jpg" alt="ProXplorer GUI screenshot" width="600" height="400" loading="lazy">
         </div>
         <div class="paper-text">
-            <heading>ProXplorer: A Protein Sequence Analysis Toolbox</heading>
+            <h3>ProXplorer: A Protein Sequence Analysis Toolbox</h3>
             <br>
             <strong>Ziyan Zhuang</strong>
             <br>
-            <a href="https://github.com/ZiyanZhuang/ProXplorer ">GitHub</a>
+            <a href="https://github.com/ZiyanZhuang/ProXplorer">GitHub</a>
             <br>
             <p style="margin-top:10px;">
             A MATLAB-based toolbox developed for comprehensive protein sequence analysis. Key features include Smith-Waterman alignment, motif discovery, and neighbor-joining phylogenetic analysis. It provides integrated visualization to streamline the workflow from raw sequence to structural insights.
@@ -471,14 +513,14 @@
 
     <div class="paper-item">
         <div class="paper-img">
-            <img src="Figures/DAUModel.jpg" alt="DAU Model Diagram">
+            <img src="Figures/DAUModel.jpg" alt="DAU Model Diagram" width="600" height="400" loading="lazy">
         </div>
         <div class="paper-text">
-            <heading>Morphogen-DAU-Model</heading>
+            <h3>Morphogen-DAU-Model</h3>
             <br>
-            <strong>Ziyan Zhuang & Zifan Zhao</strong>
+            <strong>Ziyan Zhuang &amp; Zifan Zhao</strong>
             <br>
-            <a href="https://github.com/ZiyanZhuang/DAU-Model ">GitHub</a>
+            <a href="https://github.com/ZiyanZhuang/DAU-Model">GitHub</a>
             <br>
             <p style="margin-top:10px;">
             A mathematical model focusing on Diffusion-Adsorption-Uptake (DAU) mechanisms. This project facilitates the efficient application of predictive values obtained from wet lab experiments to control morphogen distribution patterns.
@@ -491,11 +533,11 @@
             <div style="width:100%; height:100px; background:#f4f4f4; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#777; font-weight:bold;">Deep Learning</div>
         </div>
         <div class="paper-text">
-            <heading>BOGDA: Pest Resistance Evolution Models</heading>
+            <h3>BOGDA: Pest Resistance Evolution Models</h3>
             <br>
             <strong>Ziyan Zhuang, Qi-ao Sheng, et al.</strong>
             <br>
-            <a href="https://github.com/ZiyanZhuang/BOGDA ">GitHub</a>
+            <a href="https://github.com/ZiyanZhuang/BOGDA">GitHub</a>
             <br>
             <p style="margin-top:10px;">
             A Deep Learning framework utilizing Temporal Convolutional Networks (TCN) and Attention mechanisms to predict pest resistance evolution, bridging mathematical models with biological pest control strategies.
@@ -505,29 +547,29 @@
 
     <hr>
 
-    <sectionheading id="practice">Field Practice & Academic Programs</sectionheading>
+    <h2 id="practice">Field Practice &amp; Academic Programs</h2>
 
     <div class="paper-item">
         <div class="paper-img">
-            <img src="Figures/tree.jpg" alt="Ancient Ginkgo Tree Sampling – Zhejiang University">
+            <img src="Figures/tree.jpg" alt="Ancient Ginkgo Tree Sampling at Zhejiang University" width="600" height="400" loading="lazy">
         </div>
         <div class="paper-text">
-            <heading>Ancient Ginkgo Leaf Collection Volunteer Program (Zhejiang University)</heading>
+            <h3>Ancient Ginkgo Leaf Collection Volunteer Program (Zhejiang University)</h3>
             <br>
             <strong>September 2025</strong>
             <br>
             <p style="margin-top:10px;">
-            Volunteered for Zhejiang University's China Temple Ancient Ginkgo Leaf Collection Initiative, performing standardized sampling of ancient ginkgo trees. Specimen data has been archived in the Zhejiang University Herbarium and incorporated into the <a href="https://ginkgo.zju.edu.cn/genome/" target="_blank">GinkgoDB</a> comprehensive ginkgo database, providing important specimens and data for ancient ginkgo germplasm conservation and genetic lineage research.
+            Volunteered for Zhejiang University's China Temple Ancient Ginkgo Leaf Collection Initiative, performing standardized sampling of ancient ginkgo trees. Specimen data has been archived in the Zhejiang University Herbarium and incorporated into the <a href="https://ginkgo.zju.edu.cn/genome/" target="_blank" rel="noopener">GinkgoDB</a> comprehensive ginkgo database, providing important specimens and data for ancient ginkgo germplasm conservation and genetic lineage research.
             </p>
         </div>
     </div>
 
      <div class="paper-item">
         <div class="paper-img">
-            <img src="Figures/SJTU.jpg" alt="Shanghai Jiao Tong University Summer School">
+            <img src="Figures/SJTU.jpg" alt="Shanghai Jiao Tong University Summer School" width="600" height="400" loading="lazy">
         </div>
         <div class="paper-text">
-            <heading>AI for Bioengineering Summer School (Shanghai Jiao Tong University)</heading>
+            <h3>AI for Bioengineering Summer School (Shanghai Jiao Tong University)</h3>
             <br>
             <strong>August 2025</strong>
             <br>
@@ -539,10 +581,10 @@
 
     <div class="paper-item">
         <div class="paper-img">
-            <img src="Figures/PKU.jpg" alt="Peking University Summer School">
+            <img src="Figures/PKU.jpg" alt="Peking University Summer School" width="600" height="400" loading="lazy">
         </div>
         <div class="paper-text">
-            <heading>Quantitative Biology Summer School (Peking University)</heading>
+            <h3>Quantitative Biology Summer School (Peking University)</h3>
             <br>
             <strong>July 2024</strong>
             <br>
@@ -554,10 +596,12 @@
 
     <div class="paper-item">
         <div class="paper-img">
-            <img src="Infrared_Camera_Monitoring_of_Wildlife.gif" alt="Wildlife Monitoring Footage from Field Practice (GIF)" style="width:100%; border-radius:10px; border:1px solid #eee;">
+            <video autoplay loop muted playsinline style="width:100%; border-radius:10px; border:1px solid #eee;" title="Wildlife Monitoring Footage from Field Practice">
+                <source src="Infrared%20Camera%20Monitoring%20of%20Wildlife.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="paper-text">
-            <heading>Wildlife Monitoring Field Practice (Northern Tianshan Mountains)</heading>
+            <h3>Wildlife Monitoring Field Practice (Northern Tianshan Mountains)</h3>
             <br>
             <strong>June 2024</strong>
             <br>
@@ -570,59 +614,52 @@
     </div>
 
     <hr>
-    
-    <table width="100%" align="center" border="0" cellpadding="0" cellspacing="20">
-        <tr>
-            <td>
-                <p align="right" class="gray">
-                    &copy; 2025 Ziyan Zhuang.
-                </p>
-            </td>
-        </tr>
-    </table>
 
-    <div style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
-        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=D6a2NRncUPJzDPm_fG9JNV-rRGbG9Lnv4KGe5R63p8s&cl=ffffff&w=a"></script>
+    <footer class="site-footer">
+        &copy; 2025 Ziyan Zhuang.
+    </footer>
+
+    <div class="clustrmaps-wrap">
+        <script type="text/javascript" id="clustrmaps" src="https://clustrmaps.com/map_v2.js?d=D6a2NRncUPJzDPm_fG9JNV-rRGbG9Lnv4KGe5R63p8s&cl=ffffff&w=a" async></script>
     </div>
 
 </div>
 
-<!-- =========================================
-     新增：JavaScript 滚动监听功能
-     ========================================= -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // 定义我们要监听的版块 ID
         const sectionIds = ['top', 'news', 'publications', 'projects', 'practice'];
-        const sections = sectionIds.map(id => document.getElementById(id));
+        const sections = sectionIds.map(function(id) { return document.getElementById(id); });
         const navLinks = document.querySelectorAll('.side-nav a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    var current = '';
 
-            sections.forEach(section => {
-                if (section) {
-                    // 获取当前版块距离页面顶部的距离
-                    const sectionTop = section.offsetTop;
-                    
-                    // 当页面滚动高度超过该版块顶部减去一个偏移量（如150px），就认定进入了该版块
-                    if (window.scrollY >= sectionTop - 150) {
-                        current = section.getAttribute('id');
-                    }
-                }
-            });
+                    sections.forEach(function(section) {
+                        if (section) {
+                            var sectionTop = section.offsetTop;
+                            if (window.scrollY >= sectionTop - 150) {
+                                current = section.getAttribute('id');
+                            }
+                        }
+                    });
 
-            // 遍历侧边栏链接，移除所有 active，给匹配的当前版块添加 active
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
+                    navLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + current) {
+                            link.classList.add('active');
+                        }
+                    });
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     });
 
-    // 现有的 toggleBlock 函数保留
     function toggleBlock(id) {
         var x = document.getElementById(id);
         if (x.style.display === "none" || x.style.display === "") {
