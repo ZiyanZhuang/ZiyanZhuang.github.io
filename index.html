@@ -120,7 +120,8 @@
             font-weight: 400;
             display: block;
             text-align: center;
-            margin-bottom: 10px;
+            margin: 0 0 8px;
+            line-height: 1.1;
         }
 
         h2 {
@@ -129,11 +130,11 @@
             font-weight: 600;
             width: 100%;
             display: block;
-            margin-bottom: 12px;
-            margin-top: 10px;
-            padding-bottom: 5px;
+            margin: 0 0 8px;
+            padding-bottom: 4px;
             border-bottom: 2px solid #1772d0;
             color: #1772d0;
+            line-height: 1.2;
         }
 
         h3 {
@@ -141,15 +142,15 @@
             font-size: 17px;
             font-weight: 600;
             color: #000;
-            line-height: 1.25;
-            margin-bottom: 2px;
+            line-height: 1.2;
+            margin: 0 0 2px;
         }
 
         .paper-tldr {
             font-size: 14px;
             color: #555;
-            line-height: 1.4;
-            margin-bottom: 4px;
+            line-height: 1.3;
+            margin: 2px 0 4px;
             padding-left: 8px;
             border-left: 3px solid #1772d0;
         }
@@ -158,10 +159,10 @@
             border: 0;
             height: 1px;
             background: #eee;
-            margin: 25px 0;
+            margin: 18px 0 12px;
         }
 
-        p { margin-bottom: 6px; line-height: 1.5; text-align: justify; }
+        p { margin: 0 0 6px; line-height: 1.4; text-align: justify; }
         ul { margin: 0; padding-left: 20px; }
         li { margin-bottom: 2px; }
 
@@ -221,9 +222,9 @@
         .paper-item {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 12px;
-            padding-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
             border-bottom: 1px dashed #eee;
         }
         .paper-item:last-child {
@@ -258,7 +259,11 @@
         .paper-text {
             flex: 1;
             position: relative;
-            padding-bottom: 25px;
+            padding-bottom: 20px;
+        }
+
+        .paper-text h3 + br {
+            display: none;
         }
 
         .publisher-logos {
