@@ -300,11 +300,6 @@
             padding: 20px;
         }
 
-        .clustrmaps-wrap {
-            text-align: center;
-            margin: 40px 0 20px;
-        }
-
         @media (max-width: 768px) {
             .profile-table { flex-direction: column-reverse; gap: 15px; }
             .profile-pic { margin: 0 auto; }
@@ -370,7 +365,10 @@
     <section class="evolution-showcase">
         <figure class="evolution-figure">
             <a href="Figures/life-evolution-hand-drawn-scroll.png" target="_blank" rel="noopener">
-                <img src="Figures/life-evolution-hand-drawn-scroll.png" alt="Hand-drawn scroll depicting the evolution of life" width="1983" height="793" loading="eager">
+                <picture>
+                    <source srcset="Figures/life-evolution-hand-drawn-scroll-1080.webp" type="image/webp">
+                    <img src="Figures/life-evolution-hand-drawn-scroll.png" alt="Hand-drawn scroll depicting the evolution of life" width="1080" height="432" loading="eager" fetchpriority="high" decoding="async">
+                </picture>
             </a>
         </figure>
     </section>
@@ -659,10 +657,6 @@
         &copy; 2026 Ziyan Zhuang.
     </footer>
 
-    <div class="clustrmaps-wrap">
-        <script type="text/javascript" id="clustrmaps" src="https://clustrmaps.com/map_v2.js?d=D6a2NRncUPJzDPm_fG9JNV-rRGbG9Lnv4KGe5R63p8s&cl=ffffff&w=a" async></script>
-    </div>
-
 </div>
 
 <script>
@@ -700,22 +694,7 @@
         });
     });
 
-    function toggleBlock(id) {
-        var x = document.getElementById(id);
-        if (x.style.display === "none" || x.style.display === "") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
 </script>
-
-    <!--
-      Privacy-first analytics — collects page-view & geographic stats visible
-      ONLY in your private dashboard (analytics.google.com / clarity.microsoft.com).
-      No data is shown on the public site.  To activate, edit analytics.js CONFIG.
-    -->
-    <script src="analytics.js" async></script>
 
 </body>
 </html>
